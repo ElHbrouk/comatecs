@@ -5,18 +5,24 @@ import 'package:get/get.dart';
 abstract class ResetPasswordController extends GetxController {
   void goToSuccessResetPassowrd();
   resetPassword();
+  visiblePassword();
 }
 
 class ResetPasswordControllerImpl extends ResetPasswordController {
   late TextEditingController password;
   late TextEditingController rePassword;
+  GlobalKey<FormState> key = GlobalKey();
+  bool secureText = true;
   @override
- void goToSuccessResetPassowrd() {
+  void goToSuccessResetPassowrd() {
     Get.offNamed(AppRoutes.resetPasswordSuccessView);
   }
 
   @override
-  resetPassword() {}
+  resetPassword() {
+    if (key.currentState!.validate()) {
+    } else {}
+  }
 
   @override
   void onInit() {
@@ -30,5 +36,11 @@ class ResetPasswordControllerImpl extends ResetPasswordController {
     password.dispose();
     rePassword.dispose();
     super.dispose();
+  }
+
+  @override
+  visiblePassword() {
+    secureText = !secureText;
+    update();
   }
 }

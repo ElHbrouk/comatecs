@@ -4,8 +4,7 @@ import 'package:get/get.dart';
 
 abstract class SignUpController extends GetxController {
   signUp();
- void goToLogin();
- void goToCheckEmailSignUp();
+  void goToLogin();
 }
 
 class SignUpControllerImpl extends SignUpController {
@@ -13,12 +12,18 @@ class SignUpControllerImpl extends SignUpController {
   late TextEditingController userName;
   late TextEditingController phoneNumber;
   late TextEditingController password;
+  GlobalKey<FormState> key = GlobalKey();
 
   @override
-  signUp() {}
+  signUp() {
+    if (key.currentState!.validate()) {
+      Get.offNamed(AppRoutes.verifyCodeSignUpView);
+      Get.delete<SignUpControllerImpl>();
+    } else {}
+  }
 
   @override
- void goToLogin() {
+  void goToLogin() {
     Get.offNamed(AppRoutes.loginView);
   }
 
@@ -38,10 +43,5 @@ class SignUpControllerImpl extends SignUpController {
     userName.dispose();
     phoneNumber.dispose();
     super.dispose();
-  }
-
-  @override
-  void goToCheckEmailSignUp() {
-    Get.offNamed(AppRoutes.checkEmailSignUpView);
   }
 }

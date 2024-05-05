@@ -4,15 +4,17 @@ import 'package:get/get.dart';
 
 abstract class ForgetPasswordController extends GetxController {
   checkEmail();
- void goToVerifyCodePassword();
-  
+  void goToVerifyCodePassword();
 }
 
 class ForgetPasswordControllerImpl extends ForgetPasswordController {
   late TextEditingController email;
+  GlobalKey<FormState> key = GlobalKey();
 
   @override
-  checkEmail() {}
+  checkEmail() {
+    if(key.currentState!.validate()){}else{}
+  }
 
   @override
   void goToVerifyCodePassword() {
@@ -32,6 +34,4 @@ class ForgetPasswordControllerImpl extends ForgetPasswordController {
 
     super.dispose();
   }
-
-
 }

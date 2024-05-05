@@ -17,6 +17,7 @@ class OnBoardingControllerImpl extends OnBoardingController {
     currentPage++;
     if (currentPage > onBoardingList.length - 1) {
       Get.offAllNamed(AppRoutes.loginView);
+      Get.delete<OnBoardingControllerImpl>();
     } else {
       pageController.animateToPage(currentPage,
           duration: const Duration(milliseconds: 400), curve: Curves.easeInOut);
@@ -39,6 +40,7 @@ class OnBoardingControllerImpl extends OnBoardingController {
   @override
   skip() {
     Get.offAllNamed(AppRoutes.loginView);
+    Get.delete<OnBoardingControllerImpl>();
   }
 
   @override

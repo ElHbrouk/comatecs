@@ -11,11 +11,14 @@ abstract class LoginController extends GetxController {
 class LoginControllerImpl extends LoginController {
   late TextEditingController email;
   late TextEditingController password;
-
+  GlobalKey<FormState> key = GlobalKey();
   @override
-  login() {}
-
- 
+  login() {
+    if (key.currentState!.validate()) {
+      Get.offAllNamed(AppRoutes.homeView);
+      Get.delete<LoginControllerImpl>();
+    } else {}
+  }
 
   @override
   void onInit() {
@@ -30,12 +33,14 @@ class LoginControllerImpl extends LoginController {
     password.dispose();
     super.dispose();
   }
-   @override
- void goToSignUp() {
+
+  @override
+  void goToSignUp() {
     Get.toNamed(AppRoutes.signUpView);
   }
+
   @override
- void goToForgetPassword() {
-  Get.toNamed(AppRoutes.forgetPasswordView);
+  void goToForgetPassword() {
+    Get.toNamed(AppRoutes.forgetPasswordView);
   }
 }

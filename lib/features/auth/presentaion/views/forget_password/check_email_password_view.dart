@@ -1,6 +1,6 @@
 import 'package:comatecs/controllers/auth_controllers/reset_password/forget_password_controller.dart';
 import 'package:comatecs/core/shared/widgets/custom_back_button.dart';
-import 'package:comatecs/features/auth/widgets/reset_password/forget_password_body.dart';
+import 'package:comatecs/features/auth/presentaion/views/widgets/reset_password/forget_password_body.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -15,6 +15,7 @@ class ForgetPasswordView extends StatelessWidget {
       body: CheckEmailViewBody(
         titleText: '13'.tr,
         onPressed: () {
+          controller.checkEmail();
           controller.goToVerifyCodePassword();
         },
       ),

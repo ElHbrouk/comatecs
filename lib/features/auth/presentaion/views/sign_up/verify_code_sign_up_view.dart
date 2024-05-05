@@ -1,5 +1,5 @@
 import 'package:comatecs/core/shared/widgets/custom_back_button.dart';
-import 'package:comatecs/features/auth/widgets/sign_up/verify_code_sign_up_body.dart';
+import 'package:comatecs/features/auth/presentaion/views/widgets/sign_up/verify_code_sign_up_body.dart';
 import 'package:flutter/material.dart';
 
 class VerifyCodeSignUpView extends StatelessWidget {

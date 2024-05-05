@@ -1,6 +1,6 @@
 # comatecs
 
-A new Flutter project.
+My First Real work job
 
 ## Getting Started
 

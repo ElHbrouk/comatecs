@@ -1,4 +1,4 @@
-import 'package:comatecs/features/auth/widgets/success_body.dart';
+import 'package:comatecs/features/auth/presentaion/views/widgets/success_body.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

@@ -1,5 +1,5 @@
 import 'package:comatecs/core/shared/widgets/custom_back_button.dart';
-import 'package:comatecs/features/auth/widgets/reset_password/verify_code_password_body.dart';
+import 'package:comatecs/features/auth/presentaion/views/widgets/reset_password/verify_code_password_body.dart';
 import 'package:flutter/material.dart';
 
 class VerifyCodePasswordView extends StatelessWidget {

@@ -56,6 +56,9 @@ class MyTranslation implements Translations {
           "48": " إيميل المستخدم",
           "49": " تأكيد الإيميل",
           "50": " تخطي",
+          "51": " اسم مستخدم غير صالح",
+          "52": " بريد الكتروني غير صالح",
+          "53": "  رقم هاتف غير صالح",
         },
         "en": {
           "1": "Choose a Language",
@@ -112,6 +115,9 @@ class MyTranslation implements Translations {
           "48": "User account ",
           "49": "Confirm your account ",
           "50": "Skip",
+          "51": "Not a valid user name",
+          "52": "Not a valid account",
+          "53": "Not a valid phone number",
          
         },
       };

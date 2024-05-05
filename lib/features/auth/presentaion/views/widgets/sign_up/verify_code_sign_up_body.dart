@@ -1,6 +1,6 @@
 import 'package:comatecs/controllers/auth_controllers/sign_up/verify_code_sign_up_controller.dart';
 import 'package:comatecs/core/constant/app_colors.dart';
-import 'package:comatecs/features/auth/widgets/custom_title_auth.dart';
+import 'package:comatecs/features/auth/presentaion/views/widgets/custom_title_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';

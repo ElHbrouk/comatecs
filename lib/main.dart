@@ -1,3 +1,4 @@
+import 'package:comatecs/bindings.dart';
 import 'package:comatecs/core/constant/routes.dart';
 import 'package:comatecs/core/localization/change_local.dart';
 import 'package:comatecs/core/localization/translation.dart';
@@ -28,6 +29,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     LocalController controller = Get.put(LocalController());
     return GetMaterialApp(
+      initialBinding: MyBindings(),
+      
       // useInheritedMediaQuery: true,
       // builder: DevicePreview.appBuilder,
       locale: controller.language,

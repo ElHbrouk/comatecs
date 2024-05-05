@@ -2,8 +2,7 @@ import 'package:comatecs/features/auth/presentaion/views/forget_password/check_e
 import 'package:comatecs/features/auth/presentaion/views/forget_password/reset_password_success_view.dart';
 import 'package:comatecs/features/auth/presentaion/views/forget_password/reset_password_view.dart';
 import 'package:comatecs/features/auth/presentaion/views/forget_password/verify_code_password_view.dart';
-import 'package:comatecs/features/auth/presentaion/views/login_view.dart';
-import 'package:comatecs/features/auth/presentaion/views/sign_up/check_email_sign_up_view.dart';
+import 'package:comatecs/features/auth/presentaion/views/login/login_view.dart';
 import 'package:comatecs/features/auth/presentaion/views/sign_up/sign_up_success_view.dart';
 import 'package:comatecs/features/auth/presentaion/views/sign_up/sign_up_view.dart';
 import 'package:comatecs/features/auth/presentaion/views/sign_up/verify_code_sign_up_view.dart';
@@ -26,7 +25,7 @@ abstract class AppRoutes {
   static const resetPasswordSuccessView = "/resetPasswordSuccessView";
   static const verifyCodePasswordView = "/verifyCodeViewPassword";
   static const signUpSuccess = "/signUpSuccess";
-  static const checkEmailSignUpView = "/checkEmailView";
+ 
   static const verifyCodeSignUpView = "/verifyCodeSignUpView";
   static Map<String, Widget Function(BuildContext)> routes = {
     loginView: (context) => const LoginView(),
@@ -39,7 +38,6 @@ abstract class AppRoutes {
     homeView: (context) => const HomeView(),
     verifyCodePasswordView: (context) => const VerifyCodePasswordView(),
     signUpSuccess: (context) => const SignUpSuccess(),
-    checkEmailSignUpView: (context) => const CheckEmailSignUpView(),
     verifyCodeSignUpView: (context) => const VerifyCodeSignUpView(),
   };
 }

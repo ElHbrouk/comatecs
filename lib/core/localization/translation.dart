@@ -59,6 +59,10 @@ class MyTranslation implements Translations {
           "51": " اسم مستخدم غير صالح",
           "52": " بريد الكتروني غير صالح",
           "53": "  رقم هاتف غير صالح",
+          "54": "تنبيه",
+          "55": "هل تريد غلق التطبيق؟ ",
+          "56": "نعم ",
+          "57": "لا ",
         },
         "en": {
           "1": "Choose a Language",
@@ -118,6 +122,10 @@ class MyTranslation implements Translations {
           "51": "Not a valid user name",
           "52": "Not a valid account",
           "53": "Not a valid phone number",
+          "54": "Alert",
+          "55": "Do you want to exit app?",
+          "56": "Yup!",
+          "57": "Nope!",
          
         },
       };

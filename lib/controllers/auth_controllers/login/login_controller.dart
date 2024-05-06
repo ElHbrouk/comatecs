@@ -6,17 +6,21 @@ abstract class LoginController extends GetxController {
   login();
   void goToSignUp();
   void goToForgetPassword();
+  void showPassword();
+  customCheck();
 }
 
 class LoginControllerImpl extends LoginController {
   late TextEditingController email;
   late TextEditingController password;
   GlobalKey<FormState> key = GlobalKey();
+  bool isNotVisible = true;
+  bool isChecked = false;
+
   @override
   login() {
     if (key.currentState!.validate()) {
       Get.offAllNamed(AppRoutes.homeView);
-      Get.delete<LoginControllerImpl>();
     } else {}
   }
 
@@ -36,11 +40,23 @@ class LoginControllerImpl extends LoginController {
 
   @override
   void goToSignUp() {
-    Get.toNamed(AppRoutes.signUpView);
+    Get.offNamed(AppRoutes.signUpView);
   }
 
   @override
   void goToForgetPassword() {
     Get.toNamed(AppRoutes.forgetPasswordView);
+  }
+
+  @override
+  void showPassword() {
+    isNotVisible = !isNotVisible;
+    update();
+  }
+
+  @override
+  customCheck() {
+    isChecked = !isChecked;
+    update();
   }
 }

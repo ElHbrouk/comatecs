@@ -1,4 +1,3 @@
-import 'package:comatecs/core/constant/routes.dart';
 import 'package:comatecs/core/localization/change_local.dart';
 import 'package:comatecs/core/shared/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +23,6 @@ class Language extends GetView<LocalController> {
             CustomButton(
               onPressed: () {
                 controller.changeLang(languageCode: "ar");
-                Get.toNamed(AppRoutes.onBoardingView);
               },
               buttonName: "2".tr,
             ),
@@ -32,7 +30,6 @@ class Language extends GetView<LocalController> {
             CustomButton(
               onPressed: () {
                 controller.changeLang(languageCode: "en");
-                Get.toNamed(AppRoutes.onBoardingView);
               },
               buttonName: "3".tr,
             ),

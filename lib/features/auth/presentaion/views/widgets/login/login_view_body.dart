@@ -10,19 +10,9 @@ import 'package:comatecs/features/auth/presentaion/views/widgets/password_eye.da
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class LoginViewBody extends StatefulWidget {
-  const LoginViewBody({
-    super.key,
-  });
+class LoginViewBody extends StatelessWidget {
+  const LoginViewBody({super.key});
 
-  @override
-  State<LoginViewBody> createState() => _LoginViewBodyState();
-}
-
-class _LoginViewBodyState extends State<LoginViewBody> {
-  bool? check = false;
-  bool secureText = true;
-  
   @override
   Widget build(BuildContext context) {
     LoginControllerImpl controller = Get.put(LoginControllerImpl());
@@ -54,25 +44,25 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               const SizedBox(
                 height: 16,
               ),
-              CustomTextFormFieldAuth(
-                controller: controller.password,
-                obscureText: secureText,
-                hintText: '23'.tr, // enter password
-                keyboardType: TextInputType.visiblePassword,
-                text: '8'.tr, //Password
-                suffixIcon: PasswordEye(
-                  onPressed: () {
-                    setState(() {
-                      secureText = !secureText;
-                    });
+              GetBuilder<LoginControllerImpl>(builder: (controller) {
+                return CustomTextFormFieldAuth(
+                  controller: controller.password,
+                  obscureText: controller.isNotVisible,
+                  hintText: '23'.tr, // enter password
+                  keyboardType: TextInputType.visiblePassword,
+                  text: '8'.tr, //Password
+                  suffixIcon: PasswordEye(
+                    onPressed: () {
+                      controller.showPassword();
+                    },
+                    text: controller.isNotVisible,
+                  ),
+                  validator: (value) {
+                    return validInput(
+                        value: value!, min: 8, max: 30, type: "password");
                   },
-                  text: secureText,
-                ),
-                validator: (value) {
-                  return validInput(
-                      value: value!, min: 8, max: 30, type: "password");
-                },
-              ),
+                );
+              }),
               const SizedBox(height: 12),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -88,16 +78,14 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                               decoration: TextDecoration.underline,
                             ),
                       )),
-                  CustomCheckBox(
-                    check: check!,
-                    onChanged: (value) {
-                      setState(
-                        () {
-                          check = value;
-                        },
-                      );
-                    },
-                  ),
+                  GetBuilder<LoginControllerImpl>(builder: (controller) {
+                    return CustomCheckBox(
+                      check: controller.isChecked,
+                      onChanged: (value) {
+                        controller.customCheck();
+                      },
+                    );
+                  }),
                 ],
               ),
               const SizedBox(height: 50.0),
@@ -105,7 +93,6 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                 buttonName: "4".tr, // login
                 onPressed: () {
                   controller.login();
-             
                 },
               ),
               const SizedBox(height: 40),

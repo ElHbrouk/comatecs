@@ -8,23 +8,15 @@ import 'package:comatecs/features/auth/presentaion/views/widgets/password_eye.da
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class SignUpViewBody extends StatefulWidget {
-  const SignUpViewBody({
-    super.key,
-  });
+class SignUpViewBody extends StatelessWidget {
+  const SignUpViewBody({super.key});
 
-  @override
-  State<SignUpViewBody> createState() => _LoginViewBodyState();
-}
-
-class _LoginViewBodyState extends State<SignUpViewBody> {
-  bool? check = false;
-  bool secureText = true;
   @override
   Widget build(BuildContext context) {
     SignUpControllerImpl controller = Get.find();
     return Padding(
       padding: const EdgeInsets.only(
+        top: 80,
         bottom: 45,
         left: 20,
         right: 20,
@@ -59,33 +51,33 @@ class _LoginViewBodyState extends State<SignUpViewBody> {
                   return validInput(
                       value: value!, min: 5, max: 20, type: "email");
                 },
-                 controller: controller.email,
+                controller: controller.email,
                 keyboardType: TextInputType.emailAddress,
-                
+
                 hintText: '42'.tr, //Enter User Name
                 text: '48'.tr, //User Name
               ),
               const SizedBox(
                 height: 41,
               ),
-              CustomTextFormFieldAuth(
-                validator: (value) {
-                  return validInput(
-                      value: value!, min: 8, max: 30, type: "password");
-                },
-                controller: controller.password,
-                obscureText: secureText,
-                hintText: '23'.tr, //Enter Password
-                text: '8'.tr, //Password
-                suffixIcon: PasswordEye(
-                  onPressed: () {
-                    setState(() {
-                      secureText = !secureText;
-                    });
+              GetBuilder<SignUpControllerImpl>(builder: (controller) {
+                return CustomTextFormFieldAuth(
+                  validator: (value) {
+                    return validInput(
+                        value: value!, min: 8, max: 30, type: "password");
                   },
-                  text: secureText,
-                ),
-              ),
+                  controller: controller.password,
+                  obscureText: controller.isNotVisible,
+                  hintText: '23'.tr, //Enter Password
+                  text: '8'.tr, //Password
+                  suffixIcon: PasswordEye(
+                    onPressed: () {
+                      controller.showPassword();
+                    },
+                    text: controller.isNotVisible,
+                  ),
+                );
+              }),
               const SizedBox(
                 height: 41,
               ),
@@ -145,7 +137,6 @@ class _LoginViewBodyState extends State<SignUpViewBody> {
                 buttonName: "20".tr, // SignUp
                 onPressed: () {
                   controller.signUp();
-            
                 },
               ),
               const SizedBox(height: 30),

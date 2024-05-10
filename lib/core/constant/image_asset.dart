@@ -62,6 +62,16 @@ abstract class ImageAssets {
   /// assets/images/onboardingdriver.json
   static const String imagesOnboardingdriver =
       "assets/images/onboardingdriver.json";
+      
+  /// Assets for images404
+  /// assets/images/404.json
+  static const String images404 =
+      "assets/lottie/404.json";
+      
+  // /// Assets for imagesServerError
+  // /// assets/images/server_error.json
+  // static const String imagesServerError =
+  //     "assets/lottie/server_error.json";
 
   /// Assets for imagesOnboardingfour
   /// assets/images/onboardingfour.png
@@ -107,17 +117,55 @@ abstract class ImageAssets {
   /// Assets for imagesTwo
   /// assets/images/two.PNG
   static const String imagesTwo = "assets/images/two.PNG";
+
+  /// Assets for imagesDelivery_van
+  /// assets/images/delivery_van.json
   static const String dliveryVan = "assets/lottie/delivery_van.json";
+
+  /// Assets for imagesCart
+  /// assets/images/cart.json
   static const String cart = "assets/lottie/cart.json";
+
+  /// Assets for imagesPayment
+  /// assets/images/payment.json
   static const String payment = "assets/lottie/payment.json";
+
+  /// Assets for imagesDelivery_map
+  /// assets/images/delivery_map.json
   static const String deliveryMap = "assets/lottie/delivery_map.json";
+
+  /// Assets for imagesWelcome_onboarding
+  /// assets/images/welcome_onboarding.json
   static const String welcomeOnBoarding =
       "assets/lottie/welcome_onboarding.json";
+  static const String loading =
+      "assets/lottie/loading.json";
+
+  /// Assets for imagesAppLogo
+  /// assets/images/appLogo.json
   static const String appLogo = "assets/images/appLogo.svg";
+
+  /// Assets for imagesAppLogo2
+  /// assets/images/appLogo2.json
   static const String appLogo2 = "assets/images/appLogo2.png";
+
+  /// Assets for imagesSuccess_icon
+  /// assets/images/success_icon.json
   static const String successIcon = "assets/images/success_icon.svg";
+
+  /// Assets for imagesApp_splash
+  /// assets/images/app_splash.json
   static const String appSplash = "assets/images/app_splash.png";
+
+  /// Assets for imagesSolid_heart
+  /// assets/images/solid_heart.json
   static const String solidHeart = "assets/images/solid_heart.svg";
-  static const String filledHeart= "assets/images/filled_heart.svg";
-  static const String cartPlus= "assets/images/cart_plus.svg";
+
+  /// Assets for imagesFilled_heart
+  /// assets/images/filled_heart.json
+  static const String filledHeart = "assets/images/filled_heart.svg";
+
+  /// Assets for imagesCart_plus
+  /// assets/images/cart_plus.json
+  static const String cartPlus = "assets/images/cart_plus.svg";
 }

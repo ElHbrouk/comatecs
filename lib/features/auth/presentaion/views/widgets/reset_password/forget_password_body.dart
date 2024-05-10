@@ -1,4 +1,4 @@
-import 'package:comatecs/controllers/auth_controllers/reset_password/forget_password_controller.dart';
+import 'package:comatecs/controllers/auth_controllers/forget_password/forget_password_controller.dart';
 import 'package:comatecs/core/functions/valid_input.dart';
 import 'package:comatecs/core/shared/widgets/custom_button.dart';
 import 'package:comatecs/features/auth/presentaion/views/widgets/custom_text_form_field_auth.dart';
@@ -22,7 +22,7 @@ class _LoginViewBodyState extends State<CheckEmailViewBody> {
   bool? check = false;
   @override
   Widget build(BuildContext context) {
-      ForgetPasswordControllerImpl controller =
+    ForgetPasswordControllerImpl controller =
         Get.put(ForgetPasswordControllerImpl());
     return Padding(
       padding: const EdgeInsets.only(bottom: 106, left: 20, right: 20),
@@ -35,11 +35,14 @@ class _LoginViewBodyState extends State<CheckEmailViewBody> {
             ),
             CustomTextFormFieldAuth(
               validator: (value) {
-                 return validInput(value: value!, min: 5, max: 20, type: "email");
-                },
+                return validInput(
+                    value: value!, min: 5, max: 50, type: "email");
+              },
+              controller: controller.email,
               keyboardType: TextInputType.emailAddress,
-              hintText: '22'.tr, // enter user name
-              text: '6'.tr,
+
+              hintText: '22'.tr, //Enter email
+              text: '6'.tr, //Email
             ),
             const Spacer(),
             CustomButton(

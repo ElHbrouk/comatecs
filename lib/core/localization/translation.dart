@@ -122,7 +122,7 @@ class MyTranslation implements Translations {
           "51": "Not a valid user name",
           "52": "Not a valid account",
           "53": "Not a valid phone number",
-          "54": "Alert",
+          "54": "Warning",
           "55": "Do you want to exit app?",
           "56": "Yup!",
           "57": "Nope!",

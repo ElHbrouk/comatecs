@@ -1,4 +1,4 @@
-import 'package:comatecs/bindings.dart';
+import 'package:comatecs/bindings/initial_binding.dart';
 import 'package:comatecs/core/constant/routes.dart';
 import 'package:comatecs/core/localization/change_local.dart';
 import 'package:comatecs/core/localization/translation.dart';
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
     LocalController controller = Get.put(LocalController());
     return GetMaterialApp(
       
-      initialBinding: MyBindings(),
+      initialBinding: InitialBindings(),
       
       // useInheritedMediaQuery: true,
       // builder: DevicePreview.appBuilder,
@@ -37,6 +37,7 @@ class MyApp extends StatelessWidget {
       translations: MyTranslation(),
       // routes: AppRoutes.routes,
       getPages: AppRoutes.routes,
+      // home: TestView(),
       debugShowCheckedModeBanner: false,
       title: 'Comatecs',
       theme: controller.appTheme,

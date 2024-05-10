@@ -1,35 +1,54 @@
+import 'package:comatecs/core/class/statues_request.dart';
 import 'package:comatecs/core/constant/routes.dart';
-import 'package:flutter/material.dart';
+import 'package:comatecs/core/data/remote/auth/verify_code_signup_remote.dart';
+import 'package:comatecs/core/functions/handling_data.dart';
 import 'package:get/get.dart';
 
 abstract class VerifySignUpController extends GetxController {
   checkEmail();
 
-  void goToSignUpSuccess();
+  void goToSignUpSuccess(String verifyCode);
 }
 
 class VerifySignUpControllerImpl extends VerifySignUpController {
-  late TextEditingController email;
-
+ 
+  String? email;
+  StatuesRequest? statuesRequest;
+  VerifyCodeSignUpRemote verifyCodeSignUpRemote = VerifyCodeSignUpRemote(crud: Get.find());
   @override
   checkEmail() {}
 
   @override
   void onInit() {
-    email = TextEditingController();
+    email = Get.arguments['email'];
 
     super.onInit();
   }
 
   @override
-  void dispose() {
-    email.dispose();
+  void goToSignUpSuccess(verifyCode) async{
+      statuesRequest = StatuesRequest.loading;
+      update();
+      var response = await verifyCodeSignUpRemote.postData(
+     verifyCode: verifyCode,
+        email: email!,
+    
+      );
+      print("=============================== Controller $response ");
+      statuesRequest = handlingData(response);
+      if (StatuesRequest.success == statuesRequest) {
+        if (response['status'] == "success") {
+          // data.addAll(response['data']);
+            Get.offAllNamed(AppRoutes.signUpSuccess);
+          
+        } else {
+          Get.defaultDialog(
+              title: "54".tr, middleText: "Verify code not correct");
 
-    super.dispose();
-  }
-
-  @override
-  void goToSignUpSuccess() {
-    Get.offAllNamed(AppRoutes.signUpSuccess);
+          statuesRequest = StatuesRequest.failure;
+        }
+      }
+      update();
+  
   }
 }

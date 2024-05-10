@@ -1,4 +1,7 @@
+import 'package:comatecs/core/class/statues_request.dart';
 import 'package:comatecs/core/constant/routes.dart';
+import 'package:comatecs/core/data/remote/auth/signup_remote.dart';
+import 'package:comatecs/core/functions/handling_data.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -16,11 +19,39 @@ class SignUpControllerImpl extends SignUpController {
   late TextEditingController password;
   GlobalKey<FormState> key = GlobalKey();
   bool isNotVisible = true;
-
+  StatuesRequest? statuesRequest;
+  List data = [];
+  SignUpRemote signUpRemote = SignUpRemote(crud: Get.find());
   @override
-  signUp() {
+  signUp() async {
     if (key.currentState!.validate()) {
-      Get.offNamed(AppRoutes.verifyCodeSignUpView);
+      statuesRequest = StatuesRequest.loading;
+      update();
+      var response = await signUpRemote.postData(
+        username: userName.text,
+        password: password.text,
+        email: email.text,
+        phone: phoneNumber.text,
+      );
+      print("=============================== Controller $response ");
+      statuesRequest = handlingData(response);
+      if (StatuesRequest.success == statuesRequest) {
+        if (response['status'] == "success") {
+          // data.addAll(response['data']);
+          Get.toNamed(
+            AppRoutes.verifyCodeSignUpView,
+            arguments: {
+              "email": email.text,
+            },
+          );
+        } else {
+          Get.defaultDialog(
+              title: "54".tr, middleText: "Phone or Email Already Exists!");
+
+          statuesRequest = StatuesRequest.failure;
+        }
+      }
+      update();
     } else {}
   }
 

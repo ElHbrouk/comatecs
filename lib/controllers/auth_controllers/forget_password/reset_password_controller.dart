@@ -1,43 +1,48 @@
 import 'package:comatecs/core/class/statues_request.dart';
 import 'package:comatecs/core/constant/routes.dart';
-import 'package:comatecs/core/data/remote/auth/login_remote.dart';
+import 'package:comatecs/core/data/remote/auth/forget_password/reset_password.dart';
 import 'package:comatecs/core/functions/handling_data.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-abstract class LoginController extends GetxController {
-  login();
-  void goToSignUp();
-  void goToForgetPassword();
-  void showPassword();
-  customCheck();
+abstract class ResetPasswordController extends GetxController {
+  resetPassword();
+  visiblePassword();
 }
 
-class LoginControllerImpl extends LoginController {
-  late TextEditingController email;
+class ResetPasswordControllerImpl extends ResetPasswordController {
   late TextEditingController password;
+  late TextEditingController rePassword;
   GlobalKey<FormState> key = GlobalKey();
-  bool isNotVisible = true;
-  bool isChecked = false;
+  bool secureText = true;
   StatuesRequest? statuesRequest;
-  LoginRemote loginRemote = LoginRemote(crud: Get.find());
+  ResetPasswordRemote resetPasswordRemote =
+      ResetPasswordRemote(crud: Get.find());
+  String? email;
+
   @override
-  login() async {
+  resetPassword() async {
+    if (password.text != rePassword.text) {
+      return Get.defaultDialog(
+        title: "54".tr,
+        middleText: "Password  is not Match",
+      );
+    }
     if (key.currentState!.validate()) {
       statuesRequest = StatuesRequest.loading;
       update();
-      var response = await loginRemote.postData(
+      var response = await resetPasswordRemote.postData(
         password: password.text,
-        email: email.text,
+        email: email!,
       );
       print("=============================== Controller $response ");
       statuesRequest = handlingData(response);
       if (StatuesRequest.success == statuesRequest) {
         if (response['status'] == "success") {
-          Get.offAllNamed(AppRoutes.homeView);
+          Get.offAllNamed(AppRoutes.resetPasswordSuccessView);
         } else {
           Get.defaultDialog(
-              title: "54".tr, middleText: "Password or email is not correct");
+              title: "54".tr, middleText: "Something went wrong try again");
 
           statuesRequest = StatuesRequest.failure;
         }
@@ -48,37 +53,22 @@ class LoginControllerImpl extends LoginController {
 
   @override
   void onInit() {
-    email = TextEditingController();
     password = TextEditingController();
+    rePassword = TextEditingController();
+    email = Get.arguments['email'];
     super.onInit();
   }
 
   @override
   void dispose() {
-    email.dispose();
     password.dispose();
+    rePassword.dispose();
     super.dispose();
   }
 
   @override
-  void goToSignUp() {
-    Get.offNamed(AppRoutes.signUpView);
-  }
-
-  @override
-  void goToForgetPassword() {
-    Get.toNamed(AppRoutes.forgetPasswordView);
-  }
-
-  @override
-  void showPassword() {
-    isNotVisible = !isNotVisible;
-    update();
-  }
-
-  @override
-  customCheck() {
-    isChecked = !isChecked;
+  visiblePassword() {
+    secureText = !secureText;
     update();
   }
 }

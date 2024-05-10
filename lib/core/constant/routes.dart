@@ -1,3 +1,4 @@
+import 'package:comatecs/bindings/signup_bindings.dart';
 import 'package:comatecs/core/middlewares/on_boarding_miiddleware.dart';
 import 'package:comatecs/features/auth/presentaion/views/forget_password/check_email_password_view.dart';
 import 'package:comatecs/features/auth/presentaion/views/forget_password/reset_password_success_view.dart';
@@ -31,12 +32,10 @@ abstract class AppRoutes {
 
   static List<GetPage<dynamic>>? routes = [
     GetPage(
-     
       name: "/",
       page: () => const SplashView(),
     ),
     GetPage(
-     
       name: loginView,
       page: () => const LoginView(),
     ),
@@ -48,13 +47,14 @@ abstract class AppRoutes {
       page: () => const Language(),
     ),
     GetPage(
-       middlewares: [
+      middlewares: [
         OnBoardingMiddleware(),
       ],
       name: onBoardingView,
       page: () => const OnBoardingView(),
     ),
     GetPage(
+      binding: SignUpBindings(),
       name: signUpView,
       page: () => const SignUpView(),
     ),

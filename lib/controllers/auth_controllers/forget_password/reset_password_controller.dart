@@ -15,7 +15,7 @@ class ResetPasswordControllerImpl extends ResetPasswordController {
   late TextEditingController rePassword;
   GlobalKey<FormState> key = GlobalKey();
   bool secureText = true;
-  StatuesRequest? statuesRequest;
+  StatuesRequest statuesRequest = StatuesRequest.none;
   ResetPasswordRemote resetPasswordRemote =
       ResetPasswordRemote(crud: Get.find());
   String? email;
@@ -35,7 +35,7 @@ class ResetPasswordControllerImpl extends ResetPasswordController {
         password: password.text,
         email: email!,
       );
-      print("=============================== Controller $response ");
+
       statuesRequest = handlingData(response);
       if (StatuesRequest.success == statuesRequest) {
         if (response['status'] == "success") {

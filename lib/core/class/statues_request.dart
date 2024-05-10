@@ -1,6 +1,7 @@
 enum StatuesRequest
 
 {
+  none,
 loading,
 success,
 failure,

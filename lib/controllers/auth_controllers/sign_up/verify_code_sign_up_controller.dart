@@ -11,10 +11,10 @@ abstract class VerifySignUpController extends GetxController {
 }
 
 class VerifySignUpControllerImpl extends VerifySignUpController {
- 
   String? email;
-  StatuesRequest? statuesRequest;
-  VerifyCodeSignUpRemote verifyCodeSignUpRemote = VerifyCodeSignUpRemote(crud: Get.find());
+  StatuesRequest statuesRequest = StatuesRequest.none;
+  VerifyCodeSignUpRemote verifyCodeSignUpRemote =
+      VerifyCodeSignUpRemote(crud: Get.find());
   @override
   checkEmail() {}
 
@@ -26,29 +26,26 @@ class VerifySignUpControllerImpl extends VerifySignUpController {
   }
 
   @override
-  void goToSignUpSuccess(verifyCode) async{
-      statuesRequest = StatuesRequest.loading;
-      update();
-      var response = await verifyCodeSignUpRemote.postData(
-     verifyCode: verifyCode,
-        email: email!,
-    
-      );
-      print("=============================== Controller $response ");
-      statuesRequest = handlingData(response);
-      if (StatuesRequest.success == statuesRequest) {
-        if (response['status'] == "success") {
-          // data.addAll(response['data']);
-            Get.offAllNamed(AppRoutes.signUpSuccess);
-          
-        } else {
-          Get.defaultDialog(
-              title: "54".tr, middleText: "Verify code not correct");
+  void goToSignUpSuccess(verifyCode) async {
+    statuesRequest = StatuesRequest.loading;
+    update();
+    var response = await verifyCodeSignUpRemote.postData(
+      verifyCode: verifyCode,
+      email: email!,
+    );
 
-          statuesRequest = StatuesRequest.failure;
-        }
+    statuesRequest = handlingData(response);
+    if (StatuesRequest.success == statuesRequest) {
+      if (response['status'] == "success") {
+        // data.addAll(response['data']);
+        Get.offAllNamed(AppRoutes.signUpSuccess);
+      } else {
+        Get.defaultDialog(
+            title: "54".tr, middleText: "Verify code not correct");
+
+        statuesRequest = StatuesRequest.failure;
       }
-      update();
-  
+    }
+    update();
   }
 }

@@ -19,7 +19,7 @@ class LoginControllerImpl extends LoginController {
   GlobalKey<FormState> key = GlobalKey();
   bool isNotVisible = true;
   bool isChecked = false;
-  StatuesRequest? statuesRequest;
+  StatuesRequest statuesRequest = StatuesRequest.none;
   LoginRemote loginRemote = LoginRemote(crud: Get.find());
   @override
   login() async {
@@ -30,7 +30,7 @@ class LoginControllerImpl extends LoginController {
         password: password.text,
         email: email.text,
       );
-      print("=============================== Controller $response ");
+
       statuesRequest = handlingData(response);
       if (StatuesRequest.success == statuesRequest) {
         if (response['status'] == "success") {

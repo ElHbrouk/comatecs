@@ -13,7 +13,7 @@ class VerifyCodePasswordControllerImpl extends VerifyCodeController {
   String? email;
   VerifyCodeForgetPasswordRemote codeForgetPasswordRemote =
       VerifyCodeForgetPasswordRemote(crud: Get.find());
-  StatuesRequest? statuesRequest;
+  StatuesRequest statuesRequest = StatuesRequest.none;
   @override
   void goToResetPassword(verrifyCode) async {
     statuesRequest = StatuesRequest.loading;
@@ -22,13 +22,13 @@ class VerifyCodePasswordControllerImpl extends VerifyCodeController {
       verifyCode: verrifyCode,
       email: email!,
     );
-    print("=============================== Controller $response ");
+
     statuesRequest = handlingData(response);
     if (StatuesRequest.success == statuesRequest) {
       if (response['status'] == "success") {
-       Get.offNamed(AppRoutes.resetPasswordView,arguments: {
-        "email":email,
-       });
+        Get.offAllNamed(AppRoutes.resetPasswordView, arguments: {
+          "email": email,
+        });
       } else {
         Get.defaultDialog(
             title: "54".tr, middleText: "Verify Code is not correct");
@@ -37,7 +37,6 @@ class VerifyCodePasswordControllerImpl extends VerifyCodeController {
       }
     }
     update();
-
   }
 
   @override

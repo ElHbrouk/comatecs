@@ -1,4 +1,4 @@
-import 'package:comatecs/core/shared/widgets/custom_back_button.dart';
+import 'package:comatecs/core/functions/alert_exit_app.dart';
 import 'package:comatecs/features/auth/presentaion/views/widgets/reset_password/reset_password_body.dart';
 import 'package:flutter/material.dart';
 
@@ -8,10 +8,19 @@ class ResetPasswordView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: const CustomBackButton(),
+      body: PopScope(
+        canPop: false,
+        onPopInvoked: (didPop) {
+          if (didPop) {
+            return;
+          }
+          alertExitApp();
+        },
+        child: const Padding(
+          padding: EdgeInsets.only(top: 100.0),
+          child: ResetPasswordViewBody(),
+        ),
       ),
-      body: const ResetPasswordViewBody(),
     );
   }
 }

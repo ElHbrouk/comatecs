@@ -13,7 +13,7 @@ class ForgetPasswordControllerImpl extends ForgetPasswordController {
   late TextEditingController email;
   GlobalKey<FormState> key = GlobalKey();
   CheckEmailRemote checkEmailRemote = CheckEmailRemote(crud: Get.find());
-  StatuesRequest? statuesRequest;
+  StatuesRequest statuesRequest = StatuesRequest.none;
   @override
   checkEmail() async {
     if (key.currentState!.validate()) {
@@ -22,7 +22,7 @@ class ForgetPasswordControllerImpl extends ForgetPasswordController {
       var response = await checkEmailRemote.postData(
         email: email.text,
       );
-      print("=============================== Controller $response ");
+
       statuesRequest = handlingData(response);
       if (StatuesRequest.success == statuesRequest) {
         if (response['status'] == "success") {
@@ -45,7 +45,7 @@ class ForgetPasswordControllerImpl extends ForgetPasswordController {
   @override
   void onInit() {
     email = TextEditingController();
-   
+
     super.onInit();
   }
 

@@ -19,7 +19,7 @@ class SignUpControllerImpl extends SignUpController {
   late TextEditingController password;
   GlobalKey<FormState> key = GlobalKey();
   bool isNotVisible = true;
-  StatuesRequest? statuesRequest;
+  StatuesRequest statuesRequest = StatuesRequest.none;
   List data = [];
   SignUpRemote signUpRemote = SignUpRemote(crud: Get.find());
   @override
@@ -33,7 +33,7 @@ class SignUpControllerImpl extends SignUpController {
         email: email.text,
         phone: phoneNumber.text,
       );
-      print("=============================== Controller $response ");
+
       statuesRequest = handlingData(response);
       if (StatuesRequest.success == statuesRequest) {
         if (response['status'] == "success") {

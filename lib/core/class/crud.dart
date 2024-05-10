@@ -12,12 +12,9 @@ class Crud {
         var response = await http.post(Uri.parse(url), body: data);
         if (response.statusCode == 200 || response.statusCode == 201) {
           Map<String, dynamic> jsonData = jsonDecode(response.body);
-          print(response.statusCode);
-          print(jsonData);
+
           return Right(jsonData);
         } else {
-          
-          print(response);
           return const Left(StatuesRequest.serverFailure);
         }
       } else {

@@ -17,6 +17,7 @@ void main() async {
   await initalServices();
 
   runApp(
+  
     const MyApp(),
   );
 }
@@ -28,20 +29,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     LocalController controller = Get.put(LocalController());
     return GetMaterialApp(
-      
       initialBinding: InitialBindings(),
-      
+
       // useInheritedMediaQuery: true,
       // builder: DevicePreview.appBuilder,
       locale: controller.language,
       translations: MyTranslation(),
-      // routes: AppRoutes.routes,
       getPages: AppRoutes.routes,
       // home: TestView(),
       debugShowCheckedModeBanner: false,
       title: 'Comatecs',
       theme: controller.appTheme,
- 
     );
   }
 }

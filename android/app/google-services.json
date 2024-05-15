@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "717222316941",
+    "project_id": "comatecs-fcab7",
+    "storage_bucket": "comatecs-fcab7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:717222316941:android:3e78aaab49dffda3718bc4",
+        "android_client_info": {
+          "package_name": "com.example.comatecs"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPSe_rgNMuIiq5AG6GYWqCn_sjGmj-B9g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

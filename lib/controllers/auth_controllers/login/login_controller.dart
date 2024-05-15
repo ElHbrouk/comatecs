@@ -2,6 +2,7 @@ import 'package:comatecs/core/class/statues_request.dart';
 import 'package:comatecs/core/constant/routes.dart';
 import 'package:comatecs/core/data/remote/auth/login_remote.dart';
 import 'package:comatecs/core/functions/handling_data.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -48,6 +49,10 @@ class LoginControllerImpl extends LoginController {
 
   @override
   void onInit() {
+    FirebaseMessaging.instance.getToken().then((value) {
+      print(value);
+      String? token = value;
+    });
     email = TextEditingController();
     password = TextEditingController();
     super.onInit();

@@ -1,5 +1,5 @@
 import 'package:comatecs/core/class/statues_request.dart';
-import 'package:comatecs/core/constant/image_asset.dart';
+import 'package:comatecs/core/utils/image_asset.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 

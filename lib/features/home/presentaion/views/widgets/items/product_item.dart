@@ -1,4 +1,4 @@
-import 'package:comatecs/core/constant/image_asset.dart';
+import 'package:comatecs/core/utils/image_asset.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -7,7 +7,6 @@ class ProductItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
@@ -36,7 +35,7 @@ class ProductItem extends StatelessWidget {
             height: 92,
           ),
           const SizedBox(
-            height: 17,
+            height: 5,
           ),
           const Text('الاسم التجاري الشائع'),
           Padding(
@@ -46,18 +45,25 @@ class ProductItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      '16.000',
-                      style: Theme.of(context).textTheme.bodyLarge,
-                    )),
-                SvgPicture.asset(
-                  ImageAssets.cartPlus,
-                  height: 24,
-                  width: 24,
+                  onPressed: () {},
+                  child: Text(
+                    '16.000',
+                    style: Theme.of(context).textTheme.bodyLarge,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  child: SvgPicture.asset(
+                    ImageAssets.cartPlus,
+                    height: 24,
+                    width: 24,
+                  ),
                 ),
               ],
             ),
+          ),
+          const SizedBox(
+            height: 10,
           )
         ],
       ),

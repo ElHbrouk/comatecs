@@ -1,4 +1,4 @@
-import 'package:comatecs/core/constant/image_asset.dart';
+import 'package:comatecs/core/utils/image_asset.dart';
 import 'package:comatecs/features/on_boarding/data/models/on_boarding_model.dart';
 import 'package:get/get.dart';
 

@@ -1,6 +1,6 @@
 import 'package:comatecs/core/class/statues_request.dart';
-import 'package:comatecs/core/constant/routes.dart';
-import 'package:comatecs/core/data/remote/auth/forget_password/check_email.dart';
+import 'package:comatecs/core/utils/routes.dart';
+import 'package:comatecs/core/data/data_sources/remote_data_source/auth/forget_password/check_email.dart';
 import 'package:comatecs/core/functions/handling_data.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

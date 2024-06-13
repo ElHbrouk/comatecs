@@ -1,5 +1,5 @@
 import 'package:comatecs/controllers/on_boarding/on_boarding_controller.dart';
-import 'package:comatecs/core/constant/app_colors.dart';
+import 'package:comatecs/core/utils/app_colors.dart';
 import 'package:comatecs/features/on_boarding/data/data_sources/static/static.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

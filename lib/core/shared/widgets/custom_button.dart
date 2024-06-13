@@ -1,4 +1,4 @@
-import 'package:comatecs/core/constant/app_colors.dart';
+import 'package:comatecs/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
@@ -16,7 +16,7 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity,
+      // width: double.infinity,
       height: 48,
       decoration: BoxDecoration(
         color: color,

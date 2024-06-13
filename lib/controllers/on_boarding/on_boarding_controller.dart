@@ -1,4 +1,4 @@
-import 'package:comatecs/core/constant/routes.dart';
+import 'package:comatecs/core/utils/routes.dart';
 import 'package:comatecs/core/services/services.dart';
 import 'package:comatecs/features/on_boarding/data/data_sources/static/static.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +19,7 @@ class OnBoardingControllerImpl extends OnBoardingController {
     currentPage++;
     if (currentPage > onBoardingList.length - 1) {
       Get.offAllNamed(AppRoutes.loginView);
-      services.sharedPreferences.setString("onboarding", "1");
+      services.sharedPreferences.setString("step", "1");
     } else {
       pageController.animateToPage(currentPage,
           duration: const Duration(milliseconds: 400), curve: Curves.easeInOut);
@@ -41,7 +41,7 @@ class OnBoardingControllerImpl extends OnBoardingController {
 
   @override
   skip() {
-    services.sharedPreferences.setString("onboarding", "1");
+    services.sharedPreferences.setString("step", "1");
     Get.offAllNamed(AppRoutes.loginView);
     Get.delete<OnBoardingControllerImpl>();
   }

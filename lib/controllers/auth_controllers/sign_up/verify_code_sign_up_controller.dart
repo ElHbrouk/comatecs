@@ -1,6 +1,6 @@
 import 'package:comatecs/core/class/statues_request.dart';
-import 'package:comatecs/core/constant/routes.dart';
-import 'package:comatecs/core/data/remote/auth/verify_code_signup_remote.dart';
+import 'package:comatecs/core/utils/routes.dart';
+import 'package:comatecs/core/data/data_sources/remote_data_source/auth/verify_code_signup_remote.dart';
 import 'package:comatecs/core/functions/handling_data.dart';
 import 'package:get/get.dart';
 

@@ -1,6 +1,6 @@
 import 'package:comatecs/controllers/auth_controllers/login/login_controller.dart';
 import 'package:comatecs/core/class/handling_data_view.dart';
-import 'package:comatecs/core/constant/app_colors.dart';
+import 'package:comatecs/core/utils/app_colors.dart';
 import 'package:comatecs/core/functions/valid_input.dart';
 import 'package:comatecs/core/shared/widgets/custom_button.dart';
 import 'package:comatecs/features/auth/presentaion/views/widgets/custom_check_box.dart';

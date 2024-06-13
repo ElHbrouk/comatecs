@@ -1,5 +1,5 @@
 import 'package:comatecs/controllers/auth_controllers/sign_up/sign_up_success_controller.dart';
-import 'package:comatecs/core/constant/image_asset.dart';
+import 'package:comatecs/core/utils/image_asset.dart';
 import 'package:comatecs/core/shared/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';

@@ -1,5 +1,5 @@
-import 'package:comatecs/core/constant/app_theme.dart';
-import 'package:comatecs/core/constant/routes.dart';
+import 'package:comatecs/core/utils/app_theme.dart';
+import 'package:comatecs/core/utils/routes.dart';
 import 'package:comatecs/core/services/services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

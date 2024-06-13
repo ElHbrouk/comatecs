@@ -1,4 +1,4 @@
-import 'package:comatecs/core/constant/routes.dart';
+import 'package:comatecs/core/utils/routes.dart';
 import 'package:get/get.dart';
 
 abstract class SignUpSuccessController extends GetxController {

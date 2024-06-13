@@ -35,14 +35,14 @@ dependencies:
   auto_animated: ^3.0.1
   badges: ^3.1.2
   cached_network_image: ^3.2.0
-  cloud_firestore: ^4.17.0
+  cloud_firestore: ^5.0.1
   cupertino_icons: ^1.0.6
   dartz: ^0.10.1
   device_preview: ^1.1.0
   dio: ^5.4.3+1
   dropdown_search: ^5.0.6
-  firebase_core: ^2.30.0
-  firebase_messaging: ^14.9.2
+  firebase_core: ^3.1.0
+  firebase_messaging: ^15.0.1
   flutter:
     sdk: flutter
   flutter_launcher_icons: ^0.13.1

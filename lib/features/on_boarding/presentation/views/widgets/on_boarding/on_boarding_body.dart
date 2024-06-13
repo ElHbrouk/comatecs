@@ -1,5 +1,5 @@
 import 'package:comatecs/controllers/on_boarding/on_boarding_controller.dart';
-import 'package:comatecs/core/constant/app_colors.dart';
+import 'package:comatecs/core/utils/app_colors.dart';
 import 'package:comatecs/core/shared/widgets/custom_button.dart';
 import 'package:comatecs/features/on_boarding/presentation/views/widgets/on_boarding/on_boarding_dots.dart';
 import 'package:comatecs/features/on_boarding/presentation/views/widgets/on_boarding/on_boarding_item_page_view.dart';

@@ -1,4 +1,4 @@
-import 'package:comatecs/core/constant/image_asset.dart';
+import 'package:comatecs/core/utils/image_asset.dart';
 import 'package:flutter/material.dart';
 
 class CustomTitleAuth extends StatelessWidget {

@@ -1,7 +1,8 @@
 import 'package:comatecs/core/class/statues_request.dart';
-import 'package:comatecs/core/constant/routes.dart';
-import 'package:comatecs/core/data/remote/auth/login_remote.dart';
+import 'package:comatecs/core/utils/routes.dart';
+import 'package:comatecs/core/data/data_sources/remote_data_source/auth/login_remote.dart';
 import 'package:comatecs/core/functions/handling_data.dart';
+import 'package:comatecs/core/services/services.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -20,6 +21,7 @@ class LoginControllerImpl extends LoginController {
   GlobalKey<FormState> key = GlobalKey();
   bool isNotVisible = true;
   bool isChecked = false;
+  MyServices myServices = Get.find();
   StatuesRequest statuesRequest = StatuesRequest.none;
   LoginRemote loginRemote = LoginRemote(crud: Get.find());
   @override
@@ -35,6 +37,14 @@ class LoginControllerImpl extends LoginController {
       statuesRequest = handlingData(response);
       if (StatuesRequest.success == statuesRequest) {
         if (response['status'] == "success") {
+          myServices.sharedPreferences.setString("id", response['data']['users_id']);
+          myServices.sharedPreferences
+              .setString("username", response['data']['users_name']);
+          myServices.sharedPreferences
+              .setString("email", response['data']['users_email']);
+          myServices.sharedPreferences
+              .setString("phone", response['data']['users_phone']);
+          myServices.sharedPreferences.setString("step", '2');
           Get.offAllNamed(AppRoutes.homeView);
         } else {
           Get.defaultDialog(

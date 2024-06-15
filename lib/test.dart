@@ -14,7 +14,7 @@ class _TestViewState extends State<TestView> {
   // bool? result;
   // initData() async {
   //   result = await checkConnectivity();
-  //   print(result);
+  //
   // }
 
   // @override

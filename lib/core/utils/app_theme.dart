@@ -17,6 +17,7 @@ ThemeData englishTheme = ThemeData(
     bodySmall: AppFonts.regular10,
     displayLarge: AppFonts.bold18,
     displayMedium: AppFonts.bold16,
+    displaySmall: AppFonts.regular10,
   ),
 );
 ThemeData arabicTheme = ThemeData(
@@ -34,5 +35,6 @@ ThemeData arabicTheme = ThemeData(
     bodySmall: AppFonts.regular10,
     displayLarge: AppFonts.bold18,
     displayMedium: AppFonts.bold16,
+    displaySmall: AppFonts.regular10,
   ),
 );

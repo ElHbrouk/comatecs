@@ -1,11 +1,16 @@
-import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
+import 'package:comatecs/features/home/presentaion/views/widgets/item_detail_view_body.dart';
+import 'package:flutter/material.dart';
+
+
 
 class ItemDetailView extends StatelessWidget {
   const ItemDetailView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(),
+      body: ItemDetailViewBody(),
+    );
   }
 }

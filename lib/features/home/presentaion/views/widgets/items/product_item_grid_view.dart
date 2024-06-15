@@ -1,5 +1,7 @@
+import 'package:comatecs/features/home/presentaion/views/item_detail_view.dart';
 import 'package:comatecs/features/home/presentaion/views/widgets/items/product_item.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ProductItemGridView extends StatelessWidget {
   const ProductItemGridView({super.key});
@@ -14,7 +16,12 @@ class ProductItemGridView extends StatelessWidget {
         mainAxisSpacing: 16,
         crossAxisSpacing: 9,
       ),
-      itemBuilder: (BuildContext context, int index) => const ProductItem(),
+      itemBuilder: (BuildContext context, int index) => InkWell(
+        onTap: ()
+        {
+          Get.to(() => const ItemDetailView());
+        },
+        child: const ProductItem()),
     );
   }
 }

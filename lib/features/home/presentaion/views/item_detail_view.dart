@@ -10,7 +10,7 @@ class ItemDetailView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: ItemDetailViewBody(),
+      body: const ItemDetailViewBody(),
     );
   }
 }

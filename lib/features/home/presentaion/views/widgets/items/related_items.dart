@@ -19,7 +19,7 @@ class RelatedItems extends StatelessWidget {
         const SizedBox(
           height: 20,
         ),
-        Expanded(child: RelatedItemsListView()),
+        const Expanded(child: RelatedItemsListView(),),
       ],
     );
   }

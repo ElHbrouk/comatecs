@@ -15,49 +15,54 @@ class ItemDetailViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Padding(
       padding: EdgeInsetsDirectional.symmetric(horizontal: 20.0),
-      child: CustomScrollView(slivers: [
-        SliverToBoxAdapter(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              ItemPrice(),
-              SizedBox(
-                height: 24,
-              ),
-              ItemDetailsInfo(),
-              Divider(),
-              ItemFeatures(),
-              Divider(),
-              ItemAttachments(),
-              Divider(),
-              ItemDeliver(),
-              Divider(),
-            ],
-          ),
+      child: CustomScrollView(
+        physics: BouncingScrollPhysics(
+          decelerationRate: ScrollDecelerationRate.fast,
         ),
-        SliverFillRemaining(
-          hasScrollBody: false,
-          child: RelatedItems(),
-        ),
-        SliverToBoxAdapter(
-          child: Padding(
-            padding: EdgeInsets.symmetric(vertical: 10),
-            child: Row(
+        slivers: [
+          SliverToBoxAdapter(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                CustomCartButton(),
-                Expanded(
-                  child: CustomButton(
-                    buttonName: "أضف إلى السلة",
-                  ),
-                ),
+                ItemPrice(),
                 SizedBox(
-                  width: 10,
+                  height: 24,
                 ),
+                ItemDetailsInfo(),
+                Divider(),
+                ItemFeatures(),
+                Divider(),
+                ItemAttachments(),
+                Divider(),
+                ItemDeliver(),
+                Divider(),
               ],
             ),
           ),
-        ),
-      ]),
+          SliverFillRemaining(
+            hasScrollBody: false,
+            child: RelatedItems(),
+          ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: EdgeInsets.symmetric(vertical: 10),
+              child: Row(
+                children: [
+                  CustomCartButton(),
+                  Expanded(
+                    child: CustomButton(
+                      buttonName: "أضف إلى السلة",
+                    ),
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

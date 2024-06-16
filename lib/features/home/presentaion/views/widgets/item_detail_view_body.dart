@@ -7,7 +7,6 @@ import 'package:comatecs/features/home/presentaion/views/widgets/items/item_feat
 import 'package:comatecs/features/home/presentaion/views/widgets/items/item_price.dart';
 import 'package:comatecs/features/home/presentaion/views/widgets/items/related_items.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ItemDetailViewBody extends StatelessWidget {
   const ItemDetailViewBody({super.key});
@@ -38,9 +37,7 @@ class ItemDetailViewBody extends StatelessWidget {
         ),
         SliverFillRemaining(
           hasScrollBody: false,
-          child: Expanded(
-            child: RelatedItems(),
-          ),
+          child: RelatedItems(),
         ),
         SliverToBoxAdapter(
           child: Padding(

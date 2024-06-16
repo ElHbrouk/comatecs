@@ -2,7 +2,9 @@ import 'package:comatecs/bindings/initial_binding.dart';
 import 'package:comatecs/core/localization/change_local.dart';
 import 'package:comatecs/core/localization/translation.dart';
 import 'package:comatecs/core/services/services.dart';
+import 'package:comatecs/core/utils/routes.dart';
 import 'package:comatecs/features/home/presentaion/views/home_view.dart';
+import 'package:comatecs/features/language/presentation/views/language_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -30,13 +32,12 @@ class MyApp extends StatelessWidget {
       initialBinding: InitialBindings(),
       // useInheritedMediaQuery: true,
       // builder: DevicePreview.appBuilder,
-      locale: controller.language,
+      // locale: controller.language,
       translations: MyTranslation(),
       // getPages: AppRoutes.routes,
-      home: const Directionality(
+      home: Directionality(
         textDirection: TextDirection.rtl,
-        child: HomeView(),
-      ),
+        child: HomeView()),
       debugShowCheckedModeBanner: false,
       title: 'Comatecs',
       theme: controller.appTheme,

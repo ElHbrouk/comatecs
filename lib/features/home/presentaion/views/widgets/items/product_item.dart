@@ -22,7 +22,7 @@ class ProductItem extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Align(
-              alignment: AlignmentDirectional.centerEnd,
+              alignment: AlignmentDirectional.topEnd,
               child: SvgPicture.asset(
                 ImageAssets.solidHeart,
                 height: 18,
@@ -62,9 +62,7 @@ class ProductItem extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(
-            height: 10,
-          )
+         
         ],
       ),
     );

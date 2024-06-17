@@ -1,6 +1,8 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:comatecs/core/utils/image_asset.dart';
 import 'package:comatecs/features/auth/presentaion/views/widgets/login/custom_text_form_field.dart';
 import 'package:comatecs/features/home/presentaion/views/widgets/filter_button.dart';
+import 'package:comatecs/features/home/presentaion/views/widgets/home_image_slider.dart';
 import 'package:comatecs/features/home/presentaion/views/widgets/items/product_item_grid_view.dart';
 import 'package:flutter/material.dart';
 
@@ -21,6 +23,7 @@ class HomeViewBody extends StatelessWidget {
           leading: Image.asset(height: 30, ImageAssets.appLogo2),
         ),
       ),
+      SliverToBoxAdapter(child: HomeImageSlider()),
       const SliverToBoxAdapter(
         child: Row(
           mainAxisSize: MainAxisSize.min,
@@ -46,3 +49,4 @@ class HomeViewBody extends StatelessWidget {
     ]);
   }
 }
+

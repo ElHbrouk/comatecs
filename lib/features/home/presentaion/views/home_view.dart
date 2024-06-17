@@ -10,24 +10,7 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     HomeControllerImpl controller = Get.put(HomeControllerImpl());
-   
-    return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-      ),
-      body: PopScope(
-        canPop: false,
-        onPopInvoked: (didPop) {
-          if (didPop) {
-            return;
-          }
-          alertExitApp();
-        },
-        child: const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20.0),
-          child: HomeViewBody(),
-        ),
-      ),
-    );
+
+    return const HomeViewBody();
   }
 }

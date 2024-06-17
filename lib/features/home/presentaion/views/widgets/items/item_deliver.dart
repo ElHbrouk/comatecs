@@ -15,22 +15,41 @@ class ItemDeliver extends StatelessWidget {
                 color: Colors.black,
               ),
         ),
-        const Row(
+        Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
               'JOD 5',
+              style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                    color: Colors.black,
+                  ),
             ),
             Text(
               ': التوصيل',
+              style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                    color: Colors.grey,
+                  ),
             ),
           ],
         ),
-        const Row(
+        const SizedBox(
+          height: 16,
+        ),
+        Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text('خلال يوم '),
-            Text(': التسليم'),
+            Text(
+              'خلال يوم ',
+              style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                    color: Colors.black,
+                  ),
+            ),
+            Text(
+              ':  التسليم',
+              style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                    color: Colors.grey,
+                  ),
+            ),
           ],
         ),
       ],

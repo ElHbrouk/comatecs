@@ -5,6 +5,7 @@ import 'package:comatecs/features/home/presentaion/views/widgets/items/item_deli
 import 'package:comatecs/features/home/presentaion/views/widgets/items/item_details_info.dart';
 import 'package:comatecs/features/home/presentaion/views/widgets/items/item_features.dart';
 import 'package:comatecs/features/home/presentaion/views/widgets/items/item_price.dart';
+import 'package:comatecs/features/home/presentaion/views/widgets/items/item_video.dart';
 import 'package:comatecs/features/home/presentaion/views/widgets/items/related_items.dart';
 import 'package:flutter/material.dart';
 
@@ -24,6 +25,7 @@ class ItemDetailViewBody extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
+                ItemVideo(),
                 ItemPrice(),
                 SizedBox(
                   height: 24,

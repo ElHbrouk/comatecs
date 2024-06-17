@@ -170,4 +170,19 @@ abstract class ImageAssets {
   /// Assets for imagesFilter
   /// assets/images/filter.json
   static const String filter = "assets/images/filter.svg";
+  /// Assets for layoutCart
+  /// assets/images/layout_cart.json
+  static const String layoutCart = "assets/images/layout_cart.svg";
+  /// Assets for layoutHeart
+  /// assets/images/layout_heart.json
+  static const String layoutHeart = "assets/images/layout_heart.svg";
+  /// Assets for layoutHome
+  /// assets/images/layout_home.json
+  static const String layoutHome = "assets/images/layout_home.svg";
+  /// Assets for layoutList
+  /// assets/images/layout_list.json
+  static const String layoutList = "assets/images/layout_list.svg";
+  /// Assets for layoutUser
+  /// assets/images/layout_user.json
+  static const String layoutUser = "assets/images/layout_user.svg";
 }

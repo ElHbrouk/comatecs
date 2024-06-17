@@ -4,7 +4,9 @@ import 'package:comatecs/core/localization/translation.dart';
 import 'package:comatecs/core/services/services.dart';
 import 'package:comatecs/core/utils/routes.dart';
 import 'package:comatecs/features/home/presentaion/views/home_view.dart';
+import 'package:comatecs/features/home_layout/home_layout.dart';
 import 'package:comatecs/features/language/presentation/views/language_view.dart';
+import 'package:comatecs/test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -18,7 +20,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initalServices();
   runApp(
-    const MyApp(),
+    const VideoApp(),
   );
 }
 
@@ -35,9 +37,10 @@ class MyApp extends StatelessWidget {
       // locale: controller.language,
       translations: MyTranslation(),
       // getPages: AppRoutes.routes,
-      home: Directionality(
+      home: const Directionality(
         textDirection: TextDirection.rtl,
-        child: HomeView()),
+        child: HomeLayout(),
+      ),
       debugShowCheckedModeBanner: false,
       title: 'Comatecs',
       theme: controller.appTheme,

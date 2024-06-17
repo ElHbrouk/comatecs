@@ -20,7 +20,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initalServices();
   runApp(
-    const VideoApp(),
+    const MyApp(),
   );
 }
 

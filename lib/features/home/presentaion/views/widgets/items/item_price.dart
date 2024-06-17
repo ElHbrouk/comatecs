@@ -10,11 +10,10 @@ class ItemPrice extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-    
+      crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         Text(
-          'الاسم التجاري الشائع ',
+          'الاسم التجاري الشائع',
           style: Theme.of(context).textTheme.displayLarge!.copyWith(
                 color: Colors.black,
               ),
@@ -25,18 +24,20 @@ class ItemPrice extends StatelessWidget {
             Row(
               children: [
                 CustomIconButton(
+                  color: true,
                   onPressed: () {},
                   icon: FontAwesomeIcons.plus,
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(
-                      bottom: 7.0, left: 3.0, right: 3.0),
+                  padding:
+                      const EdgeInsets.only(bottom: 7.0, left: 3.0, right: 3.0),
                   child: Text(
                     '50',
                     style: Theme.of(context).textTheme.displayLarge,
                   ),
                 ),
                 CustomIconButton(
+                  color: false,
                   onPressed: () {},
                   icon: FontAwesomeIcons.minus,
                 ),
@@ -49,15 +50,14 @@ class ItemPrice extends StatelessWidget {
                       start: 8.0, end: 8.0, top: 6),
                   child: Text(
                     '-50%',
-                    style:
-                        Theme.of(context).textTheme.displayMedium!.copyWith(
-                              color: Colors.red,
-                            ),
+                    style: Theme.of(context).textTheme.displayMedium!.copyWith(
+                          color: Colors.red,
+                        ),
                   ),
                 ),
                 const Padding(
-                  padding: EdgeInsetsDirectional.only(
-                      start: 8.0, end: 8.0, top: 5),
+                  padding:
+                      EdgeInsetsDirectional.only(start: 8.0, end: 8.0, top: 5),
                   child: Text(
                     '16.00 JOD',
                     style: TextStyle(
@@ -80,4 +80,3 @@ class ItemPrice extends StatelessWidget {
     );
   }
 }
-

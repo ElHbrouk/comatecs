@@ -1,4 +1,3 @@
-
 import 'package:comatecs/features/home/presentaion/views/widgets/items/related_item_list_view.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +18,7 @@ class RelatedItems extends StatelessWidget {
         const SizedBox(
           height: 20,
         ),
-        const Expanded(child: RelatedItemsListView(),),
+        const RelatedItemsListView(),
       ],
     );
   }

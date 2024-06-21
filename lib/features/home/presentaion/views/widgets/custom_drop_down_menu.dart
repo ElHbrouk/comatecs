@@ -1,3 +1,4 @@
+import 'package:comatecs/core/utils/app_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -22,6 +23,7 @@ class CustomDropDownMenu extends StatelessWidget {
         ),
         label: Text(
           label,
+          style: AppFonts.regular12,
         ),
         enableFilter: true,
         width: MediaQuery.sizeOf(context).width * 0.9,

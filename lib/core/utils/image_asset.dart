@@ -137,52 +137,95 @@ abstract class ImageAssets {
   /// assets/images/welcome_onboarding.json
   static const String welcomeOnBoarding =
       "assets/lottie/welcome_onboarding.json";
+
+  /// Assets for loading
+  /// assets/images/loading.json
   static const String loading = "assets/lottie/loading.json";
 
   /// Assets for imagesAppLogo
-  /// assets/images/appLogo.json
+  /// assets/images/appLogo.svg
   static const String appLogo = "assets/images/appLogo.svg";
 
   /// Assets for imagesAppLogo2
-  /// assets/images/appLogo2.json
+  /// assets/images/appLogo2.png
   static const String appLogo2 = "assets/images/appLogo2.png";
 
   /// Assets for imagesSuccess_icon
-  /// assets/images/success_icon.json
+  /// assets/images/success_icon.svg
   static const String successIcon = "assets/images/success_icon.svg";
 
   /// Assets for imagesApp_splash
-  /// assets/images/app_splash.json
+  /// assets/images/app_splash.png
   static const String appSplash = "assets/images/app_splash.png";
 
   /// Assets for imagesSolid_heart
-  /// assets/images/solid_heart.json
+  /// assets/images/solid_heart.svg
   static const String solidHeart = "assets/images/solid_heart.svg";
 
   /// Assets for imagesFilled_heart
-  /// assets/images/filled_heart.json
+  /// assets/images/filled_heart.svg
   static const String filledHeart = "assets/images/filled_heart.svg";
 
   /// Assets for imagesCart_plus
-  /// assets/images/cart_plus.json
+  /// assets/images/cart_plus.svg
   static const String cartPlus = "assets/images/cart_plus.svg";
 
   /// Assets for imagesFilter
-  /// assets/images/filter.json
+  /// assets/images/filter.svg
   static const String filter = "assets/images/filter.svg";
+
   /// Assets for layoutCart
-  /// assets/images/layout_cart.json
+  /// assets/images/layout_cart.svg
   static const String layoutCart = "assets/images/layout_cart.svg";
+
   /// Assets for layoutHeart
-  /// assets/images/layout_heart.json
+  /// assets/images/layout_heart.svg
   static const String layoutHeart = "assets/images/layout_heart.svg";
+
   /// Assets for layoutHome
-  /// assets/images/layout_home.json
+  /// assets/images/layout_home.svg
   static const String layoutHome = "assets/images/layout_home.svg";
+
   /// Assets for layoutList
-  /// assets/images/layout_list.json
+  /// assets/images/layout_list.svg
   static const String layoutList = "assets/images/layout_list.svg";
+
   /// Assets for layoutUser
-  /// assets/images/layout_user.json
+  /// assets/images/layout_user.svg
   static const String layoutUser = "assets/images/layout_user.svg";
+
+  /// Assets for Play
+  /// assets/images/Play.svg
+  static const String play = "assets/images/play.svg";
+
+  /// Assets for edit
+  /// assets/images/edit.svg
+  static const String edit = "assets/images/edit.svg";
+
+  /// Assets for Location
+  /// assets/images/Location.svg
+  static const String location = "assets/images/location.svg";
+
+  /// Assets for Location
+  /// assets/images/Location.svg
+  static const String user = "assets/images/user.svg";
+
+  /// Assets for Location
+  /// assets/images/Location.svg
+  static const String call = "assets/images/call.svg";
+
+  /// Assets for Rectangle
+  /// assets/images/rectangle.svg
+  static const String rectangle = "assets/images/rectangle.svg";
+
+  /// Assets for Emoji
+  /// assets/images/emoji.png
+  static const String emoji = "assets/images/emoji.png";
+
+  /// Assets for Logout
+  /// assets/images/logout.png
+  static const String logout = "assets/images/logout.svg";
+  /// Assets for Delete
+  /// assets/images/delete.png
+  static const String delete = "assets/images/delete.svg";
 }

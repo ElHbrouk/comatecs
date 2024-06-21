@@ -3,118 +3,119 @@ import 'package:comatecs/core/class/handling_data_view.dart';
 import 'package:comatecs/core/utils/app_colors.dart';
 import 'package:comatecs/core/functions/valid_input.dart';
 import 'package:comatecs/core/shared/widgets/custom_button.dart';
+import 'package:comatecs/core/utils/app_fonts.dart';
+import 'package:comatecs/core/utils/routes.dart';
 import 'package:comatecs/features/auth/presentaion/views/widgets/custom_check_box.dart';
 import 'package:comatecs/features/auth/presentaion/views/widgets/custom_text_form_field_auth.dart';
 import 'package:comatecs/features/auth/presentaion/views/widgets/custom_text_row.dart';
 import 'package:comatecs/features/auth/presentaion/views/widgets/custom_title_auth.dart';
 import 'package:comatecs/features/auth/presentaion/views/widgets/password_eye.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
+// import 'package:get/get.dart';
 
 class LoginViewBody extends StatelessWidget {
   const LoginViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Get.put(LoginControllerImpl());
-    return GetBuilder<LoginControllerImpl>(builder: (controller) {
-      return HandlingRequest(
-          statuesRequest: controller.statuesRequest,
-          widget: Padding(
-            padding: const EdgeInsets.only(
-                top: 80.0, bottom: 45, left: 20, right: 20),
-            child: Form(
-              key: controller.key,
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    CustomTitleAuth(
-                      text1: '4'.tr, // login
-                      text2: '5'.tr, // Welcome back
-                    ),
-                    const SizedBox(
-                      height: 32,
-                    ),
-                    CustomTextFormFieldAuth(
-                      validator: (value) {
-                        return validInput(
-                            value: value!, min: 5, max: 100, type: "email");
+    // Get.put(LoginControllerImpl());
+
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Padding(
+        padding:
+            const EdgeInsets.only(top: 80.0, bottom: 45, left: 20, right: 20),
+        child: Form(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                const CustomTitleAuth(
+                  text1: "تسجيل الدخول", // login
+                  text2: "مرحبا بعودتك مجددا", // Welcome back
+                ),
+                const SizedBox(
+                  height: 32,
+                ),
+                CustomTextFormFieldAuth(
+                  validator: (value) {
+                    return;
+                    // return validInput(
+                    //     value: value!, min: 5, max: 100, type: "email");
+                  },
+                  controller: TextEditingController(),
+                  hintText:
+                      '${"  أدخل إيميل المستخدم"} / ${"اسم المستخدم"}', // enter user name
+                  keyboardType: TextInputType.emailAddress,
+                  text: '${" إيميل المستخدم"} / ${"اسم المستخدم"}', // User Name
+                ),
+                const SizedBox(
+                  height: 16,
+                ),
+                CustomTextFormFieldAuth(
+                    controller: TextEditingController(),
+                    obscureText: true,
+                    hintText: " أدخل كلمة المرور", // enter password
+                    keyboardType: TextInputType.visiblePassword,
+                    text: "كلمة المرور", //Password
+                    suffixIcon: PasswordEye(
+                      onPressed: () {
+                        // controller.showPassword();
                       },
-                      controller: controller.email,
-                      hintText: '${'42'.tr} / ${'7'.tr}', // enter user name
-                      keyboardType: TextInputType.emailAddress,
-                      text: '${'48'.tr} / ${'7'.tr}', // User Name
+                      text: true,
                     ),
-                    const SizedBox(
-                      height: 16,
-                    ),
-                    GetBuilder<LoginControllerImpl>(builder: (controller) {
-                      return CustomTextFormFieldAuth(
-                        controller: controller.password,
-                        obscureText: controller.isNotVisible,
-                        hintText: '23'.tr, // enter password
-                        keyboardType: TextInputType.visiblePassword,
-                        text: '8'.tr, //Password
-                        suffixIcon: PasswordEye(
-                          onPressed: () {
-                            controller.showPassword();
-                          },
-                          text: controller.isNotVisible,
-                        ),
-                        validator: (value) {
-                          return validInput(
-                              value: value!, min: 8, max: 30, type: "password");
-                        },
-                      );
+                    validator: (value) {
+                      //   return validInput(
+                      //       value: value!, min: 8, max: 30, type: "password");
+                      // },
+                      return;
                     }),
-                    const SizedBox(height: 12),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        TextButton(
-                            onPressed: () {
-                              controller.goToForgetPassword();
-                            },
-                            child: Text(
-                              "10".tr, //  forgot password?
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyMedium!
-                                  .copyWith(
-                                    color: AppColors.primaryColor,
-                                    decoration: TextDecoration.underline,
-                                  ),
-                            )),
-                        GetBuilder<LoginControllerImpl>(builder: (controller) {
-                          return CustomCheckBox(
-                            check: controller.isChecked,
-                            onChanged: (value) {
-                              controller.customCheck();
-                            },
-                          );
-                        }),
-                      ],
-                    ),
-                    const SizedBox(height: 50.0),
-                    CustomButton(
-                      buttonName: "4".tr, // login
-                      onPressed: () {
-                        controller.login();
+                const SizedBox(height: 12),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    CustomCheckBox(
+                      check: true,
+                      onChanged: (value) {
+                        // controller.customCheck();
                       },
                     ),
-                    const SizedBox(height: 40),
-                    CustomTextRow(
-                      onPressed: () {
-                        controller.goToSignUp();
-                      },
-                      text1: '12'.tr, // A new user?
-                      text2: '11'.tr, //Create a new account!
-                    )
+                    TextButton(
+                        onPressed: () {
+                          context.go(AppRoutes.forgetPasswordView);
+                          // controller.goToForgetPassword();
+                        },
+                        child: Text(
+                          "هل نسيت كلمة المرور؟", //  forgot password?
+                          style: AppFonts.regular14.copyWith(
+                            color: AppColors.primaryColor,
+                            decoration: TextDecoration.underline,
+                          ),
+                        )),
                   ],
                 ),
-              ),
+                const SizedBox(height: 50.0),
+                CustomButton(
+                  buttonName: "تسجيل الدخول", // login
+                  onPressed: () {
+                    context.go(AppRoutes.homeLayout);
+                    // controller.login();
+                  },
+                ),
+                const SizedBox(height: 40),
+                CustomTextRow(
+                  onPressed: () {
+                    context.go(AppRoutes.signUpView);
+                    // controller.goToSignUp();
+                  },
+                  text1: "مستخدم جديد؟", // A new user?
+                  text2: "إنشاء حساب جديد", //Create a new account!
+                )
+              ],
             ),
-          ));
-    });
+          ),
+        ),
+      ),
+    );
   }
 }

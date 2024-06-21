@@ -14,7 +14,7 @@ class ResetPasswordView extends StatelessWidget {
           if (didPop) {
             return;
           }
-          alertExitApp();
+          // alertExitApp();
         },
         child: const Padding(
           padding: EdgeInsets.only(top: 100.0),

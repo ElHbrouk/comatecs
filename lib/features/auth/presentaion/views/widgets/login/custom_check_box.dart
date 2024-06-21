@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+// import 'package:get/get.dart';
 
 class CustomCheckBox extends StatelessWidget {
   const CustomCheckBox({super.key, required this.check, this.onChanged});
@@ -9,7 +9,7 @@ class CustomCheckBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Text('9'.tr),
+        Text('9'),
         const SizedBox(
           width: 5,
         ),

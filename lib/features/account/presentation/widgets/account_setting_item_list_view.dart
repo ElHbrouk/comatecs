@@ -4,7 +4,7 @@ import 'package:comatecs/core/utils/routes.dart';
 import 'package:comatecs/features/account/data/models/setting_item_model.dart';
 import 'package:comatecs/features/account/presentation/widgets/account_setting_item.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+// import 'package:get/get.dart';
 
 class AccountSettingItemListView extends StatelessWidget {
   const AccountSettingItemListView({

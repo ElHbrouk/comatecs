@@ -1,5 +1,6 @@
+import 'package:comatecs/core/utils/app_fonts.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+// import 'package:get/get.dart';
 
 class CustomTextFormFieldAuth extends StatelessWidget {
   const CustomTextFormFieldAuth({
@@ -26,8 +27,10 @@ class CustomTextFormFieldAuth extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          text.tr,
-          style: Theme.of(context).textTheme.displayLarge,
+          text,
+          style: AppFonts.bold18.copyWith(
+            color: Colors.black,
+          ),
         ),
         const SizedBox(
           height: 10,
@@ -38,7 +41,7 @@ class CustomTextFormFieldAuth extends StatelessWidget {
           keyboardType: keyboardType,
           obscureText: obscureText,
           maxLines: 1,
-          style: Theme.of(context).textTheme.bodyLarge,
+          style: AppFonts.regular14,
           decoration: InputDecoration(
             contentPadding: const EdgeInsetsDirectional.all(16),
             suffixIcon: suffixIcon,

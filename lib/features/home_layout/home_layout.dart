@@ -34,47 +34,53 @@ class _HomeLayoutState extends State<HomeLayout> {
             if (didPop) {
               return;
             }
-            alertExitApp();
+            // alertExitApp();
           },
           child: SafeArea(
-            child: views[selectedView],
+            child: Directionality(
+              textDirection: TextDirection.rtl,
+              child: views[selectedView],
+            ),
           )),
-      bottomNavigationBar: NavigationBar(
-        indicatorColor: Colors.transparent,
-        backgroundColor: Colors.white,
-        elevation: 0.0,
-        selectedIndex: selectedView,
-        onDestinationSelected: (int index) {
-          setState(() {
-            selectedView = index;
-          });
-        },
-        destinations: [
-          NavigationDestination(
-            icon: SvgPicture.asset(
-              ImageAssets.layoutHome,
+      bottomNavigationBar: Directionality(
+        textDirection: TextDirection.rtl,
+        child: NavigationBar(
+          indicatorColor: Colors.transparent,
+          backgroundColor: Colors.white,
+          elevation: 0.0,
+          selectedIndex: selectedView,
+          onDestinationSelected: (int index) {
+            setState(() {
+              selectedView = index;
+            });
+          },
+          destinations: [
+            NavigationDestination(
+              icon: SvgPicture.asset(
+                ImageAssets.layoutHome,
+              ),
+              label: 'الرئيسية',
             ),
-            label: 'الرئيسية',
-          ),
-          NavigationDestination(
-            icon: SvgPicture.asset(
-              ImageAssets.layoutHeart,
+            NavigationDestination(
+              icon: SvgPicture.asset(
+                ImageAssets.layoutHeart,
+              ),
+              label: 'المفضلة',
             ),
-            label: 'المفضلة',
-          ),
-          NavigationDestination(
-            icon: SvgPicture.asset(ImageAssets.layoutCart),
-            label: 'السلة',
-          ),
-          NavigationDestination(
-            icon: SvgPicture.asset(ImageAssets.layoutList),
-            label: 'طلباتي',
-          ),
-          NavigationDestination(
-            icon: SvgPicture.asset(ImageAssets.layoutUser),
-            label: 'حسابي',
-          ),
-        ],
+            NavigationDestination(
+              icon: SvgPicture.asset(ImageAssets.layoutCart),
+              label: 'السلة',
+            ),
+            NavigationDestination(
+              icon: SvgPicture.asset(ImageAssets.layoutList),
+              label: 'طلباتي',
+            ),
+            NavigationDestination(
+              icon: SvgPicture.asset(ImageAssets.layoutUser),
+              label: 'حسابي',
+            ),
+          ],
+        ),
       ),
     );
   }

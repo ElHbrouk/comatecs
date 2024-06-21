@@ -6,85 +6,82 @@ import 'package:comatecs/features/auth/presentaion/views/widgets/custom_text_for
 import 'package:comatecs/features/auth/presentaion/views/widgets/custom_title_auth.dart';
 import 'package:comatecs/features/auth/presentaion/views/widgets/password_eye.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+// import 'package:get/get.dart';
 
 class ResetPasswordViewBody extends StatelessWidget {
   const ResetPasswordViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Get.put(ResetPasswordControllerImpl());
+    // Get.put(ResetPasswordControllerImpl());
     return Padding(
       padding: const EdgeInsets.only(bottom: 106, left: 20, right: 20),
-      child: GetBuilder<ResetPasswordControllerImpl>(
-        builder: (controller) => HandlingRequest(
-          statuesRequest: controller.statuesRequest,
-          widget: Form(
-            key: controller.key,
-            child: Column(
-              children: [
-                CustomTitleAuth(
-                  text1: '13'.tr, //reset password
-                ),
-                const SizedBox(
-                  height: 32,
-                ),
-                CustomTextFormFieldAuth(
-                  controller: controller.password,
-                  validator: (value) {
-                    return validInput(
-                      value: value!,
-                      min: 5,
-                      max: 20,
-                      type: "password",
-                    );
-                  },
-                  obscureText: controller.secureText,
-                  suffixIcon: PasswordEye(
-                    onPressed: () {
-                      controller.visiblePassword();
-                    },
-                    text: controller.secureText,
-                  ),
-
-                  keyboardType: TextInputType.visiblePassword,
-                  hintText: '23'.tr, // enter password
-                  text: '8'.tr, //  password
-                ),
-                const SizedBox(
-                  height: 16,
-                ),
-                CustomTextFormFieldAuth(
-                  validator: (value) {
-                    return validInput(
-                      value: value!,
-                      min: 8,
-                      max: 20,
-                      type: "password",
-                    );
-                  },
-                  obscureText: controller.secureText,
-                  controller: controller.rePassword,
-                  suffixIcon: PasswordEye(
-                    onPressed: () {
-                      controller.visiblePassword();
-                    },
-                    text: controller.secureText,
-                  ),
-                  keyboardType: TextInputType.visiblePassword,
-                  hintText: '31'.tr, // re-enter password
-                  text: '31'.tr, //  re-enter password
-                ),
-                const Spacer(),
-                CustomButton(
-                  buttonName: "14".tr,
-                  onPressed: () {
-                    controller.resetPassword();
-                  },
-                ),
-              ],
+      child: Form(
+        // key: controller.key,
+        child: Column(
+          children: [
+            const CustomTitleAuth(
+              text1: "إعادة تعيين كلمة المرور", //reset password
             ),
-          ),
+            const SizedBox(
+              height: 32,
+            ),
+            CustomTextFormFieldAuth(
+              controller: TextEditingController(),
+              validator: (value) {
+                return;
+                // return validInput(
+                //   value: value!,
+                //   min: 5,
+                //   max: 20,
+                //   type: "password",
+                // );
+              },
+              obscureText: true,
+              suffixIcon: PasswordEye(
+                onPressed: () {
+                  // controller.visiblePassword();
+                },
+                text: true,
+              ),
+
+              keyboardType: TextInputType.visiblePassword,
+              hintText: " أدخل كلمة المرور", // enter password
+              text: "كلمة المرور", //  password
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            CustomTextFormFieldAuth(
+              validator: (value) {
+                return;
+                // return validInput(
+                //   value: value!,
+                //   min: 8,
+                //   max: 20,
+                //   type: "password",
+                // );
+              },
+              obscureText: true,
+              controller: TextEditingController(),
+              suffixIcon: PasswordEye(
+                onPressed: () {
+                  // controller.visiblePassword();
+                },
+                text: true,
+              ),
+              keyboardType: TextInputType.visiblePassword,
+              hintText: "تأكيد كلمة المرور", // re-enter password
+              text: "تأكيد كلمة المرور", //  re-enter password
+            ),
+            const Spacer(),
+            CustomButton(
+              buttonName: "14",
+              onPressed: () {
+                // controller.resetPassword();
+              },
+            ),
+          ],
         ),
       ),
     );

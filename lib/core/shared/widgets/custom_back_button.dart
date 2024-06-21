@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class CustomBackButton extends StatelessWidget {
   const CustomBackButton({
@@ -19,7 +20,7 @@ class CustomBackButton extends StatelessWidget {
         backgroundColor: color ?? Colors.transparent,
       ),
       onPressed: () {
-        Navigator.pop(context);
+        context.pop();
       },
       icon: const Icon(
         Icons.arrow_back_ios_new,

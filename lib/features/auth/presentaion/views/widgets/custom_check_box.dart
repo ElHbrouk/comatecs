@@ -1,5 +1,6 @@
+import 'package:comatecs/core/utils/app_fonts.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+// import 'package:get/get.dart';
 
 class CustomCheckBox extends StatelessWidget {
   const CustomCheckBox({super.key, required this.check, this.onChanged});
@@ -9,7 +10,12 @@ class CustomCheckBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Text('9'.tr),
+        Text(
+          "تذكرني",
+          style: AppFonts.regular14.copyWith(
+            color: Colors.black,
+          ),
+        ),
         const SizedBox(
           width: 5,
         ),

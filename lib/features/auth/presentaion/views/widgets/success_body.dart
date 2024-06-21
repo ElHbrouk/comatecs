@@ -3,7 +3,7 @@ import 'package:comatecs/core/utils/image_asset.dart';
 import 'package:comatecs/core/shared/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
+// import 'package:get/get.dart';
 
 class SuccessBody extends StatelessWidget {
   const SuccessBody(
@@ -12,8 +12,8 @@ class SuccessBody extends StatelessWidget {
   final String message;
   @override
   Widget build(BuildContext context) {
-    SignUpSuccessControllerImpl controller =
-        Get.put(SignUpSuccessControllerImpl());
+    // SignUpSuccessControllerImpl controller =
+    //     Get.put(SignUpSuccessControllerImpl());
     return Scaffold(
       body: Container(
         margin: const EdgeInsetsDirectional.symmetric(
@@ -46,7 +46,7 @@ class SuccessBody extends StatelessWidget {
             ),
             CustomButton(
               onPressed: () {
-                controller.goToLogin();
+                // controller.goToLogin();
               },
               buttonName: buttonName,
             ),

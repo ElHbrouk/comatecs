@@ -1,3 +1,4 @@
+import 'package:comatecs/core/utils/app_fonts.dart';
 import 'package:comatecs/core/utils/image_asset.dart';
 import 'package:flutter/material.dart';
 
@@ -20,14 +21,18 @@ class CustomTitleAuth extends StatelessWidget {
         const SizedBox(height: 16,),
         Text(
           text1, // login
-          style: Theme.of(context).textTheme.displayLarge,
+          style: AppFonts.bold18.copyWith(
+            color: Colors.black,
+          ),
         ),
         const SizedBox(
           height: 16,
         ),
         Text(
           text2 ?? '', // hello again
-          style: Theme.of(context).textTheme.bodyLarge,
+          style: AppFonts.regular16.copyWith(
+            color: Colors.grey,
+          ),
         ),
       ],
     );

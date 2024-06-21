@@ -1,9 +1,9 @@
-import 'package:comatecs/core/class/crud.dart';
-import 'package:get/get.dart';
+// import 'package:comatecs/core/class/crud.dart';
+// import 'package:get/get.dart';
 
-class InitialBindings extends Bindings {
-  @override
-  void dependencies() {
-    Get.put(Crud());
-  }
-}
+// class InitialBindings extends Bindings {
+//   @override
+//   void dependencies() {
+//     Get.put(Crud());
+//   }
+// }

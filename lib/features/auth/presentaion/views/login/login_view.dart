@@ -12,7 +12,7 @@ class LoginView extends StatelessWidget {
           canPop: false,
           onPopInvoked: (didPop) {
             if (didPop) {}
-            alertExitApp();
+            // alertExitApp();
           },
           child: const LoginViewBody()),
     );

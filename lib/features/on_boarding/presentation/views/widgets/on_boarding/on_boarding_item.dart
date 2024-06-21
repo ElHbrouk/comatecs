@@ -1,6 +1,6 @@
 import 'package:comatecs/features/on_boarding/data/data_sources/static/static.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+// import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
 class OnBoardingItem extends StatelessWidget {
@@ -18,7 +18,7 @@ class OnBoardingItem extends StatelessWidget {
           frameRate: FrameRate.max,
           onBoardingList[index].image!,
           fit: BoxFit.contain,
-          height: Get.width/1.5,
+          height: 100,
           
         ),
         Text(

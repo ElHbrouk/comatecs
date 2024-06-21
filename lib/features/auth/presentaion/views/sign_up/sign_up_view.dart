@@ -14,7 +14,7 @@ class SignUpView extends StatelessWidget {
           if (didPop) {
             return;
           }
-          alertExitApp();
+          // alertExitApp();
         },
         child: const SignUpViewBody(),
       ),

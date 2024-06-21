@@ -14,10 +14,11 @@ import 'package:comatecs/features/cart/presentaion/view/cart_view.dart';
 import 'package:comatecs/features/favourite/presentaion/view/favourite_view.dart';
 import 'package:comatecs/features/home/presentaion/views/home_view.dart';
 import 'package:comatecs/features/home/presentaion/views/item_detail_view.dart';
+import 'package:comatecs/features/home_layout/home_layout.dart';
 import 'package:comatecs/features/language/presentation/views/language_view.dart';
 import 'package:comatecs/features/on_boarding/presentation/views/on_boarding_view.dart';
 import 'package:comatecs/features/splash/presentaion/views/splash_view.dart';
-import 'package:get/get.dart';
+// import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
 
 abstract class AppRoutes {
@@ -37,13 +38,14 @@ abstract class AppRoutes {
 
 //--------------- items views ---------------
   static const homeView = "/homeView";
+  static const homeLayout = "/homeLayout";
   static const itemDetailView = "/itemDetailView";
   static const accountView = "/accountView";
   static const cartView = "/cartView";
   static const favouriteView = "/favouriteView";
   static const editProfileView = "/editProfileView";
 
-  static GoRouter routes = GoRouter(routes: [
+  static GoRouter routes = GoRouter(routes: <RouteBase>[
     GoRoute(
       path: splashView,
       builder: (context, state) => const SplashView(),
@@ -68,10 +70,10 @@ abstract class AppRoutes {
       path: signUpView,
       builder: (context, state) => const SignUpView(),
     ),
-    GoRoute(
-      path: forgetPasswordView,
-      builder: (context, state) => const ForgetPasswordView(),
-    ),
+    // GoRoute(
+    //   path: forgetPasswordView,
+    //   builder: (context, state) => const ForgetPasswordView(),
+    // ),
     GoRoute(
       path: resetPasswordView,
       builder: (context, state) => const ResetPasswordView(),
@@ -83,6 +85,10 @@ abstract class AppRoutes {
     GoRoute(
       path: homeView,
       builder: (context, state) => const HomeView(),
+    ),
+     GoRoute(
+      path: homeLayout,
+      builder: (context, state) => const HomeLayout(),
     ),
     GoRoute(
       path: verifyCodePasswordView,
@@ -102,20 +108,19 @@ abstract class AppRoutes {
     ),
     GoRoute(
       path: accountView,
-      builder: (context,state) => const AccountView(),
+      builder: (context, state) => const AccountView(),
     ),
     GoRoute(
       path: cartView,
-      builder: (context,state) => const CartView(),
+      builder: (context, state) => const CartView(),
     ),
     GoRoute(
-
       path: favouriteView,
-      builder: (context,state) => const FavouriteView(),
+      builder: (context, state) => const FavouriteView(),
     ),
     GoRoute(
       path: editProfileView,
-      builder: (context,state) => const EditProfileView(),
+      builder: (context, state) => const EditProfileView(),
     ),
   ]);
 }

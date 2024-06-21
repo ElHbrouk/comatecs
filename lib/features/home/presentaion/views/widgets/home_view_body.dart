@@ -1,6 +1,5 @@
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:comatecs/core/utils/image_asset.dart';
-import 'package:comatecs/features/auth/presentaion/views/widgets/login/custom_text_form_field.dart';
+import 'package:comatecs/core/shared/widgets/custom_view_title.dart';
+import 'package:comatecs/features/auth/presentaion/views/widgets/login/custom_text_field.dart';
 import 'package:comatecs/features/home/presentaion/views/widgets/filter_button.dart';
 import 'package:comatecs/features/home/presentaion/views/widgets/home_image_slider.dart';
 import 'package:comatecs/features/home/presentaion/views/widgets/items/product_item_grid_view.dart';
@@ -11,42 +10,44 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(physics: const BouncingScrollPhysics(), slivers: [
-      SliverToBoxAdapter(
-        child: ListTile(
-          title: Text(
-            "تسوق معنا ",
-            style: Theme.of(context).textTheme.displayLarge!.copyWith(
-                  color: Colors.black,
-                ),
+    return const Padding(
+      padding: EdgeInsets.only(
+        top: 20.0,
+        left: 20.0,
+        right: 20.0,
+      ),
+      child: CustomScrollView(physics: BouncingScrollPhysics(), slivers: [
+        SliverToBoxAdapter(
+          child: CustomViewTitle(
+            title: "تسوق معنا ",
           ),
-          leading: Image.asset(height: 30, ImageAssets.appLogo2),
         ),
-      ),
-      SliverToBoxAdapter(child: HomeImageSlider()),
-      const SliverToBoxAdapter(
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Expanded(
-              child: CustomTextFormField(
-                hintText: "ابحث عن اسم المنتج",
+        SliverToBoxAdapter(
+          child: HomeImageSlider(),
+        ),
+        SliverToBoxAdapter(
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Expanded(
+                child: CustomTextField(
+                  hintText: "ابحث عن اسم المنتج",
+                ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsetsDirectional.only(start: 10.0),
-              child: FilterButton(),
-            ),
-          ],
+              Padding(
+                padding: EdgeInsetsDirectional.only(start: 10.0),
+                child: FilterButton(),
+              ),
+            ],
+          ),
         ),
-      ),
-      const SliverToBoxAdapter(
-        child: SizedBox(
-          height: 20,
+        SliverToBoxAdapter(
+          child: SizedBox(
+            height: 20,
+          ),
         ),
-      ),
-      const ProductItemGridView(),
-    ]);
+        ProductItemGridView(),
+      ]),
+    );
   }
 }
-

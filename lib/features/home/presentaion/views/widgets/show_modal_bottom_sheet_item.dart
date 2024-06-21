@@ -1,6 +1,9 @@
+import 'package:comatecs/core/shared/widgets/custom_button.dart';
 import 'package:comatecs/core/utils/app_colors.dart';
+import 'package:comatecs/core/utils/app_fonts.dart';
 import 'package:comatecs/core/utils/image_asset.dart';
 import 'package:comatecs/features/home/presentaion/views/widgets/custom_drop_down_menu.dart';
+import 'package:comatecs/features/home/presentaion/views/widgets/custom_range_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -33,13 +36,13 @@ class ShowModalBottomSheetItem extends StatelessWidget {
             children: [
               Text(
                 ': تصفية المنتج من خلال ',
-                style: Theme.of(context).textTheme.displayLarge!.copyWith(
-                      color: Colors.black,
-                    ),
+                style: AppFonts.bold16.copyWith(
+                  color: Colors.black,
+                ),
               ),
               SvgPicture.asset(
                 ImageAssets.filter,
-                height: 26,
+                height: 24,
                 colorFilter: const ColorFilter.mode(
                   AppColors.primaryColor,
                   BlendMode.srcIn,
@@ -56,10 +59,9 @@ class ShowModalBottomSheetItem extends StatelessWidget {
               alignment: Alignment.centerRight,
               child: Text(
                 ': فئة المنتج ',
-                style: Theme.of(context)
-                    .textTheme
-                    .displayMedium!
-                    .copyWith(color: Colors.black),
+                style: AppFonts.regular14.copyWith(
+                  color: Colors.black,
+                ),
               ),
             ),
           ),
@@ -75,21 +77,22 @@ class ShowModalBottomSheetItem extends StatelessWidget {
               alignment: Alignment.centerRight,
               child: Text(
                 ': العلامة التجارية',
-                style: Theme.of(context)
-                    .textTheme
-                    .displayMedium!
-                    .copyWith(color: Colors.black),
+                style: AppFonts.regular14.copyWith(
+                  color: Colors.black,
+                ),
               ),
             ),
           ),
           const CustomDropDownMenu(
             label: 'اختر العلامة التجارية',
           ),
-          RangeSlider(
-            min: 1,
-            max: 110,
-            values: const RangeValues(1, 100),
-            onChanged: (value) {},
+          const CustomRangeSlider(),
+          const Spacer(),
+          Expanded(
+            child: CustomButton(
+              onPressed: () {},
+              buttonName: "تأكيد",
+            ),
           ),
         ],
       ),

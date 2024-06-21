@@ -14,56 +14,61 @@ class ItemDetailViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsetsDirectional.symmetric(horizontal: 20.0),
-      child: CustomScrollView(
-        physics: BouncingScrollPhysics(
-          decelerationRate: ScrollDecelerationRate.fast,
-        ),
-        slivers: [
-          SliverToBoxAdapter(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                ItemVideo(),
-                ItemPrice(),
-                SizedBox(
-                  height: 24,
-                ),
-                ItemDetailsInfo(),
-                Divider(),
-                ItemFeatures(),
-                Divider(),
-                ItemAttachments(),
-                Divider(),
-                ItemDeliver(),
-                Divider(),
-              ],
-            ),
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Padding(
+        padding: const EdgeInsetsDirectional.symmetric(horizontal: 20.0),
+        child: CustomScrollView(
+          physics: const BouncingScrollPhysics(
+            decelerationRate: ScrollDecelerationRate.fast,
           ),
-          SliverFillRemaining(
-            hasScrollBody: false,
-            child: RelatedItems(),
-          ),
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: EdgeInsets.symmetric(vertical: 10),
-              child: Row(
+          slivers: [
+            const SliverToBoxAdapter(
+              child: Column(
                 children: [
-                  CustomCartButton(),
-                  Expanded(
-                    child: CustomButton(
-                      buttonName: "أضف إلى السلة",
-                    ),
-                  ),
+                  ItemVideo(),
+                  ItemPrice(),
                   SizedBox(
-                    width: 10,
+                    height: 24,
                   ),
+                  ItemDetailsInfo(),
+                  Divider(),
+                  ItemFeatures(),
+                  Divider(),
+                  ItemAttachments(),
+                  Divider(),
+                  ItemDeliver(),
+                  Divider(),
                 ],
               ),
             ),
-          ),
-        ],
+            const SliverFillRemaining(
+              hasScrollBody: false,
+              child: RelatedItems(),
+            ),
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  vertical: 10,
+                ),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: CustomButton(
+                        onPressed: () {},
+                        buttonName: "أضف إلى السلة",
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    const CustomCartButton(),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

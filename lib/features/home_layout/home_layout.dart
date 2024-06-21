@@ -1,6 +1,8 @@
 import 'package:comatecs/core/functions/alert_exit_app.dart';
 import 'package:comatecs/core/utils/image_asset.dart';
 import 'package:comatecs/features/account/presentation/account_view.dart';
+import 'package:comatecs/features/cart/presentaion/view/cart_view.dart';
+import 'package:comatecs/features/favourite/presentaion/view/favourite_view.dart';
 import 'package:comatecs/features/home/presentaion/views/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -15,8 +17,8 @@ class HomeLayout extends StatefulWidget {
 class _HomeLayoutState extends State<HomeLayout> {
   List<Widget> views = const [
     HomeView(),
-    HomeView(),
-    HomeView(),
+    FavouriteView(),
+    CartView(),
     HomeView(),
     AccountView(),
   ];
@@ -35,10 +37,7 @@ class _HomeLayoutState extends State<HomeLayout> {
             alertExitApp();
           },
           child: SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: views[selectedView],
-            ),
+            child: views[selectedView],
           )),
       bottomNavigationBar: NavigationBar(
         indicatorColor: Colors.transparent,

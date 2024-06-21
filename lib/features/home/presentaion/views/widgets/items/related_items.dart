@@ -1,3 +1,4 @@
+import 'package:comatecs/core/utils/app_fonts.dart';
 import 'package:comatecs/features/home/presentaion/views/widgets/items/related_item_list_view.dart';
 import 'package:flutter/material.dart';
 
@@ -8,17 +9,17 @@ class RelatedItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.end,
+    return const Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           'منتجات مشابهة',
-          style: Theme.of(context).textTheme.displayLarge,
+          style: AppFonts.bold16,
         ),
-        const SizedBox(
+        SizedBox(
           height: 20,
         ),
-        const RelatedItemsListView(),
+        RelatedItemsListView(),
       ],
     );
   }

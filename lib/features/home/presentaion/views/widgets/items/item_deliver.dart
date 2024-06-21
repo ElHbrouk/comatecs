@@ -1,5 +1,5 @@
+import 'package:comatecs/core/utils/app_fonts.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class ItemDeliver extends StatelessWidget {
   const ItemDeliver({super.key});
@@ -7,28 +7,28 @@ class ItemDeliver extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.end,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          ': التسليم',
-          style: Theme.of(context).textTheme.displayLarge!.copyWith(
-                color: Colors.black,
-              ),
+          'التسليم :',
+          style: AppFonts.bold14.copyWith(
+            color: Colors.black,
+          ),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              'JOD 5',
-              style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                    color: Colors.black,
-                  ),
+              ': التوصيل',
+              style: AppFonts.regular12.copyWith(
+                color: Colors.grey,
+              ),
             ),
             Text(
-              ': التوصيل',
-              style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                    color: Colors.grey,
-                  ),
+              'JOD 5',
+              style: AppFonts.regular16.copyWith(
+                color: Colors.black,
+              ),
             ),
           ],
         ),
@@ -39,16 +39,16 @@ class ItemDeliver extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              'خلال يوم ',
-              style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                    color: Colors.black,
-                  ),
+              ':  التسليم',
+              style: AppFonts.regular12.copyWith(
+                color: Colors.grey,
+              ),
             ),
             Text(
-              ':  التسليم',
-              style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                    color: Colors.grey,
-                  ),
+              'خلال يوم ',
+              style: AppFonts.regular16.copyWith(
+                color: Colors.black,
+              ),
             ),
           ],
         ),

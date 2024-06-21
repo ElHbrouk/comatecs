@@ -1,3 +1,4 @@
+import 'package:comatecs/core/utils/app_fonts.dart';
 import 'package:comatecs/core/utils/image_asset.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -37,7 +38,10 @@ class ProductItem extends StatelessWidget {
           const SizedBox(
             height: 5,
           ),
-          const Text('الاسم التجاري الشائع'),
+          const Text('الاسم التجاري الشائع',
+          
+          style: AppFonts.regular14,
+          ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: Row(
@@ -46,9 +50,9 @@ class ProductItem extends StatelessWidget {
               children: [
                 TextButton(
                   onPressed: () {},
-                  child: Text(
+                  child: const Text(
                     '16.000',
-                    style: Theme.of(context).textTheme.bodyLarge,
+                    style: AppFonts.bold16,
                   ),
                 ),
                 Padding(

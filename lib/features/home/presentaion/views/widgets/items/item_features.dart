@@ -1,3 +1,4 @@
+import 'package:comatecs/core/utils/app_fonts.dart';
 import 'package:flutter/material.dart';
 
 class ItemFeatures extends StatelessWidget {
@@ -12,20 +13,21 @@ class ItemFeatures extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.end,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           'مميزات',
-          style: Theme.of(context).textTheme.displayLarge!.copyWith(
-                color: Colors.black,
-              ),
+          style: AppFonts.bold14.copyWith(
+            color: Colors.black,
+          ),
         ),
         ListView.builder(
           itemCount: features.length,
           physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           itemBuilder: (context, index) => Text(
-            textAlign: TextAlign.end,
+            textAlign: TextAlign.start,
+            style: AppFonts.regular12,
             features[index],
           ),
         ),

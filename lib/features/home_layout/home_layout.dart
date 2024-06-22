@@ -56,26 +56,42 @@ class _HomeLayoutState extends State<HomeLayout> {
           destinations: [
             NavigationDestination(
               icon: SvgPicture.asset(
-                ImageAssets.layoutHome,
+                selectedView == 0
+                    ? ImageAssets.layoutHomeFilled
+                    : ImageAssets.layoutHomeUnfilled,
               ),
               label: 'الرئيسية',
             ),
             NavigationDestination(
               icon: SvgPicture.asset(
-                ImageAssets.layoutHeart,
+                selectedView == 1
+                    ? ImageAssets.layoutHeartFilled
+                    : ImageAssets.layoutHeartUnfilled,
               ),
               label: 'المفضلة',
             ),
             NavigationDestination(
-              icon: SvgPicture.asset(ImageAssets.layoutCart),
+              icon: SvgPicture.asset(
+                selectedView == 2
+                    ? ImageAssets.layoutCartFilled
+                    : ImageAssets.layoutCartUnfilled,
+              ),
               label: 'السلة',
             ),
             NavigationDestination(
-              icon: SvgPicture.asset(ImageAssets.layoutList),
+              icon: SvgPicture.asset(
+                selectedView == 3
+                    ? ImageAssets.layoutListFilled
+                    : ImageAssets.layoutListUnfilled,
+              ),
               label: 'طلباتي',
             ),
             NavigationDestination(
-              icon: SvgPicture.asset(ImageAssets.layoutUser),
+              icon: SvgPicture.asset(
+                selectedView == 4
+                    ? ImageAssets.layoutUserFilled
+                    : ImageAssets.layoutUserUnfilled,
+              ),
               label: 'حسابي',
             ),
           ],

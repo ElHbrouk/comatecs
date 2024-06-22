@@ -1,4 +1,4 @@
-import 'package:comatecs/features/account/presentation/widgets/account_view_body.dart';
+import 'package:comatecs/features/account/presentation/widgets/account_settings/account_view_body.dart';
 import 'package:flutter/material.dart';
 
 class AccountView extends StatelessWidget {

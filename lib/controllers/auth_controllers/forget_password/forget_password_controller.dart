@@ -3,7 +3,7 @@
 // import 'package:comatecs/core/data/data_sources/remote_data_source/auth/forget_password/check_email.dart';
 // import 'package:comatecs/core/functions/handling_data.dart';
 // import 'package:flutter/material.dart';
-// // import 'package:get/get.dart';
+// 
 
 // abstract class ForgetPasswordController extends GetxController {
 //   checkEmail();

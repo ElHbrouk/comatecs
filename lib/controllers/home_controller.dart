@@ -2,7 +2,7 @@
 // import 'package:comatecs/core/data/data_sources/remote_data_source/home_remote.dart';
 // import 'package:comatecs/core/functions/handling_data.dart';
 // import 'package:comatecs/core/services/services.dart';
-// import 'package:get/get.dart';
+
 
 // abstract class HomeController extends GetxController {
 //   initialData();

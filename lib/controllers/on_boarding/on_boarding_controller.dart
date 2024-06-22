@@ -2,7 +2,7 @@
 // import 'package:comatecs/core/services/services.dart';
 // import 'package:comatecs/features/on_boarding/data/data_sources/static/static.dart';
 // import 'package:flutter/material.dart';
-// import 'package:get/get.dart';
+
 // import 'package:path/path.dart';
 
 // abstract class OnBoardingController extends GetxController {

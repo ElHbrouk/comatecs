@@ -2,7 +2,7 @@
 // import 'package:comatecs/core/utils/routes.dart';
 // import 'package:comatecs/core/data/data_sources/remote_data_source/auth/forget_password/verify_code.dart';
 // import 'package:comatecs/core/functions/handling_data.dart';
-// import 'package:get/get.dart';
+
 
 // abstract class VerifyCodeController extends GetxController {
 //   checkCode();

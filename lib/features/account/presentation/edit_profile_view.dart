@@ -1,4 +1,4 @@
-import 'package:comatecs/features/account/presentation/widgets/edit_profile_view_body.dart';
+import 'package:comatecs/features/account/presentation/widgets/edit/edit_profile_view_body.dart';
 import 'package:flutter/material.dart';
 
 class EditProfileView extends StatelessWidget {
@@ -6,8 +6,10 @@ class EditProfileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: const EditProfileViewBody(),
+    return const Scaffold(
+      body: SafeArea(
+        child: EditProfileViewBody(),
+      ),
     );
   }
 }

@@ -1,8 +1,9 @@
-import 'package:comatecs/core/utils/app_colors.dart';
 import 'package:comatecs/features/account/presentation/about_comactes_view.dart';
 import 'package:comatecs/features/account/presentation/account_view.dart';
+import 'package:comatecs/features/account/presentation/edit_address_view.dart';
 import 'package:comatecs/features/account/presentation/edit_password_view.dart';
 import 'package:comatecs/features/account/presentation/edit_profile_view.dart';
+import 'package:comatecs/features/account/presentation/technical_support_view.dart';
 import 'package:comatecs/features/account/presentation/widgets/edit/edit_personal_info_view.dart';
 import 'package:comatecs/features/account/presentation/terms_and_conditions_view.dart';
 import 'package:comatecs/features/account/presentation/who_are_we_view.dart';
@@ -21,8 +22,6 @@ import 'package:comatecs/features/home/presentaion/views/item_detail_view.dart';
 import 'package:comatecs/features/home_layout/home_layout.dart';
 import 'package:comatecs/features/on_boarding/presentation/views/on_boarding_view.dart';
 import 'package:comatecs/features/splash/presentaion/views/splash_view.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 
 abstract class AppRoutes {
@@ -53,6 +52,8 @@ abstract class AppRoutes {
   static const whoAreWeView = "/whoAreWeView";
   static const aboutComactesView = "/aboutComactesView";
   static const termsAndConditionsView = "/termsAndConitionsView";
+  static const editAddressView = "/editAddressView";
+  static const technicalSupportView = "/technicalSupportView";
 
   static GoRouter routes = GoRouter(
     routes: <RouteBase>[
@@ -147,6 +148,14 @@ abstract class AppRoutes {
       GoRoute(
         path: termsAndConditionsView,
         builder: (context, state) => const TermsAndConditionsView(),
+      ),
+      GoRoute(
+        path: editAddressView,
+        builder: (context, state) => const EditAddressView(),
+      ),
+      GoRoute(
+        path: technicalSupportView,
+        builder: (context, state) => const TechnicalSupportView(),
       ),
     ],
   );

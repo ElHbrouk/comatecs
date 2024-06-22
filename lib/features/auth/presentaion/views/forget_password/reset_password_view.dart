@@ -1,4 +1,3 @@
-import 'package:comatecs/core/functions/alert_exit_app.dart';
 import 'package:comatecs/features/auth/presentaion/views/widgets/reset_password/reset_password_body.dart';
 import 'package:flutter/material.dart';
 

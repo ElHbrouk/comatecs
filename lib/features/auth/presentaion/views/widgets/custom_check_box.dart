@@ -1,6 +1,5 @@
 import 'package:comatecs/core/utils/app_fonts.dart';
 import 'package:flutter/material.dart';
-// import 'package:get/get.dart';
 
 class CustomCheckBox extends StatelessWidget {
   const CustomCheckBox({super.key, required this.check, this.onChanged});

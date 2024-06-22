@@ -1,4 +1,3 @@
-import 'package:comatecs/core/functions/alert_exit_app.dart';
 import 'package:comatecs/features/auth/presentaion/views/widgets/login/login_view_body.dart';
 import 'package:flutter/material.dart';
 

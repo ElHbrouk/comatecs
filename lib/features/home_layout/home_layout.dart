@@ -1,4 +1,3 @@
-import 'package:comatecs/core/functions/alert_exit_app.dart';
 import 'package:comatecs/core/utils/image_asset.dart';
 import 'package:comatecs/features/account/presentation/account_view.dart';
 import 'package:comatecs/features/cart/presentaion/view/cart_view.dart';

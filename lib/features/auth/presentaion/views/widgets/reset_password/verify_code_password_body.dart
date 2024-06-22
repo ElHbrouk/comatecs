@@ -1,10 +1,7 @@
-import 'package:comatecs/controllers/auth_controllers/forget_password/verify_code_password_controller.dart';
-import 'package:comatecs/core/class/handling_data_view.dart';
 import 'package:comatecs/core/utils/app_colors.dart';
 import 'package:comatecs/features/auth/presentaion/views/widgets/custom_title_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
-// import 'package:get/get.dart';
 
 class VerifyCodePasswordBody extends StatelessWidget {
   const VerifyCodePasswordBody({
@@ -20,7 +17,7 @@ class VerifyCodePasswordBody extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 106, left: 20, right: 20),
       child: Column(
         children: [
-          CustomTitleAuth(
+          const CustomTitleAuth(
             text1: '46',
           ),
           OtpTextField(

@@ -1,6 +1,5 @@
 import 'package:comatecs/core/utils/app_fonts.dart';
 import 'package:flutter/material.dart';
-// import 'package:get/get.dart';
 
 class CustomTextFormFieldAuth extends StatelessWidget {
   const CustomTextFormFieldAuth({
@@ -11,7 +10,8 @@ class CustomTextFormFieldAuth extends StatelessWidget {
     this.suffixIcon,
     this.prefixIcon,
     this.hintText,
-    this.controller,required this.validator,
+    this.controller,
+    required this.validator,
   });
   final String text;
   final TextInputType? keyboardType;

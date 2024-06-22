@@ -1,9 +1,10 @@
-import 'package:comatecs/controllers/auth_controllers/sign_up/sign_up_success_controller.dart';
+import 'package:comatecs/core/utils/app_fonts.dart';
 import 'package:comatecs/core/utils/image_asset.dart';
 import 'package:comatecs/core/shared/widgets/custom_button.dart';
+import 'package:comatecs/core/utils/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-// import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 
 class SuccessBody extends StatelessWidget {
   const SuccessBody(
@@ -39,13 +40,16 @@ class SuccessBody extends StatelessWidget {
             ),
             Text(
               message,
-              style: Theme.of(context).textTheme.displayLarge,
+              style: AppFonts.bold18.copyWith(
+                color: Colors.black,
+              ),
             ),
             const Spacer(
               flex: 2,
             ),
             CustomButton(
               onPressed: () {
+                context.go(AppRoutes.loginView);
                 // controller.goToLogin();
               },
               buttonName: buttonName,

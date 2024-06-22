@@ -1,6 +1,5 @@
 import 'package:comatecs/features/on_boarding/data/data_sources/static/static.dart';
 import 'package:flutter/material.dart';
-// import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
 class OnBoardingItem extends StatelessWidget {
@@ -14,12 +13,10 @@ class OnBoardingItem extends StatelessWidget {
     return Column(
       children: [
         Lottie.asset(
-          
           frameRate: FrameRate.max,
           onBoardingList[index].image!,
           fit: BoxFit.contain,
           height: 100,
-          
         ),
         Text(
           onBoardingList[index].title!,

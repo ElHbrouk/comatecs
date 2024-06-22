@@ -1,20 +1,16 @@
-import 'package:comatecs/controllers/auth_controllers/sign_up/sign_up_controller.dart';
-import 'package:comatecs/core/class/handling_data_view.dart';
-import 'package:comatecs/core/functions/valid_input.dart';
 import 'package:comatecs/core/shared/widgets/custom_button.dart';
+import 'package:comatecs/core/utils/routes.dart';
 import 'package:comatecs/features/auth/presentaion/views/widgets/custom_text_form_field_auth.dart';
 import 'package:comatecs/features/auth/presentaion/views/widgets/custom_text_row.dart';
 import 'package:comatecs/features/auth/presentaion/views/widgets/custom_title_auth.dart';
-import 'package:comatecs/features/auth/presentaion/views/widgets/password_eye.dart';
 import 'package:flutter/material.dart';
-// import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 
 class SignUpViewBody extends StatelessWidget {
   const SignUpViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // Get.put(SignUpControllerImpl());
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Padding(
@@ -29,9 +25,10 @@ class SignUpViewBody extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                CustomTitleAuth(
+                const CustomTitleAuth(
                   text1: "إنشاء حساب جديد", //Create a new account!
-                  text2: "مرحبًا بك, استمتع بتجربة تسوق مميزة معنا", // Hello,Enjoy Shopping with us
+                  text2:
+                      "مرحبًا بك, استمتع بتجربة تسوق مميزة معنا", // Hello,Enjoy Shopping with us
                 ),
                 const SizedBox(
                   height: 32,
@@ -58,14 +55,14 @@ class SignUpViewBody extends StatelessWidget {
                   },
                   controller: TextEditingController(),
                   keyboardType: TextInputType.emailAddress,
-      
+
                   hintText: "  أدخل إيميل المستخدم", //Enter User Name
                   text: " تم إنشاء الحساب بنجاح", //User Name
                 ),
                 const SizedBox(
                   height: 41,
                 ),
-      
+
                 //    CustomTextFormFieldAuth(
                 //     validator: (value) {
                 //       return;
@@ -82,7 +79,7 @@ class SignUpViewBody extends StatelessWidget {
                 //       // },
                 //       // text: controller.isNotVisible,
                 //     // ),
-      
+
                 // }),
                 // const SizedBox(
                 //   height: 41,
@@ -98,57 +95,74 @@ class SignUpViewBody extends StatelessWidget {
                   keyboardType: TextInputType.phone,
                   text: "رقم الهاتف", //Mobile Number
                 ),
-                // CustomTextFormFieldAuth(
-                //   keyboardType: TextInputType.streetAddress,
-                //   hintText: '24'.tr, //Address
-                //   text: '24'.tr, //Address
-                // ),
-                // const SizedBox(
-                //   height: 41,
-                // ),
-      
-                // const SizedBox(
-                //   height: 41,
-                // ),
-                // CustomTextFormFieldAuth(
-                //   hintText: '29'.tr, //Enter you job
-      
-                //   text: '16'.tr, //job
-                // ),
-                // const SizedBox(
-                //   height: 41,
-                // ),
-                // CustomTextFormFieldAuth(
-                //   hintText: '25'.tr, // Choose company kind
-                //   text: '17'.tr, // Company
-                // ),
-                // const SizedBox(
-                //   height: 41,
-                // ),
-                // CustomTextFormFieldAuth(
-                //   hintText: '26'.tr, // Choose number of employees
-                //   keyboardType: TextInputType.number,
-                //   text: '18'.tr, // number of employees
-                // ),
-                // const SizedBox(
-                //   height: 41,
-                // ),
-                // CustomTextFormFieldAuth(
-                //   hintText: '27'.tr, // choose your major
-                //   text: '19'.tr, // your major
-                // ),
+                const SizedBox(
+                  height: 41,
+                ),
+                CustomTextFormFieldAuth(
+                  keyboardType: TextInputType.streetAddress,
+                  hintText: "عدد الموظفين", //Address
+                  text: "عدد الموظفين",
+                  validator: (value) {
+                    return;
+                  }, //Address
+                ),
+                const SizedBox(
+                  height: 41,
+                ),
+
+                CustomTextFormFieldAuth(
+                  hintText: "أدخل طبيعة عملك", //Enter you job
+
+                  text: "طبيعة العمل",
+                  validator: (value) {
+                    return;
+                  }, //job
+                ),
+                const SizedBox(
+                  height: 41,
+                ),
+                CustomTextFormFieldAuth(
+                  hintText: "اختر نوع الشركة", // Choose company kind
+                  text: "نوع الشركة ",
+                  validator: (value) {
+                    return;
+                  }, // Company
+                ),
+                const SizedBox(
+                  height: 41,
+                ),
+                CustomTextFormFieldAuth(
+                  validator: (value) {
+                    return;
+                  },
+                  hintText: "اختر عدد الموظفين", // Choose number of employees
+                  keyboardType: TextInputType.number,
+                  text: "عدد الموظفين", // number of employees
+                ),
+                const SizedBox(
+                  height: 41,
+                ),
+                CustomTextFormFieldAuth(
+                  validator: (value) {
+                    return;
+                  },
+                  hintText: "اختر وظيفتك", // choose your major
+                  text: "التخصص", // your major
+                ),
                 const SizedBox(
                   height: 40,
                 ),
                 CustomButton(
                   buttonName: "تسجيل جديد", // SignUp
                   onPressed: () {
+                    context.push(AppRoutes.signUpSuccess);
                     // controller.signUp();
                   },
                 ),
                 const SizedBox(height: 30),
                 CustomTextRow(
                   onPressed: () {
+                    context.go(AppRoutes.loginView);
                     // controller.goToLogin();
                   },
                   text1: " يوجد حساب ؟", // already have an account?

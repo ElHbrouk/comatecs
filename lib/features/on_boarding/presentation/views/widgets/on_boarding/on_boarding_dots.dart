@@ -2,7 +2,7 @@
 // import 'package:comatecs/core/utils/app_colors.dart';
 // import 'package:comatecs/features/on_boarding/data/data_sources/static/static.dart';
 // import 'package:flutter/material.dart';
-// import 'package:get/get.dart';
+
 
 // class OnBoardingDots extends StatelessWidget {
 //   const OnBoardingDots({

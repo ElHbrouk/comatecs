@@ -1,8 +1,5 @@
-import 'package:comatecs/controllers/auth_controllers/login/login_controller.dart';
-import 'package:comatecs/core/class/handling_data_view.dart';
-import 'package:comatecs/core/utils/app_colors.dart';
-import 'package:comatecs/core/functions/valid_input.dart';
 import 'package:comatecs/core/shared/widgets/custom_button.dart';
+import 'package:comatecs/core/utils/app_colors.dart';
 import 'package:comatecs/core/utils/app_fonts.dart';
 import 'package:comatecs/core/utils/routes.dart';
 import 'package:comatecs/features/auth/presentaion/views/widgets/custom_check_box.dart';
@@ -12,7 +9,6 @@ import 'package:comatecs/features/auth/presentaion/views/widgets/custom_title_au
 import 'package:comatecs/features/auth/presentaion/views/widgets/password_eye.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-// import 'package:get/get.dart';
 
 class LoginViewBody extends StatelessWidget {
   const LoginViewBody({super.key});
@@ -82,7 +78,7 @@ class LoginViewBody extends StatelessWidget {
                     ),
                     TextButton(
                         onPressed: () {
-                          context.go(AppRoutes.forgetPasswordView);
+                          context.push(AppRoutes.forgetPasswordView);
                           // controller.goToForgetPassword();
                         },
                         child: Text(
@@ -98,14 +94,14 @@ class LoginViewBody extends StatelessWidget {
                 CustomButton(
                   buttonName: "تسجيل الدخول", // login
                   onPressed: () {
-                    context.go(AppRoutes.homeLayout);
+                    context.push(AppRoutes.homeLayout);
                     // controller.login();
                   },
                 ),
                 const SizedBox(height: 40),
                 CustomTextRow(
                   onPressed: () {
-                    context.go(AppRoutes.signUpView);
+                    context.push(AppRoutes.signUpView);
                     // controller.goToSignUp();
                   },
                   text1: "مستخدم جديد؟", // A new user?

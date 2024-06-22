@@ -1,11 +1,7 @@
-import 'package:comatecs/controllers/auth_controllers/forget_password/forget_password_controller.dart';
-import 'package:comatecs/core/class/handling_data_view.dart';
-import 'package:comatecs/core/functions/valid_input.dart';
 import 'package:comatecs/core/shared/widgets/custom_button.dart';
 import 'package:comatecs/features/auth/presentaion/views/widgets/custom_text_form_field_auth.dart';
 import 'package:comatecs/features/auth/presentaion/views/widgets/custom_title_auth.dart';
 import 'package:flutter/material.dart';
-// import 'package:get/get.dart';
 
 class CheckEmailViewBody extends StatelessWidget {
   const CheckEmailViewBody({
@@ -38,12 +34,12 @@ class CheckEmailViewBody extends StatelessWidget {
               controller: TextEditingController(),
               keyboardType: TextInputType.emailAddress,
 
-              hintText: '22', //Enter email
-              text: '6', //Email
+              hintText: "أدخل اسم المستخدم", //Enter email
+              text: "إيميل المستخدم", //Email
             ),
             const Spacer(),
             CustomButton(
-              buttonName: "14",
+              buttonName: "إرسال",
               onPressed: onPressed,
             ),
           ],

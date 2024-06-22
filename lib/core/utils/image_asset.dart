@@ -228,4 +228,7 @@ abstract class ImageAssets {
   /// Assets for Delete
   /// assets/images/delete.png
   static const String delete = "assets/images/delete.svg";
+  /// Assets for Comactes_word
+  /// assets/images/comactes_word.png
+  static const String comactesWord = "assets/images/comactes_word.png";
 }

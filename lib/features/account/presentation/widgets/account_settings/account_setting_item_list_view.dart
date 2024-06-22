@@ -18,13 +18,16 @@ class AccountSettingItemListView extends StatelessWidget {
       physics: const NeverScrollableScrollPhysics(),
       itemCount: views.length,
       shrinkWrap: true,
-      itemBuilder: (context, index) => InkWell(
-        borderRadius: BorderRadius.circular(16),
-        onTap: () {
-          context.push(views[index]);
-        },
-        child: AccoungSettingItem(
-          settingItemModel: items[index],
+      itemBuilder: (context, index) => Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(8),
+          onTap: () {
+            context.push(views[index]);
+          },
+          child: AccoungSettingItem(
+            settingItemModel: items[index],
+          ),
         ),
       ),
     );

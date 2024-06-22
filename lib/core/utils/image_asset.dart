@@ -176,23 +176,27 @@ abstract class ImageAssets {
 
   /// Assets for layoutCart
   /// assets/images/layout_cart.svg
-  static const String layoutCart = "assets/images/layout_cart.svg";
+  static const String layoutCartUnfilled =
+      "assets/images/layout_cart_unfilled.svg";
 
   /// Assets for layoutHeart
   /// assets/images/layout_heart.svg
-  static const String layoutHeart = "assets/images/layout_heart.svg";
+  static const String layoutHeartUnfilled =
+      "assets/images/layout_heart_unfilled.svg";
 
   /// Assets for layoutHome
   /// assets/images/layout_home.svg
-  static const String layoutHome = "assets/images/layout_home.svg";
+  static const String layoutHomeFilled = "assets/images/layout_home_filled.svg";
 
   /// Assets for layoutList
   /// assets/images/layout_list.svg
-  static const String layoutList = "assets/images/layout_list.svg";
+  static const String layoutListUnfilled =
+      "assets/images/layout_list_unfilled.svg";
 
   /// Assets for layoutUser
   /// assets/images/layout_user.svg
-  static const String layoutUser = "assets/images/layout_user.svg";
+  static const String layoutUserUnfilled =
+      "assets/images/layout_user_unfilled.svg";
 
   /// Assets for Play
   /// assets/images/Play.svg
@@ -225,10 +229,38 @@ abstract class ImageAssets {
   /// Assets for Logout
   /// assets/images/logout.png
   static const String logout = "assets/images/logout.svg";
+
   /// Assets for Delete
   /// assets/images/delete.png
   static const String delete = "assets/images/delete.svg";
+
   /// Assets for Comactes_word
   /// assets/images/comactes_word.png
   static const String comactesWord = "assets/images/comactes_word.png";
+
+  /// Assets for Layout_heart_filled
+  /// assets/images/layout_heart_filled.svg
+  static const String layoutHeartFilled =
+      "assets/images/layout_heart_filled.svg";
+
+  /// Assets for Layout_home_unfilled
+  /// assets/images/layout_home_unfilled.svg
+  static const String layoutHomeUnfilled =
+      "assets/images/layout_home_unfilled.svg";
+
+  /// Assets for Layout_cart_filled
+  /// assets/images/layout_cart_filled.svg
+  static const String layoutCartFilled = "assets/images/layout_cart_filled.svg";
+
+  /// Assets for Layout_list_filled
+  /// assets/images/layout_list_filled.svg
+  static const String layoutListFilled = "assets/images/layout_list_filled.svg";
+
+  /// Assets for Layout_user_filled
+  /// assets/images/layout_user_filled.svg
+  static const String layoutUserFilled = "assets/images/layout_user_filled.svg";
+
+  /// Assets for Smile
+  /// assets/images/smile.svg
+  static const String smile = "assets/images/smile.svg";
 }

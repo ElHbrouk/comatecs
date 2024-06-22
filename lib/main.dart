@@ -21,7 +21,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp.router(
       // initialBinding: InitialBindings(),
       // useInheritedMediaQuery: true,
@@ -32,7 +31,6 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Comatecs',
       theme: arabicTheme,
-      // theme: controller.appTheme,
     );
   }
 }

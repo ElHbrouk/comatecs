@@ -15,7 +15,7 @@ class ShowModalBottomSheetItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 600,
+      height: MediaQuery.sizeOf(context).height*0.6,
       width: double.infinity,
       margin: const EdgeInsetsDirectional.all(15),
       child: Column(

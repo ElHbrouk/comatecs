@@ -57,33 +57,11 @@ class SignUpViewBody extends StatelessWidget {
                   keyboardType: TextInputType.emailAddress,
 
                   hintText: "  أدخل إيميل المستخدم", //Enter User Name
-                  text: " تم إنشاء الحساب بنجاح", //User Name
+                  text: " إيميل المستخدم", //User Name
                 ),
                 const SizedBox(
                   height: 41,
                 ),
-
-                //    CustomTextFormFieldAuth(
-                //     validator: (value) {
-                //       return;
-                //       // return validInput(
-                //       //     value: value!, min: 8, max: 30, type: "password");
-                //     },
-                //     // controller: controller.password,
-                //     // obscureText: controller.isNotVisible,
-                //     hintText: '23', //Enter Password
-                //     text: '8', //Password
-                //     // suffixIcon: PasswordEye(
-                //       // onPressed: () {
-                //       //   controller.showPassword();
-                //       // },
-                //       // text: controller.isNotVisible,
-                //     // ),
-
-                // }),
-                // const SizedBox(
-                //   height: 41,
-                // ),
                 CustomTextFormFieldAuth(
                   validator: (value) {
                     return;
@@ -109,7 +87,6 @@ class SignUpViewBody extends StatelessWidget {
                 const SizedBox(
                   height: 41,
                 ),
-
                 CustomTextFormFieldAuth(
                   hintText: "أدخل طبيعة عملك", //Enter you job
 

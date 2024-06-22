@@ -3,10 +3,15 @@ import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField(
-      {super.key, this.suffixIcon, this.prefixIcon, this.hintText});
+      {super.key,
+      this.suffixIcon,
+      this.prefixIcon,
+      this.hintText,
+      this.maxLines});
   final Widget? suffixIcon;
   final Widget? prefixIcon;
   final String? hintText;
+  final int? maxLines;
   @override
   Widget build(BuildContext context) {
     return TextField(
@@ -17,14 +22,14 @@ class CustomTextField extends StatelessWidget {
       enableInteractiveSelection: false,
       controller: TextEditingController(),
       keyboardType: TextInputType.multiline,
-      maxLines: 1,
+      maxLines: maxLines ?? 1,
       decoration: InputDecoration(
         suffixIcon: suffixIcon,
         prefixIcon: prefixIcon,
-        hintStyle: AppFonts.regular12,
+        hintStyle: AppFonts.regular12.copyWith(color: Colors.grey),
         hintText: hintText,
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(5),
         ),
       ),
     );

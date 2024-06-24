@@ -26,82 +26,96 @@ class AccountViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Column(
-        children: [
-          Stack(
-            alignment: FractionalOffset.bottomCenter,
-            children: [
-              SvgPicture.asset(
-                width: MediaQuery.sizeOf(context).width,
-                ImageAssets.rectangle,
+      child: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: Stack(
+              alignment: FractionalOffset.bottomCenter,
+              children: [
+                SvgPicture.asset(
+                  width: MediaQuery.sizeOf(context).width,
+                  ImageAssets.rectangle,
+                ),
+                CircleAvatar(
+                  radius: 60,
+                  backgroundColor: Colors.white,
+                  child: Image.asset(
+                    height: 150,
+                    ImageAssets.emoji,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: Text(
+              textAlign: TextAlign.center,
+              'عمر محمد',
+              style: AppFonts.bold16.copyWith(
+                color: Colors.black,
               ),
-              CircleAvatar(
-                radius: 60,
-                backgroundColor: Colors.white,
-                child: Image.asset(
-                  height: 150,
-                  ImageAssets.emoji,
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 5.0, bottom: 16),
+              child: Text(
+                textAlign: TextAlign.center,
+                'Omar.M@gmail.com',
+                style: AppFonts.regular16.copyWith(
+                  color: Colors.grey,
                 ),
               ),
-            ],
-          ),
-          Text(
-            'عمر محمد',
-            style: AppFonts.bold16.copyWith(
-              color: Colors.black,
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 5.0, bottom: 16),
-            child: Text(
-              'Omar.M@gmail.com',
-              style: AppFonts.regular16.copyWith(
-                color: Colors.grey,
-              ),
+          const SliverToBoxAdapter(child: PointsItem(),),
+          SliverToBoxAdapter(
+            child: AccountSettingItemListView(
+              items: items,
+              views: views,
             ),
           ),
-          const PointsItem(),
-          AccountSettingItemListView(
-            items: items,
-            views: views,
-          ),
-          const Spacer(),
-          Container(
-            margin: const EdgeInsets.all(10.0),
-            padding: const EdgeInsets.all(10.0),
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: Colors.grey[300]!,
-              ),
-              borderRadius: BorderRadius.circular(
-                8.0,
-              ),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 8.0,
-                vertical: 10.0,
-              ),
-              child: Row(
-                children: [
-                  Row(
+          SliverFillRemaining(
+            hasScrollBody: false,
+            child: Expanded(
+              child: Container(
+                margin: const EdgeInsets.all(10.0),
+                padding: const EdgeInsets.all(10.0),
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.grey[300]!,
+                  ),
+                  borderRadius: BorderRadius.circular(
+                    8.0,
+                  ),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 8.0,
+                    vertical: 10.0,
+                  ),
+                  child: Row(
                     children: [
-                      SvgPicture.asset(
-                        height: 18,
-                        ImageAssets.logout,
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        'تسجيل خروج',
-                        style: AppFonts.regular14.copyWith(
-                          color: Colors.black,
-                        ),
+                      Row(
+                        children: [
+                          SvgPicture.asset(
+                            height: 18,
+                            ImageAssets.logout,
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            'تسجيل خروج',
+                            style: AppFonts.regular14.copyWith(
+                              color: Colors.black,
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
-                ],
+                ),
               ),
             ),
           ),

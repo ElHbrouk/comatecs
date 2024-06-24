@@ -3,6 +3,7 @@ import 'package:comatecs/features/account/presentation/account_view.dart';
 import 'package:comatecs/features/cart/presentaion/view/cart_view.dart';
 import 'package:comatecs/features/favourite/presentaion/view/favourite_view.dart';
 import 'package:comatecs/features/home/presentaion/views/home_view.dart';
+import 'package:comatecs/features/my_orders/presentation/my_orders_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -18,7 +19,7 @@ class _HomeLayoutState extends State<HomeLayout> {
     HomeView(),
     FavouriteView(),
     CartView(),
-    HomeView(),
+    MyOrdersView(),
     AccountView(),
   ];
 

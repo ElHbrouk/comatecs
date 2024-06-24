@@ -15,7 +15,7 @@ class ShowModalBottomSheetItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.sizeOf(context).height*0.6,
+      height: MediaQuery.sizeOf(context).height * 0.6,
       width: double.infinity,
       margin: const EdgeInsetsDirectional.all(15),
       child: Column(
@@ -88,11 +88,9 @@ class ShowModalBottomSheetItem extends StatelessWidget {
           ),
           const CustomRangeSlider(),
           const Spacer(),
-          Expanded(
-            child: CustomButton(
-              onPressed: () {},
-              buttonName: "تأكيد",
-            ),
+          CustomButton(
+            onPressed: () {},
+            buttonName: "تأكيد",
           ),
         ],
       ),

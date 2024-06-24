@@ -20,6 +20,8 @@ import 'package:comatecs/features/favourite/presentaion/view/favourite_view.dart
 import 'package:comatecs/features/home/presentaion/views/home_view.dart';
 import 'package:comatecs/features/home/presentaion/views/item_detail_view.dart';
 import 'package:comatecs/features/home_layout/home_layout.dart';
+import 'package:comatecs/features/my_orders/presentation/order_details_view.dart';
+import 'package:comatecs/features/my_orders/presentation/order_invoice_view.dart';
 import 'package:comatecs/features/on_boarding/presentation/views/on_boarding_view.dart';
 import 'package:comatecs/features/splash/presentaion/views/splash_view.dart';
 import 'package:go_router/go_router.dart';
@@ -54,6 +56,8 @@ abstract class AppRoutes {
   static const termsAndConditionsView = "/termsAndConitionsView";
   static const editAddressView = "/editAddressView";
   static const technicalSupportView = "/technicalSupportView";
+  static const orderDetailsView = "/orderDetailsView";
+  static const orderInvoiceView = "/orderInvoiceView";
 
   static GoRouter routes = GoRouter(
     routes: <RouteBase>[
@@ -156,6 +160,14 @@ abstract class AppRoutes {
       GoRoute(
         path: technicalSupportView,
         builder: (context, state) => const TechnicalSupportView(),
+      ),
+      GoRoute(
+        path: orderDetailsView,
+        builder: (context, state) => const OrderDetailsView(),
+      ),
+      GoRoute(
+        path: orderInvoiceView,
+        builder: (context, state) => const OrderInvoiceView(),
       ),
     ],
   );

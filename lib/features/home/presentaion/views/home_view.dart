@@ -6,7 +6,6 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // HomeControllerImpl controller = Get.put(HomeControllerImpl());
 
     return const HomeViewBody();
   }

@@ -11,8 +11,10 @@ class PointsItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      height: 40,
-      width: 90,
+      padding: const EdgeInsets.all(10.0),
+      margin: EdgeInsets.symmetric(
+        horizontal: MediaQuery.sizeOf(context).width * 0.4,
+      ),
       decoration: BoxDecoration(
         color: AppColors.primaryColor.withOpacity(0.2),
         borderRadius: BorderRadius.circular(8),

@@ -58,7 +58,7 @@ class ItemPrice extends StatelessWidget {
                   icon: FontAwesomeIcons.plus,
                 ),
                 const Padding(
-                  padding: EdgeInsets.only(bottom: 7.0, left: 5.0, right: 5.0),
+                  padding: EdgeInsets.only(top: 5,left: 5.0, right: 5.0),
                   child: Text(
                     '50',
                     style: AppFonts.bold16,

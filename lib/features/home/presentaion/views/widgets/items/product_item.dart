@@ -9,6 +9,7 @@ class ProductItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: const EdgeInsets.only(top: 8.0, bottom: 16.0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
@@ -38,9 +39,9 @@ class ProductItem extends StatelessWidget {
           const SizedBox(
             height: 5,
           ),
-          const Text('الاسم التجاري الشائع',
-          
-          style: AppFonts.regular14,
+          const Text(
+            'الاسم التجاري الشائع',
+            style: AppFonts.regular14,
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -48,25 +49,18 @@ class ProductItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                TextButton(
-                  onPressed: () {},
-                  child: const Text(
-                    '16.000',
-                    style: AppFonts.bold16,
-                  ),
+                const Text(
+                  '16.000',
+                  style: AppFonts.bold16,
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8.0),
-                  child: SvgPicture.asset(
-                    ImageAssets.cartPlus,
-                    height: 24,
-                    width: 24,
-                  ),
+                SvgPicture.asset(
+                  ImageAssets.cartPlus,
+                  height: 24,
+                  width: 24,
                 ),
               ],
             ),
           ),
-         
         ],
       ),
     );

@@ -2,8 +2,8 @@ import 'package:comatecs/core/utils/image_asset.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
-class Loading extends StatelessWidget {
-  const Loading({super.key});
+class CustomLoadingIndicator extends StatelessWidget {
+  const CustomLoadingIndicator({super.key});
 
   @override
   Widget build(BuildContext context) {

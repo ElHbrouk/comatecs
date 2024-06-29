@@ -1,3 +1,4 @@
+import 'package:comatecs/core/utils/app_fonts.dart';
 import 'package:comatecs/features/on_boarding/data/data_sources/static/static.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
@@ -10,27 +11,35 @@ class OnBoardingItem extends StatelessWidget {
   final int index;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Lottie.asset(
-          frameRate: FrameRate.max,
-          onBoardingList[index].image!,
-          fit: BoxFit.contain,
-          height: 100,
-        ),
-        Text(
-          onBoardingList[index].title!,
-          style: Theme.of(context).textTheme.displayMedium,
-        ),
-        const SizedBox(
-          height: 20,
-        ),
-        Text(
-          onBoardingList[index].body!,
-          textAlign: TextAlign.center,
-          style: Theme.of(context).textTheme.bodyLarge,
-        ),
-      ],
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Lottie.asset(
+            frameRate: FrameRate.max,
+            onBoardingList[index].image!,
+            fit: BoxFit.contain,
+            height: 250,
+          ),
+          Text(
+            onBoardingList[index].title!,
+            style: AppFonts.bold18.copyWith(
+              color: Colors.black,
+            ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Text(
+            onBoardingList[index].body!,
+            textAlign: TextAlign.center,
+            style: AppFonts.regular16.copyWith(
+              color: Colors.black,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

@@ -3,23 +3,25 @@ import 'package:comatecs/features/on_boarding/data/models/on_boarding_model.dart
 
 List<OnBoardingModel> onBoardingList = [
   const OnBoardingModel(
-    title: '35',
+    title: "أختر منتجك",
     image: ImageAssets.cart,
-    body: '34',
+    body: "لدينا 100 ألف منتج\n اختر منتجك من \n Comatecs",
   ),
   const OnBoardingModel(
-    title: '36',
+    title: "دفع سهل وآمن",
     image: ImageAssets.payment,
-    body: '37',
+    body:
+        "سهولة الدفع وطريقة الدفع الآمنة\n موثوق به من قبل عملائنا من \n  جميع أنحاء العالم",
   ),
   const OnBoardingModel(
-    title: '38',
+    title: "أتبع طلب",
     image: ImageAssets.deliveryMap,
-    body: "39",
+    body:
+        "تم استخدام أفضل متتبع\n لتتبع طلبك ستعرف أين يوجد منتجك\n في الوقت الحالي",
   ),
   const OnBoardingModel(
-    title: '40',
+    title: "توصيل سريع",
     image: ImageAssets.dliveryVan,
-    body: "41",
+    body: "تسليم موثوق وسريع\n نقوم بتسليم منتجك بأسرع طريقة ممكنة",
   ),
 ];

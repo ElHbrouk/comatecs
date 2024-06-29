@@ -1,4 +1,5 @@
 import 'package:comatecs/core/shared/widgets/custom_back_button.dart';
+import 'package:comatecs/core/shared/widgets/loading.dart';
 import 'package:comatecs/core/utils/image_asset.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -46,10 +47,9 @@ class _ItemVideoState extends State<ItemVideo> {
                   ),
                 ),
                 Container(
-                  
                   padding: const EdgeInsetsDirectional.only(
-                    top: 30,
-                    start: 16,
+                    top: 35,
+                    start: 6,
                   ),
                   alignment: AlignmentDirectional.topStart,
                   height: MediaQuery.sizeOf(context).height * 0.3,
@@ -82,7 +82,12 @@ class _ItemVideoState extends State<ItemVideo> {
               ],
             ),
           )
-        : Container();
+        : const SizedBox(
+            height: 200,
+            child: Center(
+              child: CustomLoadingIndicator(),
+            ),
+          );
   }
 
   @override

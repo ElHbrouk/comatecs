@@ -17,11 +17,12 @@ class ProductItemGridView extends StatelessWidget {
         crossAxisSpacing: 9,
       ),
       itemBuilder: (BuildContext context, int index) => InkWell(
-          onTap: () {
-            context.push(AppRoutes.itemDetailView);
-            // Get.to(() => const ItemDetailView());
-          },
-          child: const ProductItem()),
+        onTap: () {
+          context.push(AppRoutes.itemDetailView);
+          // Get.to(() => const ItemDetailView());
+        },
+        child: const ProductItem(),
+      ),
     );
   }
 }

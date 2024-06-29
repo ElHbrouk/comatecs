@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class HomeImageSlider extends StatefulWidget {
   const HomeImageSlider({
@@ -68,17 +68,23 @@ class _HomeImageSliderState extends State<HomeImageSlider> {
           ),
           Padding(
             padding: const EdgeInsets.only(bottom: 10.0),
-            child: DotsIndicator(
-              dotsCount: items.length,
-              position: getCurrentIndex,
-              decorator: DotsDecorator(
-                activeColor: Colors.white,
-                size: const Size.square(9.0),
-                activeSize: const Size(18.0, 9.0),
-                activeShape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5.0),
-                ),
+            child: AnimatedSmoothIndicator(
+              duration: const Duration(milliseconds: 250),
+              effect: const WormEffect(
+                activeDotColor: Colors.white,
+                dotHeight: 12,
+                dotWidth: 12,
+                type: WormType.thin,
               ),
+              textDirection: TextDirection.rtl,
+              axisDirection: Axis.horizontal,
+              onDotClicked: (index) {
+                setState(
+                  () => getCurrentIndex = index,
+                );
+              },
+              count: items.length,
+              activeIndex: getCurrentIndex,
             ),
           ),
         ],

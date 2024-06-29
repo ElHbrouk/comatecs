@@ -263,4 +263,29 @@ abstract class ImageAssets {
   /// Assets for Smile
   /// assets/images/smile.svg
   static const String smile = "assets/images/smile.svg";
+
+  /// Assets for Discount
+  /// assets/images/discount.svg
+  static const String discount = "assets/images/discount.svg";
+// ------------------  Payment  -----------------------------
+
+  /// Assets for Money_boket
+  /// assets/images/money_boket.svg
+  static const String moneyBoket = "assets/images/money_boket.svg";
+
+  /// Assets for Mahfazty
+  /// assets/images/mahfazty.png
+  static const String mahfazty = "assets/images/mahfazty.png";
+
+  /// Assets for Zain
+  /// assets/images/zain.png
+  static const String zain = "assets/images/zain.png";
+
+  /// Assets for Dinark
+  /// assets/images/dinark.png
+  static const String dinark = "assets/images/dinark.png";
+
+  /// Assets for Orange_money
+  /// assets/images/orange_money.png
+  static const String orangeMoney = "assets/images/orange_money.png";
 }

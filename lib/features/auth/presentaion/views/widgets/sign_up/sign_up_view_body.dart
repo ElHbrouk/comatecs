@@ -3,6 +3,7 @@ import 'package:comatecs/core/utils/routes.dart';
 import 'package:comatecs/features/auth/presentaion/views/widgets/custom_text_form_field_auth.dart';
 import 'package:comatecs/features/auth/presentaion/views/widgets/custom_text_row.dart';
 import 'package:comatecs/features/auth/presentaion/views/widgets/custom_title_auth.dart';
+import 'package:comatecs/features/home/presentaion/views/widgets/custom_drop_down_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -76,55 +77,54 @@ class SignUpViewBody extends StatelessWidget {
                 const SizedBox(
                   height: 41,
                 ),
-                CustomTextFormFieldAuth(
-                  keyboardType: TextInputType.streetAddress,
-                  hintText: "عدد الموظفين", //Address
-                  text: "عدد الموظفين",
-                  validator: (value) {
-                    return;
-                  }, //Address
+                const CustomDropDownMenu(
+                  label: 'اختر طبيعة عملك ',
+                  dropdownMenuEntries: [
+                    DropdownMenuEntry(value: "hi", label: 'معدات صناعية'),
+                    DropdownMenuEntry(value: "why", label: 'الأدوات والمعدات'),
+                    DropdownMenuEntry(value: "bye", label: 'عدد يدوية'),
+                    DropdownMenuEntry(value: "die", label: 'معدات صناعية'),
+                  ],
+                  text: 'طبيعية العمل',
                 ),
                 const SizedBox(
                   height: 41,
                 ),
-                CustomTextFormFieldAuth(
-                  hintText: "أدخل طبيعة عملك", //Enter you job
-
-                  text: "طبيعة العمل",
-                  validator: (value) {
-                    return;
-                  }, //job
+                const CustomDropDownMenu(
+                  label: 'اختر نوع الشركة',
+                  dropdownMenuEntries: [
+                    DropdownMenuEntry(value: "hi", label: 'معدات صناعية'),
+                    DropdownMenuEntry(value: "why", label: 'الأدوات والمعدات'),
+                    DropdownMenuEntry(value: "bye", label: 'عدد يدوية'),
+                    DropdownMenuEntry(value: "die", label: 'معدات صناعية'),
+                  ],
+                  text: 'نوع الشركة',
                 ),
                 const SizedBox(
                   height: 41,
                 ),
-                CustomTextFormFieldAuth(
-                  hintText: "اختر نوع الشركة", // Choose company kind
-                  text: "نوع الشركة ",
-                  validator: (value) {
-                    return;
-                  }, // Company
+                const CustomDropDownMenu(
+                  label: 'اختر  عدد الموظفين ',
+                  dropdownMenuEntries: [
+                    DropdownMenuEntry(value: "hi", label: '2'),
+                    DropdownMenuEntry(value: "why", label: '6'),
+                    DropdownMenuEntry(value: "bye", label: '10'),
+                    DropdownMenuEntry(value: "die", label: '15'),
+                  ],
+                  text: 'عدد الموظفين',
                 ),
                 const SizedBox(
                   height: 41,
                 ),
-                CustomTextFormFieldAuth(
-                  validator: (value) {
-                    return;
-                  },
-                  hintText: "اختر عدد الموظفين", // Choose number of employees
-                  keyboardType: TextInputType.number,
-                  text: "عدد الموظفين", // number of employees
-                ),
-                const SizedBox(
-                  height: 41,
-                ),
-                CustomTextFormFieldAuth(
-                  validator: (value) {
-                    return;
-                  },
-                  hintText: "اختر وظيفتك", // choose your major
-                  text: "التخصص", // your major
+                const CustomDropDownMenu(
+                  label: 'اختر وظيفتك',
+                  dropdownMenuEntries: [
+                    DropdownMenuEntry(value: "hi", label: 'مدير'),
+                    DropdownMenuEntry(value: "why", label: 'سائق'),
+                    DropdownMenuEntry(value: "bye", label: 'محاسب'),
+                    DropdownMenuEntry(value: "die", label: 'موظف'),
+                  ],
+                  text: 'وظيفتتك داخل الشركة',
                 ),
                 const SizedBox(
                   height: 40,

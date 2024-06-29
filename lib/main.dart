@@ -10,7 +10,6 @@ void main() async {
     ),
   );
   WidgetsFlutterBinding.ensureInitialized();
-  // await initalServices();
   runApp(
     const MyApp(),
   );
@@ -22,7 +21,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      // initialBinding: InitialBindings(),
       // useInheritedMediaQuery: true,
       // builder: DevicePreview.appBuilder,
       // locale: controller.language,

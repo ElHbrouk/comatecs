@@ -5,20 +5,24 @@ import 'package:flutter/material.dart';
 class OnBoardingItemPageView extends StatelessWidget {
   const OnBoardingItemPageView({
     super.key,
+    required this.pageController,
   });
-
+  final PageController pageController;
+  static int currentPage = 0;
   @override
   Widget build(BuildContext context) {
     return PageView.builder(
-      allowImplicitScrolling: true,
-      // controller: controller.pageController,
-      onPageChanged: (value) {
-        // controller.onPageChanged(value);
-      },
-      itemCount: onBoardingList.length,
-      itemBuilder: (context, index) => OnBoardingItem(
-        index: index,
-      ),
-    );
+        onPageChanged: (value) {
+          currentPage = value;
+        },
+        reverse: true,
+        controller: pageController,
+        allowImplicitScrolling: true,
+        itemCount: onBoardingList.length,
+        itemBuilder: (context, index) {
+          return OnBoardingItem(
+            index: index,
+          );
+        });
   }
 }

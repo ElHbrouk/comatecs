@@ -13,10 +13,14 @@ class SplashView extends StatefulWidget {
 class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
-    Future.delayed(const Duration(seconds: 1), () {
-      context.go(AppRoutes.onBoardingView);
-    });
+    executeNavigation();
     super.initState();
+  }
+
+  Future<Null> executeNavigation() {
+    return Future.delayed(const Duration(seconds: 1), () {
+    context.go(AppRoutes.onBoardingView);
+  });
   }
 
   @override

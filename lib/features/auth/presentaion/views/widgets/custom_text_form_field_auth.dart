@@ -28,7 +28,7 @@ class CustomTextFormFieldAuth extends StatelessWidget {
       children: [
         Text(
           text,
-          style: AppFonts.bold18.copyWith(
+          style: AppFonts.regular14.copyWith(
             color: Colors.black,
           ),
         ),

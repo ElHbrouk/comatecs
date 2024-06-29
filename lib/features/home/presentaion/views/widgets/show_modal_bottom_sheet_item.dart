@@ -53,38 +53,30 @@ class ShowModalBottomSheetItem extends StatelessWidget {
               ),
             ],
           ),
-          Padding(
-            padding: const EdgeInsetsDirectional.all(16),
-            child: Align(
-              alignment: Alignment.centerRight,
-              child: Text(
-                ': فئة المنتج ',
-                style: AppFonts.regular14.copyWith(
-                  color: Colors.black,
-                ),
-              ),
-            ),
-          ),
+          const SizedBox(height: 24,),
           const CustomDropDownMenu(
+            
             label: 'اختر نوع الفئة',
+            dropdownMenuEntries: [
+              DropdownMenuEntry(value: "hi", label: 'معدات صناعية'),
+              DropdownMenuEntry(value: "why", label: 'الأدوات والمعدات'),
+              DropdownMenuEntry(value: "bye", label: 'عدد يدوية'),
+              DropdownMenuEntry(value: "die", label: 'معدات صناعية'),
+            ],
+            text: ' فئة المنتج :',
           ),
           const SizedBox(
             height: 20,
           ),
-          Padding(
-            padding: const EdgeInsetsDirectional.all(16),
-            child: Align(
-              alignment: Alignment.centerRight,
-              child: Text(
-                ': العلامة التجارية',
-                style: AppFonts.regular14.copyWith(
-                  color: Colors.black,
-                ),
-              ),
-            ),
-          ),
           const CustomDropDownMenu(
             label: 'اختر العلامة التجارية',
+            dropdownMenuEntries: [
+              DropdownMenuEntry(value: "hi", label: 'معدات صناعية'),
+              DropdownMenuEntry(value: "why", label: 'الأدوات والمعدات'),
+              DropdownMenuEntry(value: "bye", label: 'عدد يدوية'),
+              DropdownMenuEntry(value: "die", label: 'معدات صناعية'),
+            ],
+            text: 'العلامة التجارية :',
           ),
           const CustomRangeSlider(),
           const Spacer(),

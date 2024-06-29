@@ -1,12 +1,14 @@
-import 'package:comatecs/features/account/presentation/about_comactes_view.dart';
-import 'package:comatecs/features/account/presentation/account_view.dart';
-import 'package:comatecs/features/account/presentation/edit_address_view.dart';
-import 'package:comatecs/features/account/presentation/edit_password_view.dart';
-import 'package:comatecs/features/account/presentation/edit_profile_view.dart';
-import 'package:comatecs/features/account/presentation/technical_support_view.dart';
-import 'package:comatecs/features/account/presentation/widgets/edit/edit_personal_info_view.dart';
-import 'package:comatecs/features/account/presentation/terms_and_conditions_view.dart';
-import 'package:comatecs/features/account/presentation/who_are_we_view.dart';
+import 'package:comatecs/features/account/presentation/views/about_comactes_view.dart';
+import 'package:comatecs/features/account/presentation/views/account_view.dart';
+import 'package:comatecs/features/account/presentation/views/edit_address_view.dart';
+import 'package:comatecs/features/account/presentation/views/edit_password_view.dart';
+import 'package:comatecs/features/account/presentation/views/edit_profile_view.dart';
+import 'package:comatecs/features/home/presentaion/views/all_categories_view.dart';
+import 'package:comatecs/features/payment/presentaion/views/pay_operation_view.dart';
+import 'package:comatecs/features/account/presentation/views/technical_support_view.dart';
+import 'package:comatecs/features/account/presentation/views/widgets/edit/edit_personal_info_view.dart';
+import 'package:comatecs/features/account/presentation/views/terms_and_conditions_view.dart';
+import 'package:comatecs/features/account/presentation/views/who_are_we_view.dart';
 import 'package:comatecs/features/auth/presentaion/views/forget_password/check_email_password_view.dart';
 import 'package:comatecs/features/auth/presentaion/views/forget_password/reset_password_success_view.dart';
 import 'package:comatecs/features/auth/presentaion/views/forget_password/reset_password_view.dart';
@@ -15,14 +17,15 @@ import 'package:comatecs/features/auth/presentaion/views/login/login_view.dart';
 import 'package:comatecs/features/auth/presentaion/views/sign_up/sign_up_success_view.dart';
 import 'package:comatecs/features/auth/presentaion/views/sign_up/sign_up_view.dart';
 import 'package:comatecs/features/auth/presentaion/views/sign_up/verify_code_sign_up_view.dart';
-import 'package:comatecs/features/cart/presentaion/view/cart_view.dart';
-import 'package:comatecs/features/favourite/presentaion/view/favourite_view.dart';
+import 'package:comatecs/features/cart/presentaion/views/cart_view.dart';
+import 'package:comatecs/features/favourite/presentaion/views/favourite_view.dart';
 import 'package:comatecs/features/home/presentaion/views/home_view.dart';
 import 'package:comatecs/features/home/presentaion/views/item_detail_view.dart';
-import 'package:comatecs/features/home_layout/home_layout.dart';
-import 'package:comatecs/features/my_orders/presentation/order_details_view.dart';
-import 'package:comatecs/features/my_orders/presentation/order_invoice_view.dart';
+import 'package:comatecs/features/home_layout/presentaion/views/home_layout.dart';
+import 'package:comatecs/features/my_orders/presentation/views/order_details_view.dart';
+import 'package:comatecs/features/my_orders/presentation/views/order_invoice_view.dart';
 import 'package:comatecs/features/on_boarding/presentation/views/on_boarding_view.dart';
+import 'package:comatecs/features/payment/presentaion/views/payment_view.dart';
 import 'package:comatecs/features/splash/presentaion/views/splash_view.dart';
 import 'package:go_router/go_router.dart';
 
@@ -58,6 +61,9 @@ abstract class AppRoutes {
   static const technicalSupportView = "/technicalSupportView";
   static const orderDetailsView = "/orderDetailsView";
   static const orderInvoiceView = "/orderInvoiceView";
+  static const paymentView = "/paymentView";
+  static const payOperationView = "/payOperationView";
+  static const allCategoriesView = "/allCategoriesView";
 
   static GoRouter routes = GoRouter(
     routes: <RouteBase>[
@@ -74,14 +80,10 @@ abstract class AppRoutes {
         builder: (context, state) => const EditPersonalInfoView(),
       ),
       GoRoute(
-        // middlewares: [
-        //   OnBoardingMiddleware(),
-        // ],
         path: onBoardingView,
         builder: (context, state) => const OnBoardingView(),
       ),
       GoRoute(
-        // binding: SignUpBindings(),
         path: signUpView,
         builder: (context, state) => const SignUpView(),
       ),
@@ -168,6 +170,18 @@ abstract class AppRoutes {
       GoRoute(
         path: orderInvoiceView,
         builder: (context, state) => const OrderInvoiceView(),
+      ),
+      GoRoute(
+        path: paymentView,
+        builder: (context, state) => const PaymentView(),
+      ),
+      GoRoute(
+        path: payOperationView,
+        builder: (context, state) => const PayOperationView(),
+      ),
+      GoRoute(
+        path: allCategoriesView,
+        builder: (context, state) => const AllCategoriesView(),
       ),
     ],
   );

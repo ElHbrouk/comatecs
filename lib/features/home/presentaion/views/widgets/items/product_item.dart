@@ -3,9 +3,15 @@ import 'package:comatecs/core/utils/image_asset.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class ProductItem extends StatelessWidget {
+class ProductItem extends StatefulWidget {
   const ProductItem({super.key});
 
+  @override
+  State<ProductItem> createState() => _ProductItemState();
+}
+
+class _ProductItemState extends State<ProductItem> {
+  bool isFavorite = false;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -25,10 +31,22 @@ class ProductItem extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Align(
               alignment: AlignmentDirectional.topEnd,
-              child: SvgPicture.asset(
-                ImageAssets.solidHeart,
-                height: 18,
-                width: 18,
+              child: InkWell(
+                borderRadius: BorderRadius.circular(
+                  10.0,
+                ),
+                onTap: () {
+                  setState(() {
+                    isFavorite = !isFavorite;
+                  });
+                },
+                child: SvgPicture.asset(
+                  isFavorite == true
+                      ? ImageAssets.filledHeart
+                      : ImageAssets.solidHeart,
+                  height: 18,
+                  width: 18,
+                ),
               ),
             ),
           ),

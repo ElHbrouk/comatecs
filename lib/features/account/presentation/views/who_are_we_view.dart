@@ -25,24 +25,21 @@ class WhoAreWeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Directionality(
-          textDirection: TextDirection.rtl,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(
-              vertical: 20.0,
-            ),
-            child: Column(
-              children: [
-                const CustomTitleWithBackButton(
-                  title: 'من نحن',
-                ),
-                Expanded(
-                    child: AccountSettingItemListView(
-                  views: views,
-                  items: items,
-                )),
-              ],
-            ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+            vertical: 20.0,
+          ),
+          child: Column(
+            children: [
+              const CustomTitleWithBackButton(
+                title: 'من نحن',
+              ),
+              Expanded(
+                  child: AccountSettingItemListView(
+                views: views,
+                items: items,
+              )),
+            ],
           ),
         ),
       ),

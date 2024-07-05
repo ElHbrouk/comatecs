@@ -43,48 +43,45 @@ class TermsAndConditionsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Directionality(
-          textDirection: TextDirection.rtl,
-          child: Padding(
-            padding: const EdgeInsets.only(
-                bottom: 40.0, top: 20.0, left: 20.0, right: 20.0),
-            child: Column(
-              children: [
-                const CustomTitleWithBackButton(
-                  title: 'شروط و سياسة الاستخدام',
-                ),
-                Image.asset(
-                  height: MediaQuery.sizeOf(context).height * 0.09,
-                  ImageAssets.comactesWord,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical:24.0),
-                  child: Text(
-                    'مرحبًا بك في تطبيقنا. من فضلك، قم بقراءة هذه السياسات والشروط بعناية قبل استخدام خدماتنا.',
-                    style: AppFonts.regular16.copyWith(
-                      color: Colors.black,
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: AboutComactesItemListView(
-                    aboutComactesItems: aboutComactesItems,
-                  ),
-                ),
-                Text(
-                  'شكرًا لاستخدامك خدماتنا!',
+        child: Padding(
+          padding: const EdgeInsets.only(
+              bottom: 40.0, top: 20.0, left: 20.0, right: 20.0),
+          child: Column(
+            children: [
+              const CustomTitleWithBackButton(
+                title: 'شروط و سياسة الاستخدام',
+              ),
+              Image.asset(
+                height: MediaQuery.sizeOf(context).height * 0.09,
+                ImageAssets.comactesWord,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical:24.0),
+                child: Text(
+                  'مرحبًا بك في تطبيقنا. من فضلك، قم بقراءة هذه السياسات والشروط بعناية قبل استخدام خدماتنا.',
                   style: AppFonts.regular16.copyWith(
                     color: Colors.black,
                   ),
                 ),
-                Text(
-                  'تحيات فريقنا.',
-                  style: AppFonts.regular16.copyWith(
-                    color: Colors.black,
-                  ),
+              ),
+              Expanded(
+                child: AboutComactesItemListView(
+                  aboutComactesItems: aboutComactesItems,
                 ),
-              ],
-            ),
+              ),
+              Text(
+                'شكرًا لاستخدامك خدماتنا!',
+                style: AppFonts.regular16.copyWith(
+                  color: Colors.black,
+                ),
+              ),
+              Text(
+                'تحيات فريقنا.',
+                style: AppFonts.regular16.copyWith(
+                  color: Colors.black,
+                ),
+              ),
+            ],
           ),
         ),
       ),

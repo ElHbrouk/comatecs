@@ -38,33 +38,30 @@ class AboutComactesView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Directionality(
-          textDirection: TextDirection.rtl,
-          child: Padding(
-            padding: const EdgeInsets.only(
-                bottom: 40.0, top: 20.0, left: 20.0, right: 20.0),
-            child: Column(
-              children: [
-                const CustomTitleWithBackButton(
-                  title: 'عن  Comatecs',
+        child: Padding(
+          padding: const EdgeInsets.only(
+              bottom: 40.0, top: 20.0, left: 20.0, right: 20.0),
+          child: Column(
+            children: [
+              const CustomTitleWithBackButton(
+                title: 'عن  Comatecs',
+              ),
+              Image.asset(
+                height: MediaQuery.sizeOf(context).height * 0.09,
+                ImageAssets.comactesWord,
+              ),
+              Expanded(
+                child: AboutComactesItemListView(
+                  aboutComactesItems: aboutComactesItems,
                 ),
-                Image.asset(
-                  height: MediaQuery.sizeOf(context).height * 0.09,
-                  ImageAssets.comactesWord,
+              ),
+              Text(
+                'شكرًا لزيارتك لمتجرنا، ونأمل أن تجد لدينا كل ما تحتاجه لتنفيذ مشاريعك بنجاح.',
+                style: AppFonts.regular14.copyWith(
+                  color: Colors.black,
                 ),
-                Expanded(
-                  child: AboutComactesItemListView(
-                    aboutComactesItems: aboutComactesItems,
-                  ),
-                ),
-                Text(
-                  'شكرًا لزيارتك لمتجرنا، ونأمل أن تجد لدينا كل ما تحتاجه لتنفيذ مشاريعك بنجاح.',
-                  style: AppFonts.regular14.copyWith(
-                    color: Colors.black,
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

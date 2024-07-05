@@ -18,16 +18,14 @@ class CustomPaymentDetailTable extends StatelessWidget {
         ),
         columns: [
           DataColumn(
-            label: Expanded(
-              child: Padding(
-                padding: EdgeInsets.only(
-                  left: MediaQuery.sizeOf(context).width * 0.25,
-                ),
-                child: Text(
-                  'اجمالي التوصيل',
-                  style: AppFonts.regular14.copyWith(
-                    color: Colors.black,
-                  ),
+            label: Padding(
+              padding: EdgeInsets.only(
+                left: MediaQuery.sizeOf(context).width * 0.25,
+              ),
+              child: Text(
+                'اجمالي التوصيل',
+                style: AppFonts.regular14.copyWith(
+                  color: Colors.black,
                 ),
               ),
             ),

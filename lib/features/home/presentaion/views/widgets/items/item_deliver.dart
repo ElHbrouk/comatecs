@@ -19,7 +19,7 @@ class ItemDeliver extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              ': التوصيل',
+              ' التوصيل :',
               style: AppFonts.regular12.copyWith(
                 color: Colors.grey,
               ),
@@ -39,7 +39,7 @@ class ItemDeliver extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              ':  التسليم',
+              ' التسليم :',
               style: AppFonts.regular12.copyWith(
                 color: Colors.grey,
               ),

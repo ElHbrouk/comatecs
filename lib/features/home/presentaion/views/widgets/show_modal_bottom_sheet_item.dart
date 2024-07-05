@@ -32,13 +32,10 @@ class ShowModalBottomSheetItem extends StatelessWidget {
             height: 20,
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Text(
-                ': تصفية المنتج من خلال ',
-                style: AppFonts.bold16.copyWith(
-                  color: Colors.black,
-                ),
+              const SizedBox(
+                width: 20,
               ),
               SvgPicture.asset(
                 ImageAssets.filter,
@@ -48,14 +45,18 @@ class ShowModalBottomSheetItem extends StatelessWidget {
                   BlendMode.srcIn,
                 ),
               ),
-              const SizedBox(
-                width: 20,
+              Text(
+                ' تصفية المنتج من خلال :',
+                style: AppFonts.bold16.copyWith(
+                  color: Colors.black,
+                ),
               ),
             ],
           ),
-          const SizedBox(height: 24,),
+          const SizedBox(
+            height: 24,
+          ),
           const CustomDropDownMenu(
-            
             label: 'اختر نوع الفئة',
             dropdownMenuEntries: [
               DropdownMenuEntry(value: "hi", label: 'معدات صناعية'),

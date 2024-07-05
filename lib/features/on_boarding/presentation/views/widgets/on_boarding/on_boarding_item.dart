@@ -11,35 +11,32 @@ class OnBoardingItem extends StatelessWidget {
   final int index;
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.rtl,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Lottie.asset(
-            frameRate: FrameRate.max,
-            onBoardingList[index].image!,
-            fit: BoxFit.contain,
-            height: 250,
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Lottie.asset(
+          frameRate: FrameRate.max,
+          onBoardingList[index].image!,
+          fit: BoxFit.contain,
+          height: 250,
+        ),
+        Text(
+          onBoardingList[index].title!,
+          style: AppFonts.bold18.copyWith(
+            color: Colors.black,
           ),
-          Text(
-            onBoardingList[index].title!,
-            style: AppFonts.bold18.copyWith(
-              color: Colors.black,
-            ),
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        Text(
+          onBoardingList[index].body!,
+          textAlign: TextAlign.center,
+          style: AppFonts.regular16.copyWith(
+            color: Colors.black,
           ),
-          const SizedBox(
-            height: 20,
-          ),
-          Text(
-            onBoardingList[index].body!,
-            textAlign: TextAlign.center,
-            style: AppFonts.regular16.copyWith(
-              color: Colors.black,
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

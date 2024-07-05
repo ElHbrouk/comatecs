@@ -1,10 +1,20 @@
 import 'package:comatecs/core/utils/app_fonts.dart';
 import 'package:flutter/material.dart';
 
-class CustomCheckBox extends StatelessWidget {
-  const CustomCheckBox({super.key, required this.check, this.onChanged});
-  final bool check;
+class CustomCheckBox extends StatefulWidget {
+  const CustomCheckBox({
+    super.key,
+    this.onChanged,
+  });
   final void Function(bool?)? onChanged;
+
+  @override
+  State<CustomCheckBox> createState() => _CustomCheckBoxState();
+}
+
+class _CustomCheckBoxState extends State<CustomCheckBox> {
+  bool? check = false;
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -18,9 +28,15 @@ class CustomCheckBox extends StatelessWidget {
         const SizedBox(
           width: 5,
         ),
-        Checkbox(
+        Checkbox(  
           value: check,
-          onChanged: onChanged,
+          onChanged: (value) {
+            setState(
+              () {
+                check = value;
+              },
+            );
+          },
         ),
       ],
     );

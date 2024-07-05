@@ -111,85 +111,86 @@ class _CustomPaymentOperationState extends State<CustomPaymentOperation> {
                   style: AppFonts.regular12.copyWith(color: Colors.grey),
                 ),
               ),
-              currentOption == options[1]
-                  ? Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 24.0),
-                          child: Text(
-                            'عنوان التوصيل',
-                            style: AppFonts.regular14,
-                          ),
+              Visibility(
+                visible: currentOption == options[1],
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 24.0),
+                      child: Text(
+                        'عنوان التوصيل',
+                        style: AppFonts.regular14,
+                      ),
+                    ),
+                    RadioListTile<String>(
+                      secondary: IconButton(
+                        onPressed: () {},
+                        icon: SvgPicture.asset(
+                          ImageAssets.edit,
                         ),
-                        RadioListTile<String>(
-                          secondary: IconButton(
-                            onPressed: () {},
-                            icon: SvgPicture.asset(
-                              ImageAssets.edit,
-                            ),
-                          ),
-                          value: addresses[0],
-                          groupValue: currentAddress,
-                          onChanged: (value) {
-                            setState(() {
-                              currentAddress = value!;
-                            });
-                          },
-                          title: Text(
-                            addresses[0],
-                            style: AppFonts.regular14.copyWith(
-                              color: currentAddress == addresses[0]
-                                  ? Colors.black
-                                  : Colors.grey,
-                            ),
-                          ),
+                      ),
+                      value: addresses[0],
+                      groupValue: currentAddress,
+                      onChanged: (value) {
+                        setState(() {
+                          currentAddress = value!;
+                        });
+                      },
+                      title: Text(
+                        addresses[0],
+                        style: AppFonts.regular14.copyWith(
+                          color: currentAddress == addresses[0]
+                              ? Colors.black
+                              : Colors.grey,
                         ),
-                        RadioListTile<String>(
-                          secondary: IconButton(
-                            onPressed: () {},
-                            icon: SvgPicture.asset(
-                              ImageAssets.edit,
-                            ),
-                          ),
-                          value: addresses[1],
-                          groupValue: currentAddress,
-                          onChanged: (value) {
-                            setState(() {
-                              currentAddress = value!;
-                            });
-                          },
-                          title: Text(
-                            addresses[1],
-                            style: AppFonts.regular14.copyWith(
-                              color: currentAddress == addresses[1]
-                                  ? Colors.black
-                                  : Colors.grey,
-                            ),
-                          ),
+                      ),
+                    ),
+                    RadioListTile<String>(
+                      secondary: IconButton(
+                        onPressed: () {},
+                        icon: SvgPicture.asset(
+                          ImageAssets.edit,
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(
-                            right: 16.0,
-                            left: 16.0,
-                            top: 30,
-                            bottom: 16.0,
-                          ),
-                          child: CustomButton(
-                            textColor: AppColors.primaryColor,
-                            onPressed: () {
-                              customShowBottomSheet(
-                                context: context,
-                                child: const ShowModalBottomSheetAddress(),
-                              );
-                            },
-                            buttonName: 'إضافة عنوان جديد',
-                            color: Colors.white,
-                          ),
+                      ),
+                      value: addresses[1],
+                      groupValue: currentAddress,
+                      onChanged: (value) {
+                        setState(() {
+                          currentAddress = value!;
+                        });
+                      },
+                      title: Text(
+                        addresses[1],
+                        style: AppFonts.regular14.copyWith(
+                          color: currentAddress == addresses[1]
+                              ? Colors.black
+                              : Colors.grey,
                         ),
-                      ],
-                    )
-                  : const SizedBox(),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        right: 16.0,
+                        left: 16.0,
+                        top: 30,
+                        bottom: 16.0,
+                      ),
+                      child: CustomButton(
+                        textColor: AppColors.primaryColor,
+                        onPressed: () {
+                          customShowBottomSheet(
+                            context: context,
+                            child: const ShowModalBottomSheetAddress(),
+                          );
+                        },
+                        buttonName: 'إضافة عنوان جديد',
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),

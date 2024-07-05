@@ -47,9 +47,9 @@ class _ItemVideoState extends State<ItemVideo> {
                   ),
                 ),
                 Container(
-                  padding: const EdgeInsetsDirectional.only(
-                    top: 35,
-                    start: 6,
+                  padding:  EdgeInsetsDirectional.only(
+                    top: MediaQuery.sizeOf(context).height * 0.03,
+                    start: MediaQuery.sizeOf(context).width*0.02,
                   ),
                   alignment: AlignmentDirectional.topStart,
                   height: MediaQuery.sizeOf(context).height * 0.3,

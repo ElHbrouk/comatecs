@@ -1,4 +1,5 @@
-import 'package:comatecs/core/shared/widgets/custom_alert_dialog.dart';
+import 'package:comatecs/constants.dart';
+import 'package:comatecs/core/shared/widgets/custom_alert_dialog_widget.dart';
 import 'package:comatecs/core/utils/app_fonts.dart';
 import 'package:comatecs/core/utils/image_asset.dart';
 import 'package:comatecs/core/utils/routes.dart';
@@ -87,7 +88,7 @@ class AccountViewBody extends StatelessWidget {
             fillOverscroll: false,
             hasScrollBody: false,
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              padding: const EdgeInsets.symmetric(horizontal: kHorizontalPadding),
               child: InkWell(
                 onTap: () {
                   showDialog(
@@ -95,8 +96,8 @@ class AccountViewBody extends StatelessWidget {
                     builder: (context) => Dialog(
                       elevation: 5.0,
                       alignment: Alignment.center,
-                      child: CustomAlertDialog(
-                        height: 135,
+                      child: CustomAlertDialogWidget(
+                        height: MediaQuery.sizeOf(context).height * 0.16,
                         title: 'الخروج من الحساب',
                         content:
                             'هل انت متأكد من عملية الخروج من حسابك ,تأكد من حفظ بياناتك للرجوع مرة أخرى',

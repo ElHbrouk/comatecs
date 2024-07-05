@@ -17,8 +17,8 @@ class TechnicalSupportDialog extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: SizedBox(
-          height: 110,
-          width: 270,
+          height: MediaQuery.sizeOf(context).height * 0.12,
+          width: MediaQuery.sizeOf(context).height * 0.19,
           child: Column(
             children: [
               SvgPicture.asset(

@@ -1,3 +1,4 @@
+import 'package:comatecs/constants.dart';
 import 'package:comatecs/core/utils/app_colors.dart';
 import 'package:comatecs/core/utils/app_fonts.dart';
 import 'package:comatecs/features/my_orders/presentation/views/widgets/order_summarize_item.dart';
@@ -19,7 +20,7 @@ class SummarizedItemCard extends StatelessWidget {
         ),
       ),
       padding: const EdgeInsetsDirectional.symmetric(
-        horizontal: 16.0,
+        horizontal: kHorizontalPadding,
         vertical: 16.0,
       ),
       child: Column(

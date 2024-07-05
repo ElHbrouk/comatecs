@@ -24,24 +24,21 @@ class EditProfileViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Directionality(
-        textDirection: TextDirection.rtl,
-        child: Column(
-          children: [
-            const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: CustomTitleWithBackButton(
-                title: 'تعديل الملف الشخصي',
-              ),
+      child: Column(
+        children: [
+          const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: CustomTitleWithBackButton(
+              title: 'تعديل الملف الشخصي',
             ),
-            Expanded(
-              child: AccountSettingItemListView(
-                views: views,
-                items: settingItems,
-              ),
+          ),
+          Expanded(
+            child: AccountSettingItemListView(
+              views: views,
+              items: settingItems,
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

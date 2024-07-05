@@ -1,3 +1,4 @@
+import 'package:comatecs/constants.dart';
 import 'package:comatecs/core/shared/widgets/custom_button.dart';
 import 'package:comatecs/core/utils/app_fonts.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,7 @@ class PriceItemButton extends StatelessWidget {
         top: 16.0,
       ),
       padding: const EdgeInsetsDirectional.symmetric(
-        horizontal: 16,
+        horizontal: kHorizontalPadding,
       ),
       decoration: BoxDecoration(
           border: Border.all(

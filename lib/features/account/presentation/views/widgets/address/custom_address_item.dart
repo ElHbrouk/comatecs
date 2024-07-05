@@ -1,3 +1,4 @@
+import 'package:comatecs/constants.dart';
 import 'package:comatecs/core/utils/app_fonts.dart';
 import 'package:comatecs/features/account/data/models/address_item_model.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,7 @@ class CustomAddressItem extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(
         vertical: 10.0,
-        horizontal: 16.0,
+        horizontal: kHorizontalPadding,
       ),
       decoration: BoxDecoration(
         border: Border.all(

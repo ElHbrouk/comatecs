@@ -1,3 +1,4 @@
+import 'package:comatecs/constants.dart';
 import 'package:comatecs/core/utils/app_fonts.dart';
 import 'package:comatecs/features/my_orders/data/payment_item_model.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +24,10 @@ class TabBarItem extends StatelessWidget {
         borderRadius: BorderRadius.circular(5.0),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+        padding: const EdgeInsets.symmetric(
+          horizontal: kHorizontalPadding,
+          vertical: 16.0,
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

@@ -11,15 +11,12 @@ class ForgetPasswordView extends StatelessWidget {
     // Get.put(ForgetPasswordControllerImpl());
     return Scaffold(
       appBar: AppBar(leading: const CustomBackButton()),
-      body: Directionality(
-        textDirection: TextDirection.rtl,
-        child: CheckEmailViewBody(
-          titleText: "إعادة تعيين كلمة المرور",
-          onPressed: () {
-            context.push(AppRoutes.resetPasswordView);
-            // controller.checkEmail();
-          },
-        ),
+      body: CheckEmailViewBody(
+        titleText: "إعادة تعيين كلمة المرور",
+        onPressed: () {
+          context.push(AppRoutes.resetPasswordView);
+          // controller.checkEmail();
+        },
       ),
     );
   }

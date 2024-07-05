@@ -1,4 +1,5 @@
 
+import 'package:comatecs/constants.dart';
 import 'package:comatecs/core/utils/app_fonts.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +22,7 @@ class WantedPriceItem extends StatelessWidget {
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(
-          horizontal: 16.0,
+          horizontal: kHorizontalPadding,
           vertical: 16.0,
         ),
         child: Column(

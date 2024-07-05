@@ -15,38 +15,35 @@ class OrderDetailsViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  SafeArea(
-      child: Directionality(
-        textDirection: TextDirection.rtl,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 20.0,
-            vertical: 16.0,
-          ),
-          child: Column(
-            children: [
-              const Expanded(
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      CustomTitleWithBackButton(
-                        title: 'تفاصيل الطلب',
-                      ),
-                      SummarizedItemCard(),
-                      OrderDetailedItem(),
-                      WantedPriceItem(),
-                      SizedBox(height: 20,),
-                    ],
-                  ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 20.0,
+          vertical: 16.0,
+        ),
+        child: Column(
+          children: [
+            const Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    CustomTitleWithBackButton(
+                      title: 'تفاصيل الطلب',
+                    ),
+                    SummarizedItemCard(),
+                    OrderDetailedItem(),
+                    WantedPriceItem(),
+                    SizedBox(height: 20,),
+                  ],
                 ),
               ),
-              CustomButton(
-                onPressed: () {
-                  context.push(AppRoutes.orderInvoiceView);
-                },
-                buttonName: 'احصل على فاتورة',
-              ),
-            ],
-          ),
+            ),
+            CustomButton(
+              onPressed: () {
+                context.push(AppRoutes.orderInvoiceView);
+              },
+              buttonName: 'احصل على فاتورة',
+            ),
+          ],
         ),
       ),
     );

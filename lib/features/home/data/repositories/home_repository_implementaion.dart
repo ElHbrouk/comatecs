@@ -5,7 +5,7 @@ import 'package:dartz/dartz.dart';
 
 class HomeRepositoryImplementaion extends HomeRepository {
   @override
-  Future<Either<Failure, List<ItemEntity>>> getItems() {
+  Future<Either<Failure, List<ItemEntity>>> fetchItems() {
     throw UnimplementedError();
   }
 }

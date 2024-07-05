@@ -3,5 +3,5 @@ import 'package:comatecs/features/home/domain/entites/item_entity.dart';
 import 'package:dartz/dartz.dart';
 
 abstract class HomeRepository {
-  Future<Either<Failure,List<ItemEntity>>> getItems();
+  Future<Either<Failure, List<ItemEntity>>> fetchItems();
 }

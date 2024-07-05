@@ -17,78 +17,75 @@ class PaymentViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Directionality(
-        textDirection: TextDirection.rtl,
-        child: Padding(
-          padding: const EdgeInsetsDirectional.only(
-            start: 20.0,
-            end: 20.0,
-            top: 20,
-            bottom: 20.0,
-          ),
-          child: Column(
-            children: [
-              Expanded(
-                child: SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const CustomTitleWithBackButton(
-                        title: 'تفاصيل الشراء',
+      child: Padding(
+        padding: const EdgeInsetsDirectional.only(
+          start: 20.0,
+          end: 20.0,
+          top: 20,
+          bottom: 20.0,
+        ),
+        child: Column(
+          children: [
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const CustomTitleWithBackButton(
+                      title: 'تفاصيل الشراء',
+                    ),
+                    const SizedBox(
+                      height: 16.0,
+                    ),
+                    const CustomOrderTable(),
+                    const CustomPaymentDetailTable(),
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        top: 24.0,
                       ),
-                      const SizedBox(
-                        height: 16.0,
-                      ),
-                      const CustomOrderTable(),
-                      const CustomPaymentDetailTable(),
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          top: 24.0,
+                      child: Text(
+                        'عملية الشحن',
+                        style: AppFonts.bold16.copyWith(
+                          color: Colors.black,
                         ),
-                        child: Text(
-                          'عملية الشحن',
+                      ),
+                    ),
+                    const CustomPaymentOperation(),
+                    Row(
+                      children: [
+                        Text(
+                          'ملاحظات',
                           style: AppFonts.bold16.copyWith(
                             color: Colors.black,
                           ),
                         ),
-                      ),
-                      const CustomPaymentOperation(),
-                      Row(
-                        children: [
-                          Text(
-                            'ملاحظات',
-                            style: AppFonts.bold16.copyWith(
-                              color: Colors.black,
-                            ),
-                          ),
-                          SvgPicture.asset(
-                            ImageAssets.edit,
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      const CustomTextField(
-                        maxLines: 3,
-                        hintText: 'اكتب ملاحظاتك على الطلب ...',
-                      ),
-                      const SizedBox(
-                        height: 50.0,
-                      ),
-                    ],
-                  ),
+                        SvgPicture.asset(
+                          ImageAssets.edit,
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    const CustomTextField(
+                      maxLines: 3,
+                      hintText: 'اكتب ملاحظاتك على الطلب ...',
+                    ),
+                    const SizedBox(
+                      height: 50.0,
+                    ),
+                  ],
                 ),
               ),
-              PriceItemButton(
-                buttonName: 'التالي',
-                price: 'JOD 32.000',
-                onPressed: () {
-                  context.push(AppRoutes.payOperationView);
-                },
-              ),
-            ],
-          ),
+            ),
+            PriceItemButton(
+              buttonName: 'التالي',
+              price: 'JOD 32.000',
+              onPressed: () {
+                context.push(AppRoutes.payOperationView);
+              },
+            ),
+          ],
         ),
       ),
     );

@@ -1,3 +1,4 @@
+import 'package:comatecs/constants.dart';
 import 'package:comatecs/core/utils/app_fonts.dart';
 import 'package:comatecs/features/account/presentation/views/widgets/custom_title_with_back_button.dart';
 import 'package:flutter/material.dart';
@@ -10,19 +11,16 @@ class AllCategoriesViewBody extends StatelessWidget {
     return const SafeArea(
       child: Padding(
         padding: EdgeInsets.all(20.0),
-        child: Directionality(
-          textDirection: TextDirection.rtl,
-          child: Column(
-            children: [
-              CustomTitleWithBackButton(
-                title: 'جميع الأقسام',
-              ),
-              SizedBox(height: 21.0),
-              Expanded(
-                child: CategoryItemListView(),
-              ),
-            ],
-          ),
+        child: Column(
+          children: [
+            CustomTitleWithBackButton(
+              title: 'جميع الأقسام',
+            ),
+            SizedBox(height: 21.0),
+            Expanded(
+              child: CategoryItemListView(),
+            ),
+          ],
         ),
       ),
     );
@@ -60,7 +58,7 @@ class CategoryItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsetsDirectional.symmetric(
-        horizontal: 16.0,
+        horizontal: kHorizontalPadding,
         vertical: 13.0,
       ),
       decoration: BoxDecoration(

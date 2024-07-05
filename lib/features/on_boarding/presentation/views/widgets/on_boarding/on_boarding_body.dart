@@ -1,3 +1,5 @@
+import 'package:comatecs/constants.dart';
+import 'package:comatecs/core/services/shared_prefrences_singleton.dart';
 import 'package:comatecs/core/shared/widgets/custom_button.dart';
 import 'package:comatecs/core/utils/app_colors.dart';
 import 'package:comatecs/core/utils/routes.dart';
@@ -17,7 +19,18 @@ class OnBoardingBody extends StatefulWidget {
 }
 
 class _OnBoardingBodyState extends State<OnBoardingBody> {
-  PageController pageController = PageController(initialPage: 0);
+  late PageController pageController;
+  @override
+  void initState() {
+    pageController = PageController(initialPage: 0);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    pageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,8 +61,9 @@ class _OnBoardingBodyState extends State<OnBoardingBody> {
                       onPressed: () {
                         if (OnBoardingItemPageView.currentPage ==
                             onBoardingList.length - 1) {
+                          SharedPrefrencesSingleton.setBool(
+                              kIsOnBoardingSeen, true);
                           context.go(AppRoutes.loginView);
-                          pageController.dispose();
                         } else {
                           pageController.nextPage(
                             duration: const Duration(
@@ -68,6 +82,8 @@ class _OnBoardingBodyState extends State<OnBoardingBody> {
                     CustomButton(
                       textColor: AppColors.primaryColor,
                       onPressed: () {
+                        SharedPrefrencesSingleton.setBool(
+                            kIsOnBoardingSeen, true);
                         context.go(AppRoutes.loginView);
                       },
                       color: Colors.grey[300],

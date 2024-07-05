@@ -17,35 +17,32 @@ class _CustomRangeSliderState extends State<CustomRangeSlider> {
       values.start.toInt().toString(),
       values.end.toInt().toString(),
     );
-    return Directionality(
-      textDirection: TextDirection.rtl,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              vertical: 16.0,
-            ),
-            child: Text(
-              'ميزانية السعر',
-              style: AppFonts.regular16.copyWith(
-                color: Colors.black,
-              ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(
+            vertical: 16.0,
+          ),
+          child: Text(
+            'ميزانية السعر',
+            style: AppFonts.regular16.copyWith(
+              color: Colors.black,
             ),
           ),
-          RangeSlider(
-            max: 6000,
-            divisions: 15,
-            labels: labels,
-            values: values,
-            onChanged: (newValue) {
-              setState(() {
-                values = newValue;
-              });
-            },
-          ),
-        ],
-      ),
+        ),
+        RangeSlider(
+          max: 6000,
+          divisions: 15,
+          labels: labels,
+          values: values,
+          onChanged: (newValue) {
+            setState(() {
+              values = newValue;
+            });
+          },
+        ),
+      ],
     );
   }
 }

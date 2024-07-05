@@ -1,5 +1,6 @@
+import 'package:comatecs/constants.dart';
 import 'package:comatecs/core/helper_functions/custom_alert_dialog.dart';
-import 'package:comatecs/core/shared/widgets/custom_alert_dialog.dart';
+import 'package:comatecs/core/shared/widgets/custom_alert_dialog_widget.dart';
 import 'package:comatecs/core/shared/widgets/custom_icon_button.dart';
 import 'package:comatecs/core/utils/app_fonts.dart';
 import 'package:comatecs/core/utils/image_asset.dart';
@@ -16,7 +17,7 @@ class CartItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsetsDirectional.only(bottom: 16),
-      padding: const EdgeInsetsDirectional.symmetric(horizontal: 16),
+      padding: const EdgeInsetsDirectional.symmetric(horizontal: kHorizontalPadding),
       height: 140,
       decoration: BoxDecoration(
           border: Border.all(
@@ -31,8 +32,10 @@ class CartItem extends StatelessWidget {
           Column(
             children: [
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 16.0, horizontal: 16),
+                padding: const EdgeInsets.symmetric(
+                  vertical: 16.0,
+                  horizontal: kHorizontalPadding,
+                ),
                 child: Text(
                   'الاسم التجاري الشائع',
                   style: AppFonts.regular14.copyWith(
@@ -46,8 +49,7 @@ class CartItem extends StatelessWidget {
                     onPressed: () {
                       customAlertDialog(
                         context: context,
-                        child: CustomAlertDialog(
-                          height: 120,
+                        child: CustomAlertDialogWidget(
                           title: 'حذف المنتج من السلة',
                           content: 'هل أنت متأكد من إزالة هذا المنتج من السلة؟',
                           textRightButton: 'حذف',

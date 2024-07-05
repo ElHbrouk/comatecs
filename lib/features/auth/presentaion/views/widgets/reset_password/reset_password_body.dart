@@ -12,78 +12,75 @@ class ResetPasswordViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Get.put(ResetPasswordControllerImpl());
-    return Directionality(
-      textDirection: TextDirection.rtl,
-      child: Padding(
-        padding: const EdgeInsets.only(bottom: 106, left: 20, right: 20),
-        child: Form(
-          // key: controller.key,
-          child: Column(
-            children: [
-              const CustomTitleAuth(
-                text1: "إعادة تعيين كلمة المرور", //reset password
-              ),
-              const SizedBox(
-                height: 32,
-              ),
-              CustomTextFormFieldAuth(
-                controller: TextEditingController(),
-                validator: (value) {
-                  return;
-                  // return validInput(
-                  //   value: value!,
-                  //   min: 5,
-                  //   max: 20,
-                  //   type: "password",
-                  // );
-                },
-                obscureText: true,
-                suffixIcon: PasswordEye(
-                  onPressed: () {
-                    // controller.visiblePassword();
-                  },
-                  text: true,
-                ),
-
-                keyboardType: TextInputType.visiblePassword,
-                hintText: " أدخل كلمة المرور", // enter password
-                text: "كلمة المرور", //  password
-              ),
-              const SizedBox(
-                height: 16,
-              ),
-              CustomTextFormFieldAuth(
-                validator: (value) {
-                  return;
-                  // return validInput(
-                  //   value: value!,
-                  //   min: 8,
-                  //   max: 20,
-                  //   type: "password",
-                  // );
-                },
-                obscureText: true,
-                controller: TextEditingController(),
-                suffixIcon: PasswordEye(
-                  onPressed: () {
-                    // controller.visiblePassword();
-                  },
-                  text: true,
-                ),
-                keyboardType: TextInputType.visiblePassword,
-                hintText: "تأكيد كلمة المرور", // re-enter password
-                text: "تأكيد كلمة المرور", //  re-enter password
-              ),
-              const Spacer(),
-              CustomButton(
-                buttonName: "إرسال",
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 106, left: 20, right: 20),
+      child: Form(
+        // key: controller.key,
+        child: Column(
+          children: [
+            const CustomTitleAuth(
+              text1: "إعادة تعيين كلمة المرور", //reset password
+            ),
+            const SizedBox(
+              height: 32,
+            ),
+            CustomTextFormFieldAuth(
+              controller: TextEditingController(),
+              validator: (value) {
+                return;
+                // return validInput(
+                //   value: value!,
+                //   min: 5,
+                //   max: 20,
+                //   type: "password",
+                // );
+              },
+              obscureText: true,
+              suffixIcon: PasswordEye(
                 onPressed: () {
-                  context.push(AppRoutes.resetPasswordSuccessView);
-                  // controller.resetPassword();
+                  // controller.visiblePassword();
                 },
+                text: true,
               ),
-            ],
-          ),
+    
+              keyboardType: TextInputType.visiblePassword,
+              hintText: " أدخل كلمة المرور", // enter password
+              text: "كلمة المرور", //  password
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            CustomTextFormFieldAuth(
+              validator: (value) {
+                return;
+                // return validInput(
+                //   value: value!,
+                //   min: 8,
+                //   max: 20,
+                //   type: "password",
+                // );
+              },
+              obscureText: true,
+              controller: TextEditingController(),
+              suffixIcon: PasswordEye(
+                onPressed: () {
+                  // controller.visiblePassword();
+                },
+                text: true,
+              ),
+              keyboardType: TextInputType.visiblePassword,
+              hintText: "تأكيد كلمة المرور", // re-enter password
+              text: "تأكيد كلمة المرور", //  re-enter password
+            ),
+            const Spacer(),
+            CustomButton(
+              buttonName: "إرسال",
+              onPressed: () {
+                context.push(AppRoutes.resetPasswordSuccessView);
+                // controller.resetPassword();
+              },
+            ),
+          ],
         ),
       ),
     );

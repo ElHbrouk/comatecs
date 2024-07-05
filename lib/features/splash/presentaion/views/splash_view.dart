@@ -1,3 +1,5 @@
+import 'package:comatecs/constants.dart';
+import 'package:comatecs/core/services/shared_prefrences_singleton.dart';
 import 'package:comatecs/core/utils/routes.dart';
 import 'package:comatecs/features/splash/presentaion/views/widgets/splash/splash_view_body.dart';
 import 'package:flutter/material.dart';
@@ -17,10 +19,18 @@ class _SplashViewState extends State<SplashView> {
     super.initState();
   }
 
-  Future<Null> executeNavigation() {
-    return Future.delayed(const Duration(seconds: 1), () {
-    context.go(AppRoutes.onBoardingView);
-  });
+  Future<void> executeNavigation() async {
+    bool isBoardingSeen =
+        await SharedPrefrencesSingleton.getBool(kIsOnBoardingSeen);
+    if (isBoardingSeen) {
+      return Future.delayed(const Duration(seconds: 1), () {
+        context.go(AppRoutes.loginView);
+      });
+    } else {
+      return Future.delayed(const Duration(seconds: 1), () {
+        context.go(AppRoutes.onBoardingView);
+      });
+    }
   }
 
   @override

@@ -18,17 +18,23 @@ class ItemAttachments extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-             const Text(
+            const Text(
               'كتيب نموذج العمل',
               style: AppFonts.regular12,
             ),
             TextButton(
+              style: TextButton.styleFrom(
+                padding: EdgeInsets.zero,
+              ),
               onPressed: () {},
               child: const Row(
                 children: [
-                  Text(
-                    'تحميل',
-                    style: AppFonts.regular12,
+                  Padding(
+                    padding: EdgeInsets.only(top: 8.0),
+                    child: Text(
+                      'تحميل',
+                      style: AppFonts.regular12,
+                    ),
                   ),
                   Icon(
                     Icons.file_download_outlined,
@@ -36,23 +42,28 @@ class ItemAttachments extends StatelessWidget {
                 ],
               ),
             ),
-           
           ],
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-             const Text(
+            const Text(
               'كتيب نموذج العمل',
               style: AppFonts.regular12,
             ),
             TextButton(
+              style: TextButton.styleFrom(
+                padding: EdgeInsets.zero,
+              ),
               onPressed: () {},
               child: const Row(
                 children: [
-                  Text(
-                    'تحميل',
-                    style: AppFonts.regular12,
+                  Padding(
+                    padding: EdgeInsets.only(top: 8.0),
+                    child: Text(
+                      'تحميل',
+                      style: AppFonts.regular12,
+                    ),
                   ),
                   Icon(
                     Icons.file_download_outlined,
@@ -60,7 +71,6 @@ class ItemAttachments extends StatelessWidget {
                 ],
               ),
             ),
-           
           ],
         ),
       ],

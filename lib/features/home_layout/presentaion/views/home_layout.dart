@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:comatecs/core/helper_functions/custom_alert_dialog.dart';
-import 'package:comatecs/core/shared/widgets/custom_alert_dialog.dart';
+import 'package:comatecs/core/shared/widgets/custom_alert_dialog_widget.dart';
 import 'package:comatecs/core/utils/image_asset.dart';
 import 'package:comatecs/features/account/presentation/views/account_view.dart';
 import 'package:comatecs/features/cart/presentaion/views/cart_view.dart';
@@ -40,12 +40,12 @@ class _HomeLayoutState extends State<HomeLayout> {
             }
             customAlertDialog(
               context: context,
-              child: CustomAlertDialog(
+              child: CustomAlertDialogWidget(
                 endIndent: 0.0,
                 onPressedRightButtom: () {
                   exit(0);
                 },
-                height: 120,
+                height: MediaQuery.sizeOf(context).height * 0.14,
                 title: '  الخروج من التطبيق',
                 content: 'هل أنت متأكد من الخروج ؟',
                 textRightButton: 'خروج',
@@ -53,66 +53,60 @@ class _HomeLayoutState extends State<HomeLayout> {
             );
           },
           child: SafeArea(
-            child: Directionality(
-              textDirection: TextDirection.rtl,
-              child: views[selectedView],
-            ),
+            child: views[selectedView],
           )),
-      bottomNavigationBar: Directionality(
-        textDirection: TextDirection.rtl,
-        child: NavigationBar(
-          indicatorColor: Colors.transparent,
-          backgroundColor: Colors.white,
-          elevation: 0.0,
-          selectedIndex: selectedView,
-          onDestinationSelected: (int index) {
-            setState(() {
-              selectedView = index;
-            });
-          },
-          destinations: [
-            NavigationDestination(
-              icon: SvgPicture.asset(
-                selectedView == 0
-                    ? ImageAssets.layoutHomeFilled
-                    : ImageAssets.layoutHomeUnfilled,
-              ),
-              label: 'الرئيسية',
+      bottomNavigationBar: NavigationBar(
+        indicatorColor: Colors.transparent,
+        backgroundColor: Colors.white,
+        elevation: 0.0,
+        selectedIndex: selectedView,
+        onDestinationSelected: (int index) {
+          setState(() {
+            selectedView = index;
+          });
+        },
+        destinations: [
+          NavigationDestination(
+            icon: SvgPicture.asset(
+              selectedView == 0
+                  ? ImageAssets.layoutHomeFilled
+                  : ImageAssets.layoutHomeUnfilled,
             ),
-            NavigationDestination(
-              icon: SvgPicture.asset(
-                selectedView == 1
-                    ? ImageAssets.layoutHeartFilled
-                    : ImageAssets.layoutHeartUnfilled,
-              ),
-              label: 'المفضلة',
+            label: 'الرئيسية',
+          ),
+          NavigationDestination(
+            icon: SvgPicture.asset(
+              selectedView == 1
+                  ? ImageAssets.layoutHeartFilled
+                  : ImageAssets.layoutHeartUnfilled,
             ),
-            NavigationDestination(
-              icon: SvgPicture.asset(
-                selectedView == 2
-                    ? ImageAssets.layoutCartFilled
-                    : ImageAssets.layoutCartUnfilled,
-              ),
-              label: 'السلة',
+            label: 'المفضلة',
+          ),
+          NavigationDestination(
+            icon: SvgPicture.asset(
+              selectedView == 2
+                  ? ImageAssets.layoutCartFilled
+                  : ImageAssets.layoutCartUnfilled,
             ),
-            NavigationDestination(
-              icon: SvgPicture.asset(
-                selectedView == 3
-                    ? ImageAssets.layoutListFilled
-                    : ImageAssets.layoutListUnfilled,
-              ),
-              label: 'طلباتي',
+            label: 'السلة',
+          ),
+          NavigationDestination(
+            icon: SvgPicture.asset(
+              selectedView == 3
+                  ? ImageAssets.layoutListFilled
+                  : ImageAssets.layoutListUnfilled,
             ),
-            NavigationDestination(
-              icon: SvgPicture.asset(
-                selectedView == 4
-                    ? ImageAssets.layoutUserFilled
-                    : ImageAssets.layoutUserUnfilled,
-              ),
-              label: 'حسابي',
+            label: 'طلباتي',
+          ),
+          NavigationDestination(
+            icon: SvgPicture.asset(
+              selectedView == 4
+                  ? ImageAssets.layoutUserFilled
+                  : ImageAssets.layoutUserUnfilled,
             ),
-          ],
-        ),
+            label: 'حسابي',
+          ),
+        ],
       ),
     );
   }

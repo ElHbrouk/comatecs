@@ -18,30 +18,27 @@ class EditAddressViewBody extends StatelessWidget {
           vertical: 16.0,
           horizontal: 20.0,
         ),
-        child: Directionality(
-          textDirection: TextDirection.rtl,
-          child: Column(
-            children: [
-              const CustomTitleWithBackButton(
-                title: 'العنوان',
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              const Expanded(
-                child: CustomAddressItemListView(),
-              ),
-              CustomButton(
-                onPressed: () {
-                  customShowBottomSheet(
-                    context: context,
-                    child: const ShowModalBottomSheetAddress(),
-                  );
-                },
-                buttonName: "أضافة عنوان جديد",
-              ),
-            ],
-          ),
+        child: Column(
+          children: [
+            const CustomTitleWithBackButton(
+              title: 'العنوان',
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            const Expanded(
+              child: CustomAddressItemListView(),
+            ),
+            CustomButton(
+              onPressed: () {
+                customShowBottomSheet(
+                  context: context,
+                  child: const ShowModalBottomSheetAddress(),
+                );
+              },
+              buttonName: "أضافة عنوان جديد",
+            ),
+          ],
         ),
       ),
     );

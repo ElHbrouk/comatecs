@@ -73,67 +73,68 @@ class _PaymentMethodsState extends State<PaymentMethods> {
             ),
           ),
         ),
-        itemIndex != 5
-            ? Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const SizedBox(
-                    height: 19,
+        Visibility(
+          visible: itemIndex != 5,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(
+                height: 19,
+              ),
+              ListTile(
+                contentPadding: EdgeInsets.zero,
+                titleAlignment: ListTileTitleAlignment.top,
+                leading: const Icon(
+                  size: 30,
+                  Icons.info_outline,
+                  color: Colors.grey,
+                ),
+                title: Text(
+                  'لإتمام عملية الدفع عبر المحفظة، يُرجى استخدام رقم هاتف: [09987412536]',
+                  style: AppFonts.bold16.copyWith(
+                    color: Colors.grey,
                   ),
-                  ListTile(
-                    contentPadding: EdgeInsets.zero,
-                    titleAlignment: ListTileTitleAlignment.top,
-                    leading: const Icon(
-                      size: 30,
-                      Icons.info_outline,
-                      color: Colors.grey,
-                    ),
-                    title: Text(
-                      'لإتمام عملية الدفع عبر المحفظة، يُرجى استخدام رقم هاتف: [09987412536]',
-                      style: AppFonts.bold16.copyWith(
-                        color: Colors.grey,
-                      ),
-                    ),
+                ),
+              ),
+              ListTile(
+                contentPadding: EdgeInsets.zero,
+                titleAlignment: ListTileTitleAlignment.top,
+                leading: const Icon(
+                  size: 30,
+                  Icons.info_outline,
+                  color: Colors.grey,
+                ),
+                title: Text(
+                  'سوف يتم إرسال رمز عملية (المرجع) الشراء الخاص بهذه العمليه , يرجى ادخاله',
+                  style: AppFonts.bold16.copyWith(
+                    color: Colors.grey,
                   ),
-                  ListTile(
-                    contentPadding: EdgeInsets.zero,
-                    titleAlignment: ListTileTitleAlignment.top,
-                    leading: const Icon(
-                      size: 30,
-                      Icons.info_outline,
-                      color: Colors.grey,
-                    ),
-                    title: Text(
-                      'سوف يتم إرسال رمز عملية (المرجع) الشراء الخاص بهذه العمليه , يرجى ادخاله',
-                      style: AppFonts.bold16.copyWith(
-                        color: Colors.grey,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 33,
-                  ),
-                  Text(
-                    'رمز عمليه (المرجع)',
-                    style: AppFonts.regular14.copyWith(
-                      color: Colors.black,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.only(
-                      bottom: 20.0,
-                    ),
-                    child: CustomTextField(
-                      keyboardType: TextInputType.number,
-                      hintText: 'أدخل الرقم',
-                    ),
-                  ),
-                ],
-              )
-            : Container(),
+                ),
+              ),
+              const SizedBox(
+                height: 33,
+              ),
+              Text(
+                'رمز عمليه (المرجع)',
+                style: AppFonts.regular14.copyWith(
+                  color: Colors.black,
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              const Padding(
+                padding: EdgeInsets.only(
+                  bottom: 20.0,
+                ),
+                child: CustomTextField(
+                  keyboardType: TextInputType.number,
+                  hintText: 'أدخل الرقم',
+                ),
+              ),
+            ],
+          ),
+        ),
       ],
     );
   }

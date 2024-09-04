@@ -3,7 +3,10 @@ import 'package:comatecs/features/account/presentation/views/account_view.dart';
 import 'package:comatecs/features/account/presentation/views/edit_address_view.dart';
 import 'package:comatecs/features/account/presentation/views/edit_password_view.dart';
 import 'package:comatecs/features/account/presentation/views/edit_profile_view.dart';
+import 'package:comatecs/features/home/domain/entites/item_entity.dart';
 import 'package:comatecs/features/home/presentaion/views/all_categories_view.dart';
+import 'package:comatecs/features/home/presentaion/views/filtered_items_view.dart';
+import 'package:comatecs/features/home/presentaion/views/searched_items_view.dart';
 import 'package:comatecs/features/payment/presentaion/views/pay_operation_view.dart';
 import 'package:comatecs/features/account/presentation/views/technical_support_view.dart';
 import 'package:comatecs/features/account/presentation/views/widgets/edit/edit_personal_info_view.dart';
@@ -47,7 +50,8 @@ abstract class AppRoutes {
 //--------------- items views ---------------
   static const homeView = "/homeView";
   static const homeLayout = "/homeLayout";
-  static const itemDetailView = "/itemDetailView";
+  static const itemDetailView = "itemDetailView";
+  static const filteredItemsView = "/filteredItemsView";
   static const accountView = "/accountView";
   static const cartView = "/cartView";
   static const favouriteView = "/favouriteView";
@@ -64,6 +68,7 @@ abstract class AppRoutes {
   static const paymentView = "/paymentView";
   static const payOperationView = "/payOperationView";
   static const allCategoriesView = "/allCategoriesView";
+  static const searchedItemsView = "/searchedItemsview";
 
   static GoRouter routes = GoRouter(
     routes: <RouteBase>[
@@ -100,8 +105,21 @@ abstract class AppRoutes {
         builder: (context, state) => const ResetPasswordSuccess(),
       ),
       GoRoute(
+        path: filteredItemsView,
+        builder: (context, state) => const FilteredItemsView(),
+      ),
+      GoRoute(
         path: homeView,
         builder: (context, state) => const HomeView(),
+        routes: [
+          GoRoute(
+            path: itemDetailView,
+            name: itemDetailView,
+            builder: (context, state) => ItemDetailView(
+              itemEntity: state.extra as ItemEntity,
+            ),
+          ),
+        ],
       ),
       GoRoute(
         path: homeLayout,
@@ -118,10 +136,6 @@ abstract class AppRoutes {
       GoRoute(
         path: verifyCodeSignUpView,
         builder: (context, state) => const VerifyCodeSignUpView(),
-      ),
-      GoRoute(
-        path: itemDetailView,
-        builder: (context, state) => const ItemDetailView(),
       ),
       GoRoute(
         path: accountView,
@@ -182,6 +196,10 @@ abstract class AppRoutes {
       GoRoute(
         path: allCategoriesView,
         builder: (context, state) => const AllCategoriesView(),
+      ),
+      GoRoute(
+        path: searchedItemsView,
+        builder: (context, state) => const SearchedItemsView(),
       ),
     ],
   );

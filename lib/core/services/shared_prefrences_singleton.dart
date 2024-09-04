@@ -6,11 +6,23 @@ class SharedPrefrencesSingleton {
     _instance = await SharedPreferences.getInstance();
   }
 
-  static setBool(String key, bool value) async {
+  static setBool({required String key, required bool value}) async {
     await _instance.setBool(key, value);
   }
 
-  static getBool(String key) async {
+  static setString({required String key, required String value}) async {
+    await _instance.setString(key, value);
+  }
+
+  static getBool({required String key}) async {
     return _instance.getBool(key) ?? false;
+  }
+
+  static String getString({required String key}) {
+    return _instance.getString(key) ?? '';
+  }
+
+  static removeString({required String key}) async {
+    return await _instance.remove(key);
   }
 }

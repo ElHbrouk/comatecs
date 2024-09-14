@@ -47,7 +47,7 @@ class RemoteAuthDataSourceImplementaion implements RemoteAuthDataSource {
     var response = await apiService.postData(
       headers: {
         'Authorization':
-            'Bearer ${SharedPrefrencesSingleton.getString(key: kIsTokenGot)}',
+            'Bearer ${SharedPrefrencesSingleton.getSecureString(key: kIsTokenGot)}',
         'Content-Type': 'application/json',
         'Accept': 'application/json',
       },
@@ -58,7 +58,7 @@ class RemoteAuthDataSourceImplementaion implements RemoteAuthDataSource {
       },
     );
 
-    SharedPrefrencesSingleton.setString(
+    await SharedPrefrencesSingleton.setSecureString(
       key: kIsTokenGot,
       value: response.data!['access_token'],
     );

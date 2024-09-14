@@ -4,18 +4,27 @@ import 'package:flutter/material.dart';
 class CustomRangeSlider extends StatefulWidget {
   const CustomRangeSlider({
     super.key,
+    required this.onChanged,
   });
+
+  final Function(RangeValues) onChanged;
   @override
   State<CustomRangeSlider> createState() => _CustomRangeSliderState();
 }
 
 class _CustomRangeSliderState extends State<CustomRangeSlider> {
-  RangeValues values = const RangeValues(400, 3600);
+  RangeValues currentValues = const RangeValues(0, 10000);
+
+  @override
+  initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     RangeLabels labels = RangeLabels(
-      values.start.toInt().toString(),
-      values.end.toInt().toString(),
+      currentValues.start.toInt().toString(),
+      currentValues.end.toInt().toString(),
     );
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,14 +41,15 @@ class _CustomRangeSliderState extends State<CustomRangeSlider> {
           ),
         ),
         RangeSlider(
-          max: 6000,
+          max: 100000,
           divisions: 15,
           labels: labels,
-          values: values,
+          values: currentValues,
           onChanged: (newValue) {
             setState(() {
-              values = newValue;
+              currentValues = newValue;
             });
+            widget.onChanged(newValue);
           },
         ),
       ],

@@ -1,13 +1,16 @@
 import 'package:comatecs/constants.dart';
-import 'package:comatecs/core/shared/widgets/custom_alert_dialog_widget.dart';
+import 'package:comatecs/core/services/shared_prefrences_singleton.dart';
+import 'package:comatecs/core/utils/widgets/custom_alert_dialog_widget.dart';
+import 'package:comatecs/core/utils/app_colors.dart';
 import 'package:comatecs/core/utils/app_fonts.dart';
 import 'package:comatecs/core/utils/image_asset.dart';
 import 'package:comatecs/core/utils/routes.dart';
 import 'package:comatecs/features/account/data/models/setting_item_model.dart';
+import 'package:comatecs/features/account/presentation/views/widgets/account_settings/account_name_and_email_builder.dart';
 import 'package:comatecs/features/account/presentation/views/widgets/account_settings/account_setting_item_list_view.dart';
-import 'package:comatecs/features/account/presentation/views/widgets/account_settings/points_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 
 class AccountViewBody extends StatelessWidget {
   const AccountViewBody({
@@ -38,40 +41,33 @@ class AccountViewBody extends StatelessWidget {
                   width: MediaQuery.sizeOf(context).width,
                   ImageAssets.rectangle,
                 ),
+                Positioned(
+                  top: 0,
+                  child: Container(
+                    alignment: Alignment.topCenter,
+                    color: AppColors.primaryColor,
+                    width: MediaQuery.sizeOf(context).width,
+                    height: 50,
+                  ),
+                ),
                 CircleAvatar(
                   radius: 60,
                   backgroundColor: Colors.white,
                   child: Image.asset(
-                    height: 150,
+                    height: 120,
                     ImageAssets.emoji,
                   ),
                 ),
               ],
             ),
           ),
-          SliverToBoxAdapter(
-            child: Text(
-              textAlign: TextAlign.center,
-              'عمر محمد',
-              style: AppFonts.bold16.copyWith(
-                color: Colors.black,
-              ),
-            ),
-          ),
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: const EdgeInsets.only(top: 5.0, bottom: 16),
-              child: Text(
-                textAlign: TextAlign.center,
-                'Omar.M@gmail.com',
-                style: AppFonts.regular16.copyWith(
-                  color: Colors.grey,
-                ),
-              ),
+          const SliverToBoxAdapter(
+            child: SizedBox(
+              height: 20,
             ),
           ),
           const SliverToBoxAdapter(
-            child: PointsItem(),
+            child: AccountNameAndEmailBuilder(),
           ),
           SliverToBoxAdapter(
             child: AccountSettingItemListView(
@@ -88,7 +84,8 @@ class AccountViewBody extends StatelessWidget {
             fillOverscroll: false,
             hasScrollBody: false,
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: kHorizontalPadding),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: kHorizontalPadding),
               child: InkWell(
                 onTap: () {
                   showDialog(
@@ -102,8 +99,11 @@ class AccountViewBody extends StatelessWidget {
                         content:
                             'هل انت متأكد من عملية الخروج من حسابك ,تأكد من حفظ بياناتك للرجوع مرة أخرى',
                         textRightButton: 'تسجيل خروج',
-                        onPressedRightButtom: () {
-                          Navigator.pop(context);
+                        onPressedRightButtom: () async {
+                          await SharedPrefrencesSingleton.deleteSecureString(
+                              key: kIsTokenGot);
+
+                          context.go(AppRoutes.loginView);
                         },
                       ),
                     ),

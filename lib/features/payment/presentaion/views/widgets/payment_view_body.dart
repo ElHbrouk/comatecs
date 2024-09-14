@@ -1,10 +1,10 @@
-import 'package:comatecs/core/shared/price_item_button.dart';
-import 'package:comatecs/core/shared/widgets/custom_order_table.dart';
 import 'package:comatecs/core/utils/app_fonts.dart';
 import 'package:comatecs/core/utils/image_asset.dart';
 import 'package:comatecs/core/utils/routes.dart';
+import 'package:comatecs/core/utils/widgets/custom_order_table.dart';
+import 'package:comatecs/core/utils/widgets/price_item_button.dart';
 import 'package:comatecs/features/account/presentation/views/widgets/custom_title_with_back_button.dart';
-import 'package:comatecs/features/auth/presentaion/views/widgets/login/custom_text_field.dart';
+import 'package:comatecs/features/auth/presentaion/views/widgets/login/custom_text_form_field.dart';
 import 'package:comatecs/features/payment/presentaion/views/widgets/custom_payment_detail_table.dart';
 import 'package:comatecs/features/payment/presentaion/views/widgets/custom_payment_operation.dart';
 import 'package:flutter/material.dart';
@@ -67,7 +67,7 @@ class PaymentViewBody extends StatelessWidget {
                     const SizedBox(
                       height: 10,
                     ),
-                    const CustomTextField(
+                    const CustomTextFormField(
                       maxLines: 3,
                       hintText: 'اكتب ملاحظاتك على الطلب ...',
                     ),

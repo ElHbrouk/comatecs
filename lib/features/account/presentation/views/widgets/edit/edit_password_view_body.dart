@@ -1,7 +1,6 @@
-import 'package:comatecs/core/shared/widgets/custom_button.dart';
+import 'package:comatecs/core/utils/widgets/custom_button.dart';
+import 'package:comatecs/core/utils/widgets/custom_password_field.dart';
 import 'package:comatecs/features/account/presentation/views/widgets/custom_title_with_back_button.dart';
-import 'package:comatecs/features/auth/presentaion/views/widgets/custom_text_form_field_auth.dart';
-import 'package:comatecs/features/auth/presentaion/views/widgets/password_eye.dart';
 import 'package:flutter/material.dart';
 
 class EditPasswordViewBody extends StatelessWidget {
@@ -25,53 +24,18 @@ class EditPasswordViewBody extends StatelessWidget {
                 // key: controller.key,
                 child: Column(
                   children: [
-                    CustomTextFormFieldAuth(
+                    CustomPasswordField(
+                      hintText: " أدخل كلمة المرور",
+                      text: ' كلمة المرور',
                       controller: TextEditingController(),
-                      validator: (value) {
-                        return;
-                        // return validInput(
-                        //   value: value!,
-                        //   min: 5,
-                        //   max: 20,
-                        //   type: "password",
-                        // );
-                      },
-                      obscureText: true,
-                      suffixIcon: PasswordEye(
-                        onPressed: () {
-                          // controller.visiblePassword();
-                        },
-                        text: true,
-                      ),
-      
-                      keyboardType: TextInputType.visiblePassword,
-                      hintText: " أدخل كلمة المرور", // enter password
-                      text: "كلمة المرور", //  password
                     ),
                     const SizedBox(
                       height: 16,
                     ),
-                    CustomTextFormFieldAuth(
-                      validator: (value) {
-                        return;
-                        // return validInput(
-                        //   value: value!,
-                        //   min: 8,
-                        //   max: 20,
-                        //   type: "password",
-                        // );
-                      },
-                      obscureText: true,
+                    CustomPasswordField(
+                      hintText: " تأكيد كلمة المرور",
+                      text: ' تأكيد كلمة المرور',
                       controller: TextEditingController(),
-                      suffixIcon: PasswordEye(
-                        onPressed: () {
-                          // controller.visiblePassword();
-                        },
-                        text: true,
-                      ),
-                      keyboardType: TextInputType.visiblePassword,
-                      hintText: "تأكيد كلمة المرور", // re-enter password
-                      text: "تأكيد كلمة المرور", //  re-enter password
                     ),
                     const Spacer(),
                     CustomButton(

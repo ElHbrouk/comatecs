@@ -17,7 +17,7 @@ abstract class AppFonts {
     fontWeight: FontWeight.w700,
     fontFamily: arabicFontFamily,
   );
-   static const bold14 = TextStyle(
+  static const bold14 = TextStyle(
     color: AppColors.primaryColor,
     fontSize: 14,
     fontWeight: FontWeight.w700,

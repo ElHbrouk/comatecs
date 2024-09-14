@@ -1,4 +1,5 @@
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:carousel_slider_plus/carousel_slider_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -17,31 +18,39 @@ class _HomeImageSliderState extends State<HomeImageSlider> {
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(16),
-        child: Image.network(
-            fit: BoxFit.cover,
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqGK3diR3Zi-mnOXEaj-3ewmFyRYVxGzVzZw&s'),
+        child: CachedNetworkImage(
+          fit: BoxFit.cover,
+          imageUrl:
+              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqGK3diR3Zi-mnOXEaj-3ewmFyRYVxGzVzZw&s',
+        ),
       ),
     ),
     ClipRRect(
       borderRadius: BorderRadius.circular(16),
-      child: Image.network(
-          fit: BoxFit.cover,
-          'https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg'),
+      child: CachedNetworkImage(
+        fit: BoxFit.cover,
+        imageUrl:
+            'https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg',
+      ),
     ),
     Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(16),
-        child: Image.network(
-            fit: BoxFit.cover,
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4WmAlrjjUTOOYs35vGliGHYUdtUkXyQ-t9cyThMmGX0Uh4gtmZ0lkJE8ixZIRSSmgJzI&usqp=CAU'),
+        child: CachedNetworkImage(
+          fit: BoxFit.cover,
+          imageUrl:
+              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4WmAlrjjUTOOYs35vGliGHYUdtUkXyQ-t9cyThMmGX0Uh4gtmZ0lkJE8ixZIRSSmgJzI&usqp=CAU',
+        ),
       ),
     ),
     ClipRRect(
       borderRadius: BorderRadius.circular(16),
-      child: Image.network(
-          fit: BoxFit.cover,
-          'https://t3.ftcdn.net/jpg/05/85/86/44/360_F_585864419_kgIYUcDQ0yiLOCo1aRjeu7kRxndcoitz.jpg'),
+      child: CachedNetworkImage(
+        fit: BoxFit.cover,
+        imageUrl:
+            'https://t3.ftcdn.net/jpg/05/85/86/44/360_F_585864419_kgIYUcDQ0yiLOCo1aRjeu7kRxndcoitz.jpg',
+      ),
     ),
   ];
   int getCurrentIndex = 0;

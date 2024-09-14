@@ -1,4 +1,4 @@
-import 'package:comatecs/core/shared/widgets/custom_view_title.dart';
+import 'package:comatecs/core/utils/widgets/custom_view_title.dart';
 import 'package:comatecs/features/my_orders/presentation/views/widgets/custom_tab_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +20,6 @@ class MyOrdersViewBody extends StatelessWidget {
         Expanded(
           child: CustomTabBar(),
         ),
-        
       ],
     );
   }

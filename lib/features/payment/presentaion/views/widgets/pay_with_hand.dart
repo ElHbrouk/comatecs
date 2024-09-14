@@ -6,7 +6,7 @@ import 'package:flutter_svg/svg.dart';
 class PayWithHand extends StatelessWidget {
   const PayWithHand({
     super.key,
-     this.borderColor,
+    this.borderColor,
   });
   final Color? borderColor;
   @override

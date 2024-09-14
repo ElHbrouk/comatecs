@@ -11,7 +11,8 @@ class CustomTextFormFieldAuth extends StatelessWidget {
     this.prefixIcon,
     this.hintText,
     this.controller,
-    required this.validator,
+    this.validator,
+    this.onSaved,
   });
   final String text;
   final TextInputType? keyboardType;
@@ -21,6 +22,7 @@ class CustomTextFormFieldAuth extends StatelessWidget {
   final String? hintText;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
+  final void Function(String?)? onSaved;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -36,7 +38,15 @@ class CustomTextFormFieldAuth extends StatelessWidget {
           height: 10,
         ),
         TextFormField(
-          validator: validator,
+          onSaved: onSaved,
+          validator: validator ??
+              (value) {
+                if (value == null || value.isEmpty) {
+                  return "هذا الحقل مطلوب";
+                } else {
+                  return null;
+                }
+              },
           controller: controller,
           keyboardType: keyboardType,
           obscureText: obscureText,

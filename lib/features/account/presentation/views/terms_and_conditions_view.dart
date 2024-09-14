@@ -56,7 +56,7 @@ class TermsAndConditionsView extends StatelessWidget {
                 ImageAssets.comactesWord,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(vertical:24.0),
+                padding: const EdgeInsets.symmetric(vertical: 24.0),
                 child: Text(
                   'مرحبًا بك في تطبيقنا. من فضلك، قم بقراءة هذه السياسات والشروط بعناية قبل استخدام خدماتنا.',
                   style: AppFonts.regular16.copyWith(

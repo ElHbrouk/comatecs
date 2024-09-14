@@ -1,5 +1,5 @@
-import 'package:comatecs/core/helper_functions/custom_show_bottom_sheet.dart';
-import 'package:comatecs/core/shared/widgets/custom_button.dart';
+import 'package:comatecs/core/utils/functions/custom_show_bottom_sheet.dart';
+import 'package:comatecs/core/utils/widgets/custom_button.dart';
 import 'package:comatecs/core/utils/app_colors.dart';
 import 'package:comatecs/core/utils/app_fonts.dart';
 import 'package:comatecs/core/utils/image_asset.dart';

@@ -1,21 +1,21 @@
-import 'package:comatecs/features/auth/presentaion/views/widgets/sign_up/sign_up_view_body.dart';
+import 'package:comatecs/core/services/getit_service.dart';
+import 'package:comatecs/core/use_cases/use_case.dart';
+import 'package:comatecs/features/auth/presentaion/cubits/signup_cubit/signup_cubit.dart';
+import 'package:comatecs/features/auth/presentaion/views/widgets/sign_up/sign_up_view_body_bloc_consumer.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignUpView extends StatelessWidget {
   const SignUpView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: PopScope(
-        canPop: false,
-        onPopInvoked: (didPop) {
-          if (didPop) {
-            return;
-          }
-          // alertExitApp();
-        },
-        child: const SignUpViewBody(),
+    return BlocProvider(
+      create: (context) => SignUpCubit(
+        getIt.get<UseCaseWithParam>(),
+      ),
+      child: const Scaffold(
+        body: SignUpViewBodyBlocConsumer(),
       ),
     );
   }

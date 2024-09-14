@@ -1,17 +1,17 @@
 import 'package:comatecs/constants.dart';
 import 'package:comatecs/core/utils/app_fonts.dart';
-import 'package:comatecs/features/my_orders/data/payment_item_model.dart';
+import 'package:comatecs/features/my_orders/domain/entites/order_entity.dart';
 import 'package:flutter/material.dart';
 
 class TabBarItem extends StatelessWidget {
   const TabBarItem(
       {super.key,
-      required this.paymentItemModel,
-      required this.paymentStatus,
-      required this.orderStatus});
-  final PaymentItemModel paymentItemModel;
-  final Color paymentStatus;
-  final Color orderStatus;
+      required this.orderEntity,
+      required this.paymentStatusColor,
+      required this.orderStatusColor});
+  final OrderEntity orderEntity;
+  final Color paymentStatusColor;
+  final Color orderStatusColor;
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -35,11 +35,11 @@ class TabBarItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  paymentItemModel.id,
+                  orderEntity.orderId.toString(),
                   style: AppFonts.regular14,
                 ),
                 Text(
-                  paymentItemModel.date,
+                  '${orderEntity.date.day} - ${orderEntity.date.month} - ${orderEntity.date.year}',
                   style: AppFonts.regular14.copyWith(
                     color: Colors.black,
                   ),
@@ -61,15 +61,16 @@ class TabBarItem extends StatelessWidget {
                           style: AppFonts.regular14,
                         ),
                         TextSpan(
-                            text: paymentItemModel.paymentStatus,
-                            style: AppFonts.regular14.copyWith(
-                              color: paymentStatus,
-                            ))
+                          text: orderEntity.paymentCondition,
+                          style: AppFonts.regular14.copyWith(
+                            color: paymentStatusColor,
+                          ),
+                        ),
                       ],
                     ),
                   ),
                   Text(
-                    '${paymentItemModel.price} د.أ',
+                    '${orderEntity.totalPrice} د.أ',
                     style: AppFonts.regular14.copyWith(
                       color: Colors.black,
                     ),
@@ -85,10 +86,11 @@ class TabBarItem extends StatelessWidget {
                     style: AppFonts.regular14,
                   ),
                   TextSpan(
-                      text: paymentItemModel.orderStatus,
-                      style: AppFonts.regular14.copyWith(
-                        color: orderStatus,
-                      ))
+                    text: orderEntity.orderStatus,
+                    style: AppFonts.regular14.copyWith(
+                      color: orderStatusColor,
+                    ),
+                  )
                 ],
               ),
             ),

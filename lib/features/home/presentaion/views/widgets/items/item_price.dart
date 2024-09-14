@@ -1,12 +1,18 @@
-import 'package:comatecs/core/shared/widgets/custom_icon_button.dart';
+import 'package:comatecs/core/utils/functions/custom_error_snack_bar.dart';
+import 'package:comatecs/core/utils/widgets/custom_icon_button.dart';
 import 'package:comatecs/core/utils/app_fonts.dart';
+import 'package:comatecs/features/home/domain/entites/item_entity.dart';
+import 'package:comatecs/features/home/presentaion/cubits/cubit/counter_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ItemPrice extends StatelessWidget {
   const ItemPrice({
     super.key,
+    required this.itemEntity,
   });
+  final ItemEntity itemEntity;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +20,7 @@ class ItemPrice extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'الاسم التجاري الشائع',
+          itemEntity.itemName,
           style: AppFonts.bold16.copyWith(
             color: Colors.black,
           ),
@@ -24,8 +30,8 @@ class ItemPrice extends StatelessWidget {
           children: [
             Row(
               children: [
-                const Text(
-                  '16.00 JOD',
+                Text(
+                  itemEntity.itemPrice.toString(),
                   style: AppFonts.bold16,
                 ),
                 const Padding(
@@ -50,26 +56,48 @@ class ItemPrice extends StatelessWidget {
                 ),
               ],
             ),
-            Row(
-              children: [
-                CustomIconButton(
-                  color: true,
-                  onPressed: () {},
-                  icon: FontAwesomeIcons.plus,
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(top: 5,left: 5.0, right: 5.0),
-                  child: Text(
-                    '50',
-                    style: AppFonts.bold16,
-                  ),
-                ),
-                CustomIconButton(
-                  color: false,
-                  onPressed: () {},
-                  icon: FontAwesomeIcons.minus,
-                ),
-              ],
+            BlocBuilder<CounterCubit, int>(
+              builder: (context, state) {
+                return Row(
+                  children: [
+                    CustomIconButton(
+                      color: true,
+                      onPressed: () {
+                        if (itemEntity.itemQuantity > state) {
+                          BlocProvider.of<CounterCubit>(context).increment();
+                        } else {
+                          buildErrorSnackBar(
+                              context, 'عذرا لا يمكنك تحرير الكمية المتاحة');
+                        }
+                      },
+                      icon: FontAwesomeIcons.plus,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        top: 5,
+                        left: 5.0,
+                        right: 5.0,
+                      ),
+                      child: Text(
+                        '$state',
+                        style: AppFonts.bold16,
+                      ),
+                    ),
+                    CustomIconButton(
+                      color: false,
+                      onPressed: () {
+                        if (state > 1) {
+                          BlocProvider.of<CounterCubit>(context).decrement();
+                        } else {
+                          buildErrorSnackBar(
+                              context, 'عذرا لا يمكنك تحرير الكمية المتاحة');
+                        }
+                      },
+                      icon: FontAwesomeIcons.minus,
+                    ),
+                  ],
+                );
+              },
             ),
           ],
         ),

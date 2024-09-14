@@ -1,15 +1,14 @@
 import 'package:comatecs/core/utils/app_fonts.dart';
+import 'package:comatecs/features/home/domain/entites/item_entity.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 
 class ItemFeatures extends StatelessWidget {
   const ItemFeatures({
     super.key,
+    required this.itemEntity,
   });
-  final List<String> features = const [
-    " 800N.M عزم دوران عالية ، ستبليس سرعة تغيير التبديل.",
-    "مفتاح كهربائي قوي ومفك البراغي ، قوة فائقة.",
-    "التنغستن الصلب رمح ، صلابة عالية ومقاومة التآكل."
-  ];
+  final ItemEntity itemEntity;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -21,14 +20,18 @@ class ItemFeatures extends StatelessWidget {
             color: Colors.black,
           ),
         ),
-        ListView.builder(
-          itemCount: features.length,
-          physics: const NeverScrollableScrollPhysics(),
-          shrinkWrap: true,
-          itemBuilder: (context, index) => Text(
-            textAlign: TextAlign.start,
-            style: AppFonts.regular12,
-            features[index],
+        SizedBox(
+          height: 100,
+          child: Markdown(
+            selectable: true,
+            data: itemEntity.itemFeatures,
+            listItemCrossAxisAlignment:
+                MarkdownListItemCrossAxisAlignment.start,
+            styleSheet: MarkdownStyleSheet(
+              p: AppFonts.regular12.copyWith(
+                color: Colors.grey[700],
+              ),
+            ),
           ),
         ),
       ],

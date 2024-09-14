@@ -8,10 +8,12 @@ class CustomDropDownMenu extends StatelessWidget {
     required this.label,
     required this.dropdownMenuEntries,
     required this.text,
+    required this.controller,
   });
   final String label;
   final List<DropdownMenuEntry<String>> dropdownMenuEntries;
   final String text;
+  final TextEditingController controller;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -27,6 +29,7 @@ class CustomDropDownMenu extends StatelessWidget {
           height: 10,
         ),
         DropdownMenu(
+          controller: controller,
           selectedTrailingIcon: const Icon(
             FontAwesomeIcons.chevronUp,
             size: 16,

@@ -1,9 +1,9 @@
-import 'package:comatecs/core/shared/widgets/custom_button.dart';
 import 'package:comatecs/core/utils/app_fonts.dart';
+import 'package:comatecs/core/utils/widgets/custom_button.dart';
 import 'package:comatecs/features/account/presentation/views/widgets/custom_title_with_back_button.dart';
 import 'package:comatecs/features/account/presentation/views/widgets/technical_support_dialog.dart';
 import 'package:comatecs/features/auth/presentaion/views/widgets/custom_text_form_field_auth.dart';
-import 'package:comatecs/features/auth/presentaion/views/widgets/login/custom_text_field.dart';
+import 'package:comatecs/features/auth/presentaion/views/widgets/login/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 
 class TechnicalSupportView extends StatelessWidget {
@@ -14,8 +14,7 @@ class TechnicalSupportView extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding:
-              const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+          padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -54,7 +53,7 @@ class TechnicalSupportView extends StatelessWidget {
                   },
                   controller: TextEditingController(),
                   keyboardType: TextInputType.emailAddress,
-        
+
                   hintText: "  أدخل إيميل المستخدم", //Enter User Name
                   text: "إيميل المستخدم", //User Name
                 ),
@@ -84,7 +83,7 @@ class TechnicalSupportView extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                const CustomTextField(
+                const CustomTextFormField(
                   hintText: 'اكتب هنا.....',
                   maxLines: 5,
                 ),

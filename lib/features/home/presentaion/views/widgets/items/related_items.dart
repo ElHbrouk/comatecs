@@ -19,7 +19,9 @@ class RelatedItems extends StatelessWidget {
         SizedBox(
           height: 20,
         ),
-        RelatedItemsListView(),
+        RelatedItemsListView(
+          items: [],
+        ),
       ],
     );
   }

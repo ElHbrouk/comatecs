@@ -1,5 +1,5 @@
-import 'package:comatecs/core/helper_functions/custom_show_bottom_sheet.dart';
-import 'package:comatecs/core/shared/widgets/custom_button.dart';
+import 'package:comatecs/core/utils/functions/custom_show_bottom_sheet.dart';
+import 'package:comatecs/core/utils/widgets/custom_button.dart';
 import 'package:comatecs/features/account/presentation/views/widgets/address/custom_address_item_list_view.dart';
 import 'package:comatecs/features/account/presentation/views/widgets/address/show_modal_bottom_sheet_address.dart';
 import 'package:comatecs/features/account/presentation/views/widgets/custom_title_with_back_button.dart';

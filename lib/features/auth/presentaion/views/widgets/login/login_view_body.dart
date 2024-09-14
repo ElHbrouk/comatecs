@@ -1,24 +1,37 @@
-import 'package:comatecs/core/shared/widgets/custom_button.dart';
+import 'package:comatecs/core/utils/widgets/custom_button.dart';
 import 'package:comatecs/core/utils/app_colors.dart';
 import 'package:comatecs/core/utils/app_fonts.dart';
 import 'package:comatecs/core/utils/routes.dart';
+import 'package:comatecs/core/utils/widgets/custom_password_field.dart';
+import 'package:comatecs/features/auth/domain/entities/user_entity.dart';
+import 'package:comatecs/features/auth/presentaion/cubits/login_cubit/login_cubit.dart';
 import 'package:comatecs/features/auth/presentaion/views/widgets/custom_check_box.dart';
 import 'package:comatecs/features/auth/presentaion/views/widgets/custom_text_form_field_auth.dart';
 import 'package:comatecs/features/auth/presentaion/views/widgets/custom_text_row.dart';
 import 'package:comatecs/features/auth/presentaion/views/widgets/custom_title_auth.dart';
-import 'package:comatecs/features/auth/presentaion/views/widgets/password_eye.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-class LoginViewBody extends StatelessWidget {
+class LoginViewBody extends StatefulWidget {
   const LoginViewBody({super.key});
 
+  @override
+  State<LoginViewBody> createState() => _LoginViewBodyState();
+}
+
+class _LoginViewBodyState extends State<LoginViewBody> {
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  GlobalKey<FormState> loginKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding:
           const EdgeInsets.only(top: 80.0, bottom: 45, left: 20, right: 20),
       child: Form(
+        key: loginKey,
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -30,70 +43,67 @@ class LoginViewBody extends StatelessWidget {
                 height: 32,
               ),
               CustomTextFormFieldAuth(
-                validator: (value) {
-                  return;
-                  // return validInput(
-                  //     value: value!, min: 5, max: 100, type: "email");
-                },
-                controller: TextEditingController(),
-                hintText:
-                    '${"  أدخل إيميل المستخدم"} / ${"اسم المستخدم"}', // enter user name
+                controller: email,
+                hintText: "  أدخل إيميل المستخدم", // enter user name
                 keyboardType: TextInputType.emailAddress,
-                text: '${" إيميل المستخدم"} / ${"اسم المستخدم"}', // User Name
+                text: " إيميل المستخدم", // User Name
               ),
               const SizedBox(
                 height: 16,
               ),
-              CustomTextFormFieldAuth(
-                  controller: TextEditingController(),
-                  obscureText: true,
-                  hintText: " أدخل كلمة المرور", // enter password
-                  keyboardType: TextInputType.visiblePassword,
-                  text: "كلمة المرور", //Password
-                  suffixIcon: PasswordEye(
-                    onPressed: () {},
-                    text: true,
-                  ),
-                  validator: (value) {
-                    //   return validInput(
-                    //       value: value!, min: 8, max: 30, type: "password");
-                    // },
-                    return;
-                  }),
+              CustomPasswordField(
+                controller: password,
+                hintText: 'أدخل كلمة المرور',
+                text: 'كلمة المرور',
+              ),
               const SizedBox(height: 12),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const CustomCheckBox(),
                   TextButton(
-                      onPressed: () {
-                        context.push(AppRoutes.forgetPasswordView);
-                        // controller.goToForgetPassword();
-                      },
-                      child: Text(
-                        "هل نسيت كلمة المرور؟", //  forgot password?
-                        style: AppFonts.regular14.copyWith(
-                          color: AppColors.primaryColor,
-                          decoration: TextDecoration.underline,
-                        ),
-                      )),
+                    onPressed: () {
+                      context.push(AppRoutes.forgetPasswordView);
+                    },
+                    child: Text(
+                      "هل نسيت كلمة المرور؟", //  forgot password?
+                      style: AppFonts.regular14.copyWith(
+                        color: AppColors.primaryColor,
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
+                  ),
                 ],
               ),
               const SizedBox(height: 50.0),
               CustomButton(
                 buttonName: "تسجيل الدخول", // login
                 onPressed: () {
-                  context.push(
-                    AppRoutes.homeLayout,
-                  );
+                  if (loginKey.currentState!.validate()) {
+                    loginKey.currentState!.save();
+                    BlocProvider.of<LoginCubit>(context).login(
+                      userEntity: UserEntity(
+                        phoneNumber: null,
+                        address: null,
+                        workType: null,
+                        companyType: null,
+                        employeeNumber: null,
+                        yourRole: null,
+                        email: email.text,
+                        password: password.text,
+                      ),
+                    );
+                  } else {
+                    setState(() {
+                      autovalidateMode = AutovalidateMode.always;
+                    });
+                  }
                 },
               ),
               const SizedBox(height: 40),
               CustomTextRow(
                 onPressed: () {
-                  context.push(
-                    AppRoutes.signUpView,
-                  );
+                  context.push(AppRoutes.signUpView);
                 },
                 text1: "مستخدم جديد؟", // A new user?
                 text2: "إنشاء حساب جديد", //Create a new account!

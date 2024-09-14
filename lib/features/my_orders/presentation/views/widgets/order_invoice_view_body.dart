@@ -1,5 +1,5 @@
-import 'package:comatecs/core/shared/widgets/custom_button.dart';
-import 'package:comatecs/core/shared/widgets/custom_order_table.dart';
+import 'package:comatecs/core/utils/widgets/custom_button.dart';
+import 'package:comatecs/core/utils/widgets/custom_order_table.dart';
 import 'package:comatecs/core/utils/app_fonts.dart';
 import 'package:comatecs/features/account/presentation/views/widgets/custom_title_with_back_button.dart';
 import 'package:comatecs/features/my_orders/presentation/views/widgets/summarized_item_card.dart';
@@ -72,7 +72,7 @@ class OrderInvoiceViewBody extends StatelessWidget {
                             const DataRow(cells: [
                               DataCell(
                                 Text(
-                                  'السعر الإجمالي                              ' ,
+                                  'السعر الإجمالي                              ',
                                   style: AppFonts.bold14,
                                 ),
                               ),

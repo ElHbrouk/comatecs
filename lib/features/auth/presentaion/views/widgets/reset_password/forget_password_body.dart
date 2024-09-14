@@ -1,4 +1,4 @@
-import 'package:comatecs/core/shared/widgets/custom_button.dart';
+import 'package:comatecs/core/utils/widgets/custom_button.dart';
 import 'package:comatecs/features/auth/presentaion/views/widgets/custom_text_form_field_auth.dart';
 import 'package:comatecs/features/auth/presentaion/views/widgets/custom_title_auth.dart';
 import 'package:flutter/material.dart';

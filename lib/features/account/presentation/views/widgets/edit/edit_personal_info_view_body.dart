@@ -1,4 +1,4 @@
-import 'package:comatecs/core/shared/widgets/custom_button.dart';
+import 'package:comatecs/core/utils/widgets/custom_button.dart';
 import 'package:comatecs/features/account/presentation/views/widgets/custom_title_with_back_button.dart';
 import 'package:comatecs/features/auth/presentaion/views/widgets/custom_text_form_field_auth.dart';
 import 'package:flutter/material.dart';
@@ -51,7 +51,7 @@ class EditPersonalInfoViewBody extends StatelessWidget {
                       },
                       controller: TextEditingController(),
                       keyboardType: TextInputType.emailAddress,
-      
+
                       hintText: "  أدخل إيميل المستخدم", //Enter User Email
                       text: " إيميل المستخدم", //User Email
                     ),
@@ -74,7 +74,7 @@ class EditPersonalInfoViewBody extends StatelessWidget {
                     ),
                     CustomTextFormFieldAuth(
                       hintText: "أدخل طبيعة عملك", //Enter you job
-      
+
                       text: "طبيعة العمل",
                       validator: (value) {
                         return;

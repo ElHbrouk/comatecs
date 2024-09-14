@@ -10,9 +10,9 @@ class SplashViewBody extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 72.0),
         child: Center(
-          child: Image.asset(ImageAssets.appSplash,
-          height: 56,
-          
+          child: Image.asset(
+            ImageAssets.appSplash,
+            height: 56,
           ),
         ),
       ),

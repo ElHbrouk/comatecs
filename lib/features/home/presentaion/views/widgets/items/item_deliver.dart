@@ -1,9 +1,10 @@
 import 'package:comatecs/core/utils/app_fonts.dart';
+import 'package:comatecs/features/home/domain/entites/item_entity.dart';
 import 'package:flutter/material.dart';
 
 class ItemDeliver extends StatelessWidget {
-  const ItemDeliver({super.key});
-
+  const ItemDeliver({super.key, required this.itemEntity});
+  final ItemEntity itemEntity;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -25,7 +26,7 @@ class ItemDeliver extends StatelessWidget {
               ),
             ),
             Text(
-              'JOD 5',
+              itemEntity.itemDeliveryPrice.toString(),
               style: AppFonts.regular16.copyWith(
                 color: Colors.black,
               ),
@@ -45,7 +46,7 @@ class ItemDeliver extends StatelessWidget {
               ),
             ),
             Text(
-              'خلال يوم ',
+              itemEntity.itemDeliveryDuration,
               style: AppFonts.regular16.copyWith(
                 color: Colors.black,
               ),

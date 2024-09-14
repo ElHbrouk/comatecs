@@ -3,5 +3,6 @@ class AddressItemModel {
   final String city;
   final String country;
 
-  const AddressItemModel({required this.details, required this.city, required this.country});
+  const AddressItemModel(
+      {required this.details, required this.city, required this.country});
 }

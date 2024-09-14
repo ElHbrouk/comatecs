@@ -5,8 +5,9 @@ import 'package:flutter/material.dart';
 class PointsItem extends StatelessWidget {
   const PointsItem({
     super.key,
+    required this.numbers,
   });
-
+  final String numbers;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,7 +21,7 @@ class PointsItem extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
       ),
       child: Text(
-        '500 نقطة',
+        '$numbers نقطة',
         style: AppFonts.regular14.copyWith(
           color: Colors.grey,
         ),

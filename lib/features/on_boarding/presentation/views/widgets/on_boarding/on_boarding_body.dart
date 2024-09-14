@@ -1,6 +1,6 @@
 import 'package:comatecs/constants.dart';
 import 'package:comatecs/core/services/shared_prefrences_singleton.dart';
-import 'package:comatecs/core/shared/widgets/custom_button.dart';
+import 'package:comatecs/core/utils/widgets/custom_button.dart';
 import 'package:comatecs/core/utils/app_colors.dart';
 import 'package:comatecs/core/utils/routes.dart';
 import 'package:comatecs/features/on_boarding/data/data_source/static/static.dart';
@@ -62,7 +62,7 @@ class _OnBoardingBodyState extends State<OnBoardingBody> {
                         if (OnBoardingItemPageView.currentPage ==
                             onBoardingList.length - 1) {
                           SharedPrefrencesSingleton.setBool(
-                              kIsOnBoardingSeen, true);
+                              key: kIsOnBoardingSeen, value: true);
                           context.go(AppRoutes.loginView);
                         } else {
                           pageController.nextPage(
@@ -83,7 +83,9 @@ class _OnBoardingBodyState extends State<OnBoardingBody> {
                       textColor: AppColors.primaryColor,
                       onPressed: () {
                         SharedPrefrencesSingleton.setBool(
-                            kIsOnBoardingSeen, true);
+                          key: kIsOnBoardingSeen,
+                          value: true,
+                        );
                         context.go(AppRoutes.loginView);
                       },
                       color: Colors.grey[300],

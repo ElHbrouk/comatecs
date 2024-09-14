@@ -1,6 +1,6 @@
-import 'package:comatecs/core/shared/widgets/custom_button.dart';
 import 'package:comatecs/core/utils/app_fonts.dart';
-import 'package:comatecs/features/auth/presentaion/views/widgets/login/custom_text_field.dart';
+import 'package:comatecs/core/utils/widgets/custom_button.dart';
+import 'package:comatecs/features/auth/presentaion/views/widgets/login/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 
 class ShowModalBottomSheetAddress extends StatelessWidget {
@@ -55,7 +55,7 @@ class ShowModalBottomSheetAddress extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-          const CustomTextField(
+          const CustomTextFormField(
             hintText: 'أدخل عنوان بالتفصيل',
           ),
           const SizedBox(
@@ -70,7 +70,7 @@ class ShowModalBottomSheetAddress extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-          const CustomTextField(
+          const CustomTextFormField(
             hintText: 'أدخل عنوان بالتفصيل',
           ),
           const SizedBox(
@@ -85,7 +85,7 @@ class ShowModalBottomSheetAddress extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-          const CustomTextField(
+          const CustomTextFormField(
             hintText: 'أدخل عنوان بالتفصيل',
           ),
           const Expanded(

@@ -1,10 +1,11 @@
-import 'package:comatecs/core/shared/widgets/custom_back_button.dart';
+import 'package:comatecs/core/utils/widgets/custom_back_button.dart';
 import 'package:comatecs/core/utils/app_fonts.dart';
 import 'package:flutter/material.dart';
 
 class CustomTitleWithBackButton extends StatelessWidget {
   const CustomTitleWithBackButton({
-    super.key, required this.title,
+    super.key,
+    required this.title,
   });
   final String title;
   @override

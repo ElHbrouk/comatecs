@@ -6,11 +6,11 @@ import 'package:go_router/go_router.dart';
 class AccountSettingItemListView extends StatelessWidget {
   const AccountSettingItemListView({
     super.key,
-    required this.views, required this.items,
+    required this.views,
+    required this.items,
   });
   final List<String> views;
   final List<SettingItemModel> items;
-  
 
   @override
   Widget build(BuildContext context) {

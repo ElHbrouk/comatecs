@@ -17,8 +17,10 @@ class CustomTitleAuth extends StatelessWidget {
         Image.asset(
           ImageAssets.appLogo2,
           height: 66,
-        ), 
-        const SizedBox(height: 16,),
+        ),
+        const SizedBox(
+          height: 16,
+        ),
         Text(
           text1, // login
           style: AppFonts.bold18.copyWith(

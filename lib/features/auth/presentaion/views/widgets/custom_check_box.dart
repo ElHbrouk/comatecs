@@ -28,7 +28,7 @@ class _CustomCheckBoxState extends State<CustomCheckBox> {
         const SizedBox(
           width: 5,
         ),
-        Checkbox(  
+        Checkbox(
           value: check,
           onChanged: (value) {
             setState(

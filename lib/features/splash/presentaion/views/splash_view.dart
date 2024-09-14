@@ -20,12 +20,24 @@ class _SplashViewState extends State<SplashView> {
   }
 
   Future<void> executeNavigation() async {
-    bool isBoardingSeen =
-        await SharedPrefrencesSingleton.getBool(kIsOnBoardingSeen);
+    bool isBoardingSeen = await SharedPrefrencesSingleton.getBool(
+      key: kIsOnBoardingSeen,
+    );
+
+    String token = await SharedPrefrencesSingleton.getSecureString(
+      key: kIsTokenGot,
+    );
+
     if (isBoardingSeen) {
-      return Future.delayed(const Duration(seconds: 1), () {
-        context.go(AppRoutes.loginView);
-      });
+      if (token.isNotEmpty) {
+        return Future.delayed(const Duration(seconds: 1), () {
+          context.go(AppRoutes.homeLayout);
+        });
+      } else {
+        return Future.delayed(const Duration(seconds: 1), () {
+          context.go(AppRoutes.loginView);
+        });
+      }
     } else {
       return Future.delayed(const Duration(seconds: 1), () {
         context.go(AppRoutes.onBoardingView);

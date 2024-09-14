@@ -23,7 +23,7 @@ class ApiService {
 
   Future<Response<Map<String, dynamic>>> postData({
     required String endPoint,
-    required Map<String, dynamic> data,
+    Map<String, dynamic>? data,
     Map<String, dynamic>? headers,
   }) async {
     Response<Map<String, dynamic>> response = await _dio.post(
@@ -43,16 +43,24 @@ class ApiService {
     required Map<String, dynamic> data,
     Map<String, dynamic>? headers,
   }) async {
-    Response response = await _dio.patch(
+    await _dio.patch(
       baseUrl + endPoint,
       data: data,
       options: Options(
-        contentType: "application/json",
-        responseType: ResponseType.json,
         headers: headers,
       ),
     );
+  }
 
-    return response;
+  void deleteData({
+    required String endPoint,
+    Map<String, dynamic>? headers,
+  }) async {
+    await _dio.delete(
+      baseUrl + endPoint,
+      options: Options(
+        headers: headers,
+      ),
+    );
   }
 }

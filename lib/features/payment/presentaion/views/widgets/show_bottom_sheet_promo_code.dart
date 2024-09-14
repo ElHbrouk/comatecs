@@ -1,8 +1,8 @@
 import 'package:comatecs/constants.dart';
-import 'package:comatecs/core/shared/widgets/custom_button.dart';
 import 'package:comatecs/core/utils/app_fonts.dart';
 import 'package:comatecs/core/utils/image_asset.dart';
-import 'package:comatecs/features/auth/presentaion/views/widgets/login/custom_text_field.dart';
+import 'package:comatecs/core/utils/widgets/custom_button.dart';
+import 'package:comatecs/features/auth/presentaion/views/widgets/login/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -75,7 +75,7 @@ class ShowBottomSheetPromoCode extends StatelessWidget {
             padding: EdgeInsets.symmetric(
               horizontal: kHorizontalPadding,
             ),
-            child: CustomTextField(
+            child: CustomTextFormField(
               hintText: 'أدخل الرمز هنا',
             ),
           ),

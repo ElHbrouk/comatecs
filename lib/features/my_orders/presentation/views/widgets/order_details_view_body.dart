@@ -1,4 +1,4 @@
-import 'package:comatecs/core/shared/widgets/custom_button.dart';
+import 'package:comatecs/core/utils/widgets/custom_button.dart';
 import 'package:comatecs/core/utils/routes.dart';
 import 'package:comatecs/features/account/presentation/views/widgets/custom_title_with_back_button.dart';
 import 'package:comatecs/features/my_orders/presentation/views/widgets/order_detailed_item.dart';
@@ -14,7 +14,7 @@ class OrderDetailsViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  SafeArea(
+    return SafeArea(
       child: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 20.0,
@@ -32,7 +32,9 @@ class OrderDetailsViewBody extends StatelessWidget {
                     SummarizedItemCard(),
                     OrderDetailedItem(),
                     WantedPriceItem(),
-                    SizedBox(height: 20,),
+                    SizedBox(
+                      height: 20,
+                    ),
                   ],
                 ),
               ),

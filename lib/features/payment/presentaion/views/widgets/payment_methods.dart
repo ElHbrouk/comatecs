@@ -1,7 +1,7 @@
 import 'package:comatecs/core/utils/app_colors.dart';
 import 'package:comatecs/core/utils/app_fonts.dart';
 import 'package:comatecs/core/utils/image_asset.dart';
-import 'package:comatecs/features/auth/presentaion/views/widgets/login/custom_text_field.dart';
+import 'package:comatecs/features/auth/presentaion/views/widgets/login/custom_text_form_field.dart';
 import 'package:comatecs/features/payment/presentaion/views/widgets/pay_with_hand.dart';
 import 'package:flutter/material.dart';
 
@@ -127,7 +127,7 @@ class _PaymentMethodsState extends State<PaymentMethods> {
                 padding: EdgeInsets.only(
                   bottom: 20.0,
                 ),
-                child: CustomTextField(
+                child: CustomTextFormField(
                   keyboardType: TextInputType.number,
                   hintText: 'أدخل الرقم',
                 ),

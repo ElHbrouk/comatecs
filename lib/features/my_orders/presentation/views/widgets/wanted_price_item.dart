@@ -1,4 +1,3 @@
-
 import 'package:comatecs/constants.dart';
 import 'package:comatecs/core/utils/app_fonts.dart';
 import 'package:flutter/material.dart';
@@ -114,4 +113,3 @@ class WantedPriceItem extends StatelessWidget {
     );
   }
 }
-

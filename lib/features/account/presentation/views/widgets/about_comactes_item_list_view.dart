@@ -13,26 +13,28 @@ class AboutComactesItemListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: aboutComactesItems.length,
-      itemBuilder: (context, index) {
-      return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            aboutComactesItems[index].title,
-            style: AppFonts.regular14.copyWith(
-              color: Colors.black,
-            ),
-          ),
-          Text(
-            aboutComactesItems[index].body,
-            style: AppFonts.regular14.copyWith(
-              color: Colors.grey,
-            ),
-          ),
-          const SizedBox(height: 16,),
-        ],
-      );
-    });
+        itemCount: aboutComactesItems.length,
+        itemBuilder: (context, index) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                aboutComactesItems[index].title,
+                style: AppFonts.regular14.copyWith(
+                  color: Colors.black,
+                ),
+              ),
+              Text(
+                aboutComactesItems[index].body,
+                style: AppFonts.regular14.copyWith(
+                  color: Colors.grey,
+                ),
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+            ],
+          );
+        });
   }
 }

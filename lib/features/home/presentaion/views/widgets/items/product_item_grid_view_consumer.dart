@@ -17,6 +17,10 @@ class ProductItemGridViewConsumer extends StatefulWidget {
 class _ProductItemGridViewConsumerState
     extends State<ProductItemGridViewConsumer> {
   List<ItemEntity> items = [];
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +50,11 @@ class _ProductItemGridViewConsumerState
             items: state.items,
           );
         } else {
-          return const SliverToBoxAdapter(child: Text('خطأ حاول لاحقا'));
+          return const SliverToBoxAdapter(
+            child: Text(
+              'خطأ حاول لاحقا',
+            ),
+          );
         }
       },
     );

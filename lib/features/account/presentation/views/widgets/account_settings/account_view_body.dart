@@ -100,8 +100,10 @@ class AccountViewBody extends StatelessWidget {
                             'هل انت متأكد من عملية الخروج من حسابك ,تأكد من حفظ بياناتك للرجوع مرة أخرى',
                         textRightButton: 'تسجيل خروج',
                         onPressedRightButtom: () async {
-                          await SharedPrefrencesSingleton.deleteSecureString(
+                          await SharedPreferencesSingleton.deleteSecureString(
                               key: kIsTokenGot);
+                          await SharedPreferencesSingleton.remove(
+                              key: 'isFirstTme');
 
                           context.go(AppRoutes.loginView);
                         },

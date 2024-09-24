@@ -17,11 +17,18 @@ class SignUpViewBodyBlocConsumer extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<SignUpCubit, SignupStates>(
       listener: (context, state) {
-        if (state is SignupSuccess) {
-          context.go(AppRoutes.signUpSuccess);
-        }
         if (state is SignupFailure) {
-          buildErrorSnackBar(context, state.message);
+          if (state.message == 'Error, Internal Server Error') {
+            buildErrorSnackBar(context, 'البريد الالكتروني  مستخدم بالفعل');
+          } else if (state.message ==
+              'Connection error with ApiServer DioException [connection error]: The connection errored: The XMLHttpRequest onError callback was called. This typically indicates an error on the network layer. This indicates an error which most likely cannot be solved by the library.') {
+            buildErrorSnackBar(context, 'يرجى مراجعة اتصالك بالانترنت');
+          } else {
+            buildErrorSnackBar(context, state.message);
+          }
+        } else if (state is SignupSuccess) {
+          buildSuccessSnackBar(context, 'تم التسجيل بنجاح');
+          context.go(AppRoutes.signUpSuccess);
         }
       },
       builder: (context, state) {

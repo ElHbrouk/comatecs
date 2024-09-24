@@ -11,8 +11,8 @@ class CreateAccountWithEmailAndPasswordUseCase
   CreateAccountWithEmailAndPasswordUseCase({required this.authRepository});
 
   @override
-  Future<Either<Failure, UserEntity>> call({required UserEntity param}) {
-    return authRepository.createAccountWithEmailAndPassword(
+  Future<Either<Failure, UserEntity>> call({required UserEntity param}) async{
+    return await authRepository.createAccountWithEmailAndPassword(
       userEntity: param,
     );
   }

@@ -17,7 +17,15 @@ class CartItemListViewBuilder extends StatelessWidget {
             child: CircularProgressIndicator(),
           );
         } else if (state is FetchCartItemsSuccess) {
-          return CartItemListView(items: state.items);
+          if (state.items.isEmpty) {
+            return const Center(
+              child: Text('لا يوجد منتجات في السلة'),
+            );
+          } else {
+            return CartItemListView(
+              items: state.items,
+            );
+          }
         } else if (state is FetchCartItemsFailure) {
           return Center(
             child: Text(state.errorMessage),

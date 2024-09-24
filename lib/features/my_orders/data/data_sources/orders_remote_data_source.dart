@@ -18,7 +18,7 @@ class OrdersRemoteDataSourceImplementation extends OrdersRemoteDataSource {
       endPoint: 'orders',
       headers: {
         'Authorization':
-            'Bearer ${await SharedPrefrencesSingleton.getSecureString(key: kIsTokenGot)}',
+            'Bearer ${await SharedPreferencesSingleton.getSecureString(key: kIsTokenGot)}',
       },
     );
     return getOrdersItems(data);

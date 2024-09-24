@@ -25,7 +25,7 @@ class ProductItem extends StatefulWidget {
 
 class _ProductItemState extends State<ProductItem> {
   late bool isFavorite =
-      SharedPrefrencesSingleton.getStringList(key: kFavorites)
+      SharedPreferencesSingleton.getStringList(key: kFavorites)
           .map((item) => int.parse(item))
           .toList()
           .where(
@@ -57,7 +57,7 @@ class _ProductItemState extends State<ProductItem> {
                   10.0,
                 ),
                 onTap: () async {
-                  log(SharedPrefrencesSingleton.getStringList(key: kFavorites)
+                  log(SharedPreferencesSingleton.getStringList(key: kFavorites)
                       .map((item) => int.parse(item))
                       .toList()
                       .where(

@@ -3,8 +3,9 @@ import 'package:comatecs/core/utils/widgets/custom_button.dart';
 import 'package:comatecs/core/utils/app_colors.dart';
 import 'package:comatecs/core/utils/app_fonts.dart';
 import 'package:comatecs/core/utils/image_asset.dart';
+import 'package:comatecs/data/models/menu_model.dart';
 import 'package:comatecs/features/home/presentaion/cubits/fetch_filtered_items_cubit/fetch_filtered_items_cubit.dart';
-import 'package:comatecs/features/home/presentaion/views/widgets/custom_drop_down_menu.dart';
+import 'package:comatecs/core/utils/widgets/custom_drop_down_menu.dart';
 import 'package:comatecs/features/home/presentaion/views/widgets/custom_range_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -43,6 +44,18 @@ class _ShowModalBottomSheetItemState extends State<ShowModalBottomSheetItem> {
     super.dispose();
   }
 
+  final List<MenuModel> categoryMenuList = const [
+    MenuModel(id: 1, title: 'معدات صناعية'),
+    MenuModel(id: 2, title: 'الأدوات والمعدات'),
+    MenuModel(id: 3, title: 'عدد يدوية'),
+    MenuModel(id: 4, title: 'معدات'),
+  ];
+  final List<MenuModel> brandMenuList = const [
+    MenuModel(id: 1, title: 'معدات صناعية'),
+    MenuModel(id: 2, title: 'الأدوات والمعدات'),
+    MenuModel(id: 3, title: 'عدد يدوية'),
+    MenuModel(id: 4, title: 'معدات'),
+  ];
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -89,12 +102,13 @@ class _ShowModalBottomSheetItemState extends State<ShowModalBottomSheetItem> {
           ),
           CustomDropDownMenu(
             label: 'اختر نوع الفئة',
-            dropdownMenuEntries: const [
-              DropdownMenuEntry(value: "hi", label: 'معدات صناعية'),
-              DropdownMenuEntry(value: "why", label: 'الأدوات والمعدات'),
-              DropdownMenuEntry(value: "bye", label: 'عدد يدوية'),
-              DropdownMenuEntry(value: "die", label: 'معدات صناعية'),
-            ],
+            dropdownMenuEntries:
+                categoryMenuList.map<DropdownMenuEntry<MenuModel>>((menu) {
+              return DropdownMenuEntry(
+                value: menu,
+                label: menu.title,
+              );
+            }).toList(),
             text: ' فئة المنتج :',
             controller: categoryId,
           ),
@@ -103,12 +117,13 @@ class _ShowModalBottomSheetItemState extends State<ShowModalBottomSheetItem> {
           ),
           CustomDropDownMenu(
             label: 'اختر العلامة التجارية',
-            dropdownMenuEntries: const [
-              DropdownMenuEntry(value: "hi", label: 'معدات صناعية'),
-              DropdownMenuEntry(value: "why", label: 'الأدوات والمعدات'),
-              DropdownMenuEntry(value: "bye", label: 'عدد يدوية'),
-              DropdownMenuEntry(value: "die", label: 'معدات صناعية'),
-            ],
+            dropdownMenuEntries:
+                brandMenuList.map<DropdownMenuEntry<MenuModel>>((menu) {
+              return DropdownMenuEntry(
+                value: menu,
+                label: menu.title,
+              );
+            }).toList(),
             text: 'العلامة التجارية :',
             controller: TextEditingController(),
           ),

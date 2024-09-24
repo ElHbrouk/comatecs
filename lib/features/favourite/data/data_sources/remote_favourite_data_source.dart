@@ -1,4 +1,3 @@
-
 import 'package:comatecs/constants.dart';
 import 'package:comatecs/core/services/shared_prefrences_singleton.dart';
 import 'package:comatecs/core/utils/api_service.dart';
@@ -18,16 +17,16 @@ class RemoteFavouriteDataSourceImplmentation
   RemoteFavouriteDataSourceImplmentation(this.apiService);
   @override
   Future<List<ItemEntity>> fetchFavouriteItems() async {
-    SharedPrefrencesSingleton.remove(key: kFavorites);
+    SharedPreferencesSingleton.remove(key: kFavorites);
     var response = await apiService.getData(
       endPoint: 'favorites',
       headers: {
         'Authorization':
-            'Bearer ${await SharedPrefrencesSingleton.getSecureString(key: kIsTokenGot)}',
+            'Bearer ${await SharedPreferencesSingleton.getSecureString(key: kIsTokenGot)}',
       },
     );
     List<ItemEntity> items = getFavouriteItems(response);
-    SharedPrefrencesSingleton.setStringList(
+    SharedPreferencesSingleton.setStringList(
       key: kFavorites,
       value: items.map((item) => item.itemId.toString()).toList(),
     );
@@ -42,7 +41,7 @@ class RemoteFavouriteDataSourceImplmentation
       data: {},
       headers: {
         'Authorization':
-            'Bearer ${await SharedPrefrencesSingleton.getSecureString(key: kIsTokenGot)}',
+            'Bearer ${await SharedPreferencesSingleton.getSecureString(key: kIsTokenGot)}',
       },
     );
   }
@@ -53,7 +52,7 @@ class RemoteFavouriteDataSourceImplmentation
       endPoint: 'favorites/$id',
       headers: {
         'Authorization':
-            'Bearer ${await SharedPrefrencesSingleton.getSecureString(key: kIsTokenGot)}',
+            'Bearer ${await SharedPreferencesSingleton.getSecureString(key: kIsTokenGot)}',
       },
     );
   }

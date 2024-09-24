@@ -4,7 +4,7 @@ import 'package:comatecs/features/auth/presentaion/cubits/signup_cubit/signup_cu
 import 'package:comatecs/features/auth/presentaion/views/widgets/custom_text_form_field_auth.dart';
 import 'package:comatecs/features/auth/presentaion/views/widgets/custom_text_row.dart';
 import 'package:comatecs/features/auth/presentaion/views/widgets/custom_title_auth.dart';
-import 'package:comatecs/features/home/presentaion/views/widgets/custom_drop_down_menu.dart';
+import 'package:comatecs/features/auth/presentaion/views/widgets/sign_up/custom_drop_down_menu_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -60,6 +60,13 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                 height: 41,
               ),
               CustomTextFormFieldAuth(
+                validator: (value) {
+                  if (value == null || !value.contains("@") || value.isEmpty || value.length < 8) {
+                    return "البريد الالكتروني غير صالح";
+                  } else {
+                    return null;
+                  }
+                },
                 controller: email,
                 keyboardType: TextInputType.emailAddress,
 
@@ -87,82 +94,33 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
               const SizedBox(
                 height: 41,
               ),
-              CustomDropDownMenu(
-                label: 'اختر طبيعة عملك ',
-                dropdownMenuEntries: const [
-                  DropdownMenuEntry(value: "hi", label: 'معدات صناعية'),
-                  DropdownMenuEntry(value: "why", label: 'الأدوات والمعدات'),
-                  DropdownMenuEntry(value: "bye", label: 'عدد يدوية'),
-                  DropdownMenuEntry(value: "die", label: 'معدات صناعية'),
-                ],
-                text: 'طبيعية العمل',
-                controller: workType,
-              ),
-              const SizedBox(
-                height: 41,
-              ),
-              CustomDropDownMenu(
-                label: 'اختر نوع الشركة',
-                dropdownMenuEntries: const [
-                  DropdownMenuEntry(value: "hi", label: 'معدات صناعية'),
-                  DropdownMenuEntry(value: "why", label: 'الأدوات والمعدات'),
-                  DropdownMenuEntry(value: "bye", label: 'عدد يدوية'),
-                  DropdownMenuEntry(value: "die", label: 'معدات صناعية'),
-                ],
-                text: 'نوع الشركة',
-                controller: companyType,
-              ),
-              const SizedBox(
-                height: 41,
-              ),
-              CustomDropDownMenu(
-                label: 'اختر  عدد الموظفين ',
-                dropdownMenuEntries: const [
-                  DropdownMenuEntry(value: "hi", label: '2'),
-                  DropdownMenuEntry(value: "why", label: '6'),
-                  DropdownMenuEntry(value: "bye", label: '10'),
-                  DropdownMenuEntry(value: "die", label: '15'),
-                ],
-                text: 'عدد الموظفين',
-                controller: employeeNumber,
-              ),
-              const SizedBox(
-                height: 41,
-              ),
-              CustomDropDownMenu(
-                label: 'اختر وظيفتك',
-                dropdownMenuEntries: const [
-                  DropdownMenuEntry(value: "value1", label: 'مدير'),
-                  DropdownMenuEntry(value: "vlaue2", label: 'سائق'),
-                  DropdownMenuEntry(value: "value3", label: 'محاسب'),
-                  DropdownMenuEntry(value: "value4", label: 'موظف'),
-                ],
-                text: 'وظيفتتك داخل الشركة',
-                controller: yourRole,
+              CustomDropDownMenuList(
+                workType: workType,
+                companyType: companyType,
+                employeeNumber: employeeNumber,
+                yourRole: yourRole,
               ),
               const SizedBox(
                 height: 40,
               ),
               CustomButton(
                 buttonName: "تسجيل جديد", // SignUp
-                onPressed: () {
+                onPressed: () async {
                   if (globalKey.currentState!.validate()) {
                     globalKey.currentState!.save();
-
-                    context
-                        .read<SignUpCubit>()
+                    await BlocProvider.of<SignUpCubit>(context)
                         .createAccountWithEmailAndPassword(
-                          userEntity: UserEntity(
-                            phoneNumber: phone.text,
-                            address: address.text,
-                            workType: workType.text,
-                            companyType: companyType.text,
-                            employeeNumber: employeeNumber.text,
-                            yourRole: yourRole.text,
-                            email: email.text,
-                            password: null,
-                          ),
-                        );
+                      userEntity: UserEntity(
+                        phoneNumber: phone.text,
+                        address: address.text,
+                        workType: workType.text,
+                        companyType: companyType.text,
+                        employeeNumber: employeeNumber.text,
+                        yourRole: yourRole.text,
+                        email: email.text,
+                        password: null,
+                      ),
+                    );
                   } else {
                     setState(() {
                       autovalidateMode = AutovalidateMode.always;

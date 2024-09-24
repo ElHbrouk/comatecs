@@ -1,12 +1,14 @@
 import 'package:comatecs/core/utils/functions/custom_show_bottom_sheet.dart';
 import 'package:comatecs/core/utils/app_colors.dart';
 import 'package:comatecs/core/utils/app_fonts.dart';
+import 'package:comatecs/core/utils/functions/get_total_cart_price.dart';
+import 'package:comatecs/features/cart/domain/entites/cart_entity.dart';
 import 'package:comatecs/features/payment/presentaion/views/widgets/show_bottom_sheet_promo_code.dart';
 import 'package:flutter/material.dart';
 
 class CustomPaymentDetailTable extends StatelessWidget {
-  const CustomPaymentDetailTable({super.key});
-
+  const CustomPaymentDetailTable({super.key, required this.cartEntity});
+final List<CartEntity> cartEntity;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -40,8 +42,8 @@ class CustomPaymentDetailTable extends StatelessWidget {
           ),
         ],
         rows: [
-          const DataRow(cells: [
-            DataCell(
+           DataRow(cells: [
+            const DataCell(
               Text(
                 'السعر الإجمالي',
                 style: AppFonts.bold14,
@@ -49,7 +51,7 @@ class CustomPaymentDetailTable extends StatelessWidget {
             ),
             DataCell(
               Text(
-                '16.000 د.أ',
+                getTotalcartPrice(cartEntity).toString(),
                 style: AppFonts.bold14,
               ),
             ),

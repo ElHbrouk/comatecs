@@ -61,7 +61,7 @@ class _OnBoardingBodyState extends State<OnBoardingBody> {
                       onPressed: () {
                         if (OnBoardingItemPageView.currentPage ==
                             onBoardingList.length - 1) {
-                          SharedPrefrencesSingleton.setBool(
+                          SharedPreferencesSingleton.setBool(
                               key: kIsOnBoardingSeen, value: true);
                           context.go(AppRoutes.loginView);
                         } else {
@@ -82,7 +82,7 @@ class _OnBoardingBodyState extends State<OnBoardingBody> {
                     CustomButton(
                       textColor: AppColors.primaryColor,
                       onPressed: () {
-                        SharedPrefrencesSingleton.setBool(
+                        SharedPreferencesSingleton.setBool(
                           key: kIsOnBoardingSeen,
                           value: true,
                         );

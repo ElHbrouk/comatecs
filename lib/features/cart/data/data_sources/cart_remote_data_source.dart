@@ -28,7 +28,7 @@ class CartRemoteDataSourceImplementation extends CartRemoteDataSource {
       },
       headers: {
         'Authorization':
-            'Bearer ${await SharedPrefrencesSingleton.getSecureString(key: kIsTokenGot)}',
+            'Bearer ${await SharedPreferencesSingleton.getSecureString(key: kIsTokenGot)}',
       },
     );
   }
@@ -39,20 +39,18 @@ class CartRemoteDataSourceImplementation extends CartRemoteDataSource {
       endPoint: 'cart/summary',
       headers: {
         'Authorization':
-            'Bearer ${await SharedPrefrencesSingleton.getSecureString(key: kIsTokenGot)}',
+            'Bearer ${await SharedPreferencesSingleton.getSecureString(key: kIsTokenGot)}',
       },
     );
-    SharedPrefrencesSingleton.remove(key: kCartItems);
-    List<CartEntity> cartItems = getCartItems(data);
 
-    print(getCartItemsDecoded(json
-        .decode(SharedPrefrencesSingleton.getString(key: kCartItems))
-        .toList())
-        .where((item) =>
-    item.item.itemId == 1).isNotEmpty);
-    await SharedPrefrencesSingleton.setString(
+    List<CartEntity> cartItems = getCartItems(data);
+    // print(jsonEncode(cartItems
+    //     .map<Map<String, dynamic>>((item) => item.toJson())
+    //     .toList()));
+
+    await SharedPreferencesSingleton.setString(
       key: kCartItems,
-      value: json.encode(cartItems
+      value: jsonEncode(cartItems
           .map<Map<String, dynamic>>((item) => item.toJson())
           .toList()),
     );
@@ -66,7 +64,7 @@ class CartRemoteDataSourceImplementation extends CartRemoteDataSource {
       endPoint: 'cart/remove/$productId',
       headers: {
         'Authorization':
-            'Bearer ${await SharedPrefrencesSingleton.getSecureString(key: kIsTokenGot)}',
+            'Bearer ${await SharedPreferencesSingleton.getSecureString(key: kIsTokenGot)}',
       },
     );
   }
@@ -81,7 +79,7 @@ class CartRemoteDataSourceImplementation extends CartRemoteDataSource {
       },
       headers: {
         'Authorization':
-            'Bearer ${await SharedPrefrencesSingleton.getSecureString(key: kIsTokenGot)}',
+            'Bearer ${await SharedPreferencesSingleton.getSecureString(key: kIsTokenGot)}',
       },
     );
   }
@@ -92,7 +90,7 @@ class CartRemoteDataSourceImplementation extends CartRemoteDataSource {
       endPoint: 'cart/checkout',
       headers: {
         'Authorization':
-            'Bearer ${await SharedPrefrencesSingleton.getSecureString(key: kIsTokenGot)}',
+            'Bearer ${await SharedPreferencesSingleton.getSecureString(key: kIsTokenGot)}',
       },
     );
   }
@@ -105,6 +103,7 @@ List<CartEntity> getCartItems(Map<String, dynamic> data) {
   }
   return items;
 }
+
 List<CartEntity> getCartItemsDecoded(List data) {
   List<CartEntity> items = [];
   for (var product in data) {

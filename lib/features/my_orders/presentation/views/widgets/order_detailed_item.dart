@@ -1,12 +1,14 @@
 import 'package:comatecs/constants.dart';
 import 'package:comatecs/core/utils/app_fonts.dart';
+import 'package:comatecs/features/my_orders/domain/entites/order_entity.dart';
 import 'package:flutter/material.dart';
 
 class OrderDetailedItem extends StatelessWidget {
   const OrderDetailedItem({
     super.key,
+    required this.orderEntity,
   });
-
+  final OrderEntity orderEntity;
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -37,54 +39,41 @@ class OrderDetailedItem extends StatelessWidget {
               ),
             ),
             const Divider(),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16.0),
-              child: Text(
-                'الاسم التجاري للمنتج',
-                style: AppFonts.regular14.copyWith(
-                  color: Colors.black,
-                ),
+            ListView.separated(
+              itemCount: orderEntity.cartEntity.length,
+              physics: const NeverScrollableScrollPhysics(),
+              separatorBuilder: (context, index) => const Padding(
+                padding: EdgeInsets.symmetric(vertical: 16.0),
+                child: Divider(),
               ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'الكمية * 1',
-                  style: AppFonts.regular14.copyWith(
-                    color: Colors.black,
-                  ),
-                ),
-                const Text(
-                  '8.000 د.أ',
-                  style: AppFonts.bold14,
-                ),
-              ],
-            ),
-            const Padding(
-              padding: EdgeInsets.symmetric(vertical: 16.0),
-              child: Divider(),
-            ),
-            Text(
-              'الاسم التجاري للمنتج',
-              style: AppFonts.regular14.copyWith(
-                color: Colors.black,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              shrinkWrap: true,
+              itemBuilder: (context, index) => Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    'الكمية * 1',
-                    style: AppFonts.regular14.copyWith(
-                      color: Colors.black,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 16.0),
+                    child: Text(
+                      orderEntity.cartEntity[index].item.itemName,
+                      style: AppFonts.regular14.copyWith(
+                        color: Colors.black,
+                      ),
                     ),
                   ),
-                  const Text(
-                    '8.000 د.أ',
-                    style: AppFonts.bold14,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        orderEntity.cartEntity[index].itemCartQuantity
+                            .toString(),
+                        style: AppFonts.regular14.copyWith(
+                          color: Colors.black,
+                        ),
+                      ),
+                      Text(
+                        '${orderEntity.cartEntity[index].item.itemPrice * orderEntity.cartEntity[index].itemCartQuantity}',
+                        style: AppFonts.bold14,
+                      ),
+                    ],
                   ),
                 ],
               ),

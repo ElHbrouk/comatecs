@@ -2,7 +2,7 @@ import 'package:comatecs/core/utils/functions/custom_error_snack_bar.dart';
 import 'package:comatecs/core/utils/widgets/custom_icon_button.dart';
 import 'package:comatecs/core/utils/app_fonts.dart';
 import 'package:comatecs/features/home/domain/entites/item_entity.dart';
-import 'package:comatecs/features/home/presentaion/cubits/cubit/counter_cubit.dart';
+import 'package:comatecs/features/home/presentaion/cubits/home_counter_cubit/counter_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';

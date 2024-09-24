@@ -43,6 +43,16 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                 height: 32,
               ),
               CustomTextFormFieldAuth(
+                validator: (value) {
+                  if (value == null ||
+                      !value.contains("@") ||
+                      value.isEmpty ||
+                      value.length < 8) {
+                    return "البريد الالكتروني غير صالح";
+                  } else {
+                    return null;
+                  }
+                },
                 controller: email,
                 hintText: "  أدخل إيميل المستخدم", // enter user name
                 keyboardType: TextInputType.emailAddress,

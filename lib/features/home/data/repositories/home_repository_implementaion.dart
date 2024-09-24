@@ -99,4 +99,44 @@ class HomeRepositoryImplementaion extends HomeRepository {
       }
     }
   }
+
+  @override
+  Future<Either<Failure, ItemEntity>> fetchSpecificItem({int id = 1}) async {
+    try {
+  var result= await homeRemoteDataSourceImpl.fetchSpecificItem(id: id);
+  return right(result);
+} on Exception catch (e) {
+  if (e is DioException) {
+    return left(
+      ServerFailure.fromDioExeption(dioException: e),
+    );
+  } else {
+    return left(
+      ServerFailure(
+        message: e.toString(),
+      ),
+    );
+  }
+}
+  }
+  
+  @override
+  Future<Either<Failure, CategoryEntity>> fetchSpecificCategory({int id = 1}) async{
+     try {
+  var result= await homeRemoteDataSourceImpl.fetchSpecificCategory(id: id);
+  return right(result);
+} on Exception catch (e) {
+  if (e is DioException) {
+    return left(
+      ServerFailure.fromDioExeption(dioException: e),
+    );
+  } else {
+    return left(
+      ServerFailure(
+        message: e.toString(),
+      ),
+    );
+  }
+}
+  }
 }

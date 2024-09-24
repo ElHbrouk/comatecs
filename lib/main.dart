@@ -26,11 +26,14 @@ import 'package:comatecs/features/home/domain/repositories/home_repository.dart'
 import 'package:comatecs/features/home/domain/use_cases/fetch_categories_use_case.dart';
 import 'package:comatecs/features/home/domain/use_cases/fetch_filtered_items_use_case.dart';
 import 'package:comatecs/features/home/domain/use_cases/fetch_items_use_case.dart';
+import 'package:comatecs/features/home/domain/use_cases/fetch_specific_category_use_case.dart';
+import 'package:comatecs/features/home/domain/use_cases/fetch_specific_item_use_case.dart';
 import 'package:comatecs/features/home/domain/use_cases/search_products_use_case.dart';
-import 'package:comatecs/features/home/presentaion/cubits/cubit/counter_cubit.dart';
 import 'package:comatecs/features/home/presentaion/cubits/fetch_categories_cubit/fetch_categories_cubit.dart';
 import 'package:comatecs/features/home/presentaion/cubits/fetch_filtered_items_cubit/fetch_filtered_items_cubit.dart';
 import 'package:comatecs/features/home/presentaion/cubits/fetch_items_cubit/fetch_items_cubit.dart';
+import 'package:comatecs/features/home/presentaion/cubits/fetch_specific_category_cubit/fetch_specific_category_cubit.dart';
+import 'package:comatecs/features/home/presentaion/cubits/fetch_specific_item_cubit/fetch_specific_item_cubit.dart';
 import 'package:comatecs/features/home/presentaion/cubits/search_items/search_items_cubit.dart';
 import 'package:comatecs/features/my_orders/domain/repositories/orders_repository.dart';
 import 'package:comatecs/features/my_orders/domain/use_cases/fetch_orders_use_case.dart';
@@ -49,7 +52,7 @@ void main() async {
   // Hive.registerAdapter(ItemEntityAdapter());
   // await Hive.openBox<ItemEntity>(kItemEntityBox);
 
-  await SharedPrefrencesSingleton.init();
+  await SharedPreferencesSingleton.init();
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
       statusBarColor: Colors.white,
@@ -75,6 +78,7 @@ class MyApp extends StatelessWidget {
               getIt<HomeRepository>(),
             ),
           )..fetchCategories(),
+          
         ),
         BlocProvider(
           create: (context) => SearchItemsCubit(
@@ -133,13 +137,28 @@ class MyApp extends StatelessWidget {
             ),
           )..fetchOrders(),
         ),
+        BlocProvider<FetchItemsCubit>(
+          create: (context) => FetchItemsCubit(
+            FetchItemsUseCase(getIt<HomeRepository>()),
+            FetchFavouriteItemsUseCase(
+                favouriteRepository: getIt<FavouriteRepository>()),
+            FetchCartItemsUseCase(cartRepository: getIt<CartRepository>()),
+          )..fechItems(),
+        ),
         BlocProvider(
           create: (context) => FetchCartItemsCubit(
             FetchCartItemsUseCase(
               cartRepository: getIt<CartRepository>(),
             ),
           )..fetchCartItems(),
-          lazy: false,
+          // lazy: false,
+        ),
+        BlocProvider(
+          create: (context) => FetchSpecificItemCubit(
+            FetchSpecificItemUseCase(
+              homeRepository: getIt<HomeRepository>(),
+            ),
+          ),
         ),
         BlocProvider(
           create: (context) => FetchFavouriteItemsCubit(
@@ -147,23 +166,14 @@ class MyApp extends StatelessWidget {
               favouriteRepository: getIt<FavouriteRepository>(),
             ),
           )..fetchFavouriteItems(),
-          lazy: false,
-        ),
-        BlocProvider<FetchItemsCubit>(
-          create: (context) => FetchItemsCubit(FetchItemsUseCase(
-            getIt<HomeRepository>(),
-          ))
-            ..fechItems(),
-        ),
-        BlocProvider<UpdateQuantityCubit>(
-          create: (context) => UpdateQuantityCubit(
-            UpdateCartQuantityUseCase(
-              cartRepository: getIt<CartRepository>(),
-            ),
-          ),
+          // lazy: false,
         ),
         BlocProvider(
-              create: (context) => CounterCubit(),
+          create: (context) => FetchSpecificCategoryCubit(
+            FetchSpecificCategoryUseCase(
+              getIt<HomeRepository>(),
+            ),
+          ),
         ),
         BlocProvider(
           create: (context) => InternetBloc(),

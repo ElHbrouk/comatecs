@@ -8,9 +8,11 @@ class CustomPasswordField extends StatefulWidget {
     required this.hintText,
     required this.text,
     required this.controller,
+    this.validator,
   });
   final String hintText;
   final String text;
+  final String? Function(String?)? validator;
   final TextEditingController controller;
   @override
   State<CustomPasswordField> createState() => _CustomPasswordFieldState();
@@ -22,13 +24,14 @@ class _CustomPasswordFieldState extends State<CustomPasswordField> {
   @override
   Widget build(BuildContext context) {
     return CustomTextFormFieldAuth(
-      validator: (value) {
-        if (value == null || value.length < 8 || value.isEmpty) {
-          return "كلمة المرور يجب الا يقل عن 8 حروف";
-        } else {
-          return null;
-        }
-      },
+      validator: widget.validator ??
+          (value) {
+            if (value == null || value.length < 8 || value.isEmpty) {
+              return "كلمة المرور يجب الا يقل عن 8 حروف";
+            } else {
+              return null;
+            }
+          },
       controller: widget.controller,
       obscureText: obsecureText,
       hintText: " أدخل كلمة المرور", // enter password

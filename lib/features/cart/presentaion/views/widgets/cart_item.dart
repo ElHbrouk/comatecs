@@ -7,7 +7,6 @@ import 'package:comatecs/core/utils/app_fonts.dart';
 import 'package:comatecs/core/utils/image_asset.dart';
 import 'package:comatecs/features/cart/domain/entites/cart_entity.dart';
 import 'package:comatecs/features/cart/presentaion/cubits/add_and_remove_from_cart/add_and_remove_from_cart_cubit.dart';
-import 'package:comatecs/features/home/presentaion/cubits/cubit/counter_cubit.dart';
 import 'package:comatecs/features/cart/presentaion/cubits/fetch_cart_items/fetch_cart_items_cubit.dart';
 import 'package:comatecs/features/cart/presentaion/cubits/update_quantity/update_quantity_cubit.dart';
 import 'package:flutter/material.dart';
@@ -111,7 +110,6 @@ class CartItem extends StatelessWidget {
                         onPressed: () async {
                           if (cartEntity.item.itemQuantity >
                               cartEntity.itemCartQuantity) {
-                            context.read<CounterCubit>().increment();
                             BlocProvider.of<UpdateQuantityCubit>(context)
                                 .incrementQuantity(
                               productId: cartEntity.cartItemId.toString(),

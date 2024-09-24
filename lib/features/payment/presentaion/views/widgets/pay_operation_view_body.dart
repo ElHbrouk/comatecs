@@ -1,11 +1,13 @@
 import 'package:comatecs/core/utils/functions/custom_error_snack_bar.dart';
+import 'package:comatecs/core/utils/routes.dart';
 import 'package:comatecs/core/utils/widgets/price_item_button.dart';
 import 'package:comatecs/features/account/presentation/views/widgets/custom_title_with_back_button.dart';
 import 'package:comatecs/features/cart/presentaion/cubits/cart_checkout/cart_checkout_cubit.dart';
+import 'package:comatecs/features/cart/presentaion/cubits/fetch_cart_items/fetch_cart_items_cubit.dart';
 import 'package:comatecs/features/payment/presentaion/views/widgets/payment_methods.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class PayOperationViewBody extends StatelessWidget {
@@ -61,8 +63,13 @@ class PayOperationViewBody extends StatelessWidget {
                         buttonName: 'تأكيد',
                         price: 'JOD 32.000',
                         onPressed: () async {
-                          await BlocProvider.of<CartCheckoutCubit>(context)
+                          BlocProvider.of<CartCheckoutCubit>(context)
                               .cartCheckout();
+                          await Future.delayed(Durations.medium2);
+                          BlocProvider.of<FetchCartItemsCubit>(context)
+                              .fetchCartItems();
+                          buildSuccessSnackBar(context, 'تم الدفع بنجاح');
+                          context.go(AppRoutes.homeLayout);
                         },
                       ),
                     ),

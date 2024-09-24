@@ -15,7 +15,7 @@ class AuthRepositoryImplementaion extends AuthRepository {
     required UserEntity userEntity,
   }) async {
     try {
-      remoteAuthDataSourceImplementaion.createAccountWithEmailAndPassword(
+      await remoteAuthDataSourceImplementaion.createAccountWithEmailAndPassword(
         userEntity: userEntity,
       );
 

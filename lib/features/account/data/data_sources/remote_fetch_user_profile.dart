@@ -19,7 +19,7 @@ class RemoteAccountDataSourceImplementaion extends RemoteAccountDataSource {
       endPoint: 'users/profile',
       headers: {
         'Authorization':
-            'Bearer ${await SharedPrefrencesSingleton.getSecureString(key: kIsTokenGot)}',
+            'Bearer ${await SharedPreferencesSingleton.getSecureString(key: kIsTokenGot)}',
         'Content-Type': 'application/json',
         'Accept': 'application/json',
       },

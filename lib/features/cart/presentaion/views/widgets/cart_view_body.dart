@@ -1,13 +1,15 @@
+import 'package:comatecs/core/utils/functions/get_total_cart_price.dart';
 import 'package:comatecs/core/utils/widgets/price_item_button.dart';
 import 'package:comatecs/core/utils/widgets/custom_view_title.dart';
 import 'package:comatecs/core/utils/routes.dart';
-import 'package:comatecs/features/cart/presentaion/views/widgets/cart_item_list_view_builder.dart';
+import 'package:comatecs/features/cart/domain/entites/cart_entity.dart';
+import 'package:comatecs/features/cart/presentaion/views/widgets/cart_item_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class CartViewBody extends StatelessWidget {
-  const CartViewBody({super.key});
-
+  const CartViewBody({super.key, required this.cartItems});
+  final List<CartEntity> cartItems;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -24,14 +26,19 @@ class CartViewBody extends StatelessWidget {
           const SizedBox(
             height: 16,
           ),
-          const Expanded(
-            child: CartItemListViewBuilder(),
+          Expanded(
+            child: CartItemListView(
+              items: cartItems,
+            ),
           ),
           PriceItemButton(
-            price: 'JOD 32.000',
+            price: 'JOD ${getTotalcartPrice(cartItems)}',
             buttonName: 'الشحن',
             onPressed: () {
-              context.push(AppRoutes.paymentView);
+              context.pushNamed(
+                AppRoutes.paymentView,
+                extra: cartItems,
+              );
             },
           ),
         ],

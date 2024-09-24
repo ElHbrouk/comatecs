@@ -8,7 +8,7 @@ import 'package:comatecs/features/cart/data/data_sources/cart_remote_data_source
 import 'package:comatecs/features/cart/presentaion/cubits/add_and_remove_from_cart/add_and_remove_from_cart_cubit.dart';
 import 'package:comatecs/features/cart/presentaion/cubits/fetch_cart_items/fetch_cart_items_cubit.dart';
 import 'package:comatecs/features/home/domain/entites/item_entity.dart';
-import 'package:comatecs/features/home/presentaion/cubits/cubit/counter_cubit.dart';
+import 'package:comatecs/features/home/presentaion/cubits/home_counter_cubit/counter_cubit.dart';
 import 'package:comatecs/features/home/presentaion/views/widgets/items/custom_cart_button.dart';
 import 'package:comatecs/features/home/presentaion/views/widgets/items/item_attachments.dart';
 import 'package:comatecs/features/home/presentaion/views/widgets/items/item_deliver.dart';
@@ -83,10 +83,12 @@ class ItemDetailViewBody extends StatelessWidget {
                         Expanded(
                           child: CustomButton(
                             onPressed: () async {
-                              if (getCartItemsDecoded(json
-                                          .decode(SharedPrefrencesSingleton
-                                              .getString(key: kCartItems))
-                                          .toList())
+                              if (getCartItemsDecoded(
+                                    json.decode(
+                                      SharedPreferencesSingleton.getString(
+                                          key: kCartItems),
+                                    ),
+                                  )
                                       .where((item) =>
                                           item.item.itemId == itemEntity.itemId)
                                       .isNotEmpty ==

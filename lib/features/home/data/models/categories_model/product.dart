@@ -1,6 +1,8 @@
+import 'package:comatecs/features/home/domain/entites/item_entity.dart';
+
 import 'attachments.dart';
 
-class Product {
+class Product extends ItemEntity {
   int? id;
   String? name;
   double? price;
@@ -25,7 +27,18 @@ class Product {
     this.delivery,
     this.image,
     this.deliveryDuration,
-  });
+  }) : super(
+          itemName: name!,
+          itemImage:
+              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbJaAaxjoUE666w-5xxhVconbUkMq-u7ps0g&s',
+          itemPrice: price!,
+          itemId: id!,
+          itemQuantity: quantity!,
+          itemFeatures: features!,
+          itemDescription: description!,
+          itemDeliveryDuration: deliveryDuration!,
+          itemDeliveryPrice: delivery!,
+        );
 
   factory Product.fromJson(Map<String, dynamic> json) => Product(
         id: json['id'] as int?,
@@ -43,6 +56,7 @@ class Product {
         deliveryDuration: json['deliveryDuration'] as String?,
       );
 
+  @override
   Map<String, dynamic> toJson() => {
         'id': id,
         'name': name,

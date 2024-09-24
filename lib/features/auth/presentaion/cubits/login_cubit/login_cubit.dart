@@ -12,14 +12,17 @@ class LoginCubit extends Cubit<LoginCubitState> {
     emit(LoginCubitLoading());
 
     final result = await useCaseWithParam.call(param: userEntity);
-    result.fold((failure) {
-      emit(
-        LoginCubitFailure(failure.message),
-      );
-    }, (userEntity) {
-      emit(
-        LoginCubitSuccess(userEntity),
-      );
-    });
+    result.fold(
+      (failure) {
+        emit(
+          LoginCubitFailure(failure.message),
+        );
+      },
+      (userEntity) {
+        emit(
+          LoginCubitSuccess(userEntity),
+        );
+      },
+    );
   }
 }

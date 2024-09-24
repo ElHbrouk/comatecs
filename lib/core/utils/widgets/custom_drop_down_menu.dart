@@ -1,4 +1,5 @@
 import 'package:comatecs/core/utils/app_fonts.dart';
+import 'package:comatecs/data/models/menu_model.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -9,11 +10,13 @@ class CustomDropDownMenu extends StatelessWidget {
     required this.dropdownMenuEntries,
     required this.text,
     required this.controller,
+    this.initialSelection,
   });
   final String label;
-  final List<DropdownMenuEntry<String>> dropdownMenuEntries;
+  final List<DropdownMenuEntry<MenuModel>> dropdownMenuEntries;
   final String text;
   final TextEditingController controller;
+  final dynamic initialSelection;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -28,7 +31,8 @@ class CustomDropDownMenu extends StatelessWidget {
         const SizedBox(
           height: 10,
         ),
-        DropdownMenu(
+        DropdownMenu<MenuModel>(
+          initialSelection: initialSelection,
           controller: controller,
           selectedTrailingIcon: const Icon(
             FontAwesomeIcons.chevronUp,

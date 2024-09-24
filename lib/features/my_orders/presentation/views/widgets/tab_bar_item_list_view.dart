@@ -25,7 +25,10 @@ class TabBarItemListView extends StatelessWidget {
           child: InkWell(
             borderRadius: BorderRadius.circular(5.0),
             onTap: () {
-              context.push(AppRoutes.orderDetailsView);
+              context.pushNamed(
+                AppRoutes.orderDetailsView,
+                extra: orderEntity[index],
+              );
             },
             child: TabBarItem(
               orderEntity: orderEntity[index],

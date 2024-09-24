@@ -1,7 +1,7 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class SharedPrefrencesSingleton {
+class SharedPreferencesSingleton {
   static late SharedPreferences _instance;
 
   static Future<void> init() async {
@@ -21,7 +21,7 @@ class SharedPrefrencesSingleton {
     await _instance.setStringList(key, value);
   }
 
-  static getBool({required String key}) async {
+  static getBool({required String key}) {
     return _instance.getBool(key) ?? false;
   }
 

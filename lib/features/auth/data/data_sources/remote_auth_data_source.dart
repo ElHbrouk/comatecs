@@ -25,6 +25,10 @@ class RemoteAuthDataSourceImplementaion implements RemoteAuthDataSource {
     required UserEntity userEntity,
   }) async {
     await apiService.postData(
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
       endPoint: 'users/register',
       data: {
         "email": userEntity.email,
@@ -47,7 +51,7 @@ class RemoteAuthDataSourceImplementaion implements RemoteAuthDataSource {
     var response = await apiService.postData(
       headers: {
         'Authorization':
-            'Bearer ${SharedPrefrencesSingleton.getSecureString(key: kIsTokenGot)}',
+            'Bearer ${SharedPreferencesSingleton.getSecureString(key: kIsTokenGot)}',
         'Content-Type': 'application/json',
         'Accept': 'application/json',
       },
@@ -58,7 +62,7 @@ class RemoteAuthDataSourceImplementaion implements RemoteAuthDataSource {
       },
     );
 
-    await SharedPrefrencesSingleton.setSecureString(
+    await SharedPreferencesSingleton.setSecureString(
       key: kIsTokenGot,
       value: response.data!['access_token'],
     );

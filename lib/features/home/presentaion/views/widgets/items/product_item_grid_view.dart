@@ -1,6 +1,7 @@
 import 'package:comatecs/core/utils/routes.dart';
 import 'package:comatecs/features/home/domain/entites/item_entity.dart';
 import 'package:comatecs/features/home/presentaion/cubits/fetch_items_cubit/fetch_items_cubit.dart';
+import 'package:comatecs/features/home/presentaion/cubits/fetch_specific_item_cubit/fetch_specific_item_cubit.dart';
 import 'package:comatecs/features/home/presentaion/views/widgets/items/product_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -63,10 +64,10 @@ class _ProductItemSliverGridState extends State<ProductItemSliverGrid> {
       ),
       itemBuilder: (BuildContext context, int index) => InkWell(
         onTap: () {
-          context.pushNamed(
-            AppRoutes.itemDetailView,
-            extra: widget.items[index],
+          BlocProvider.of<FetchSpecificItemCubit>(context).fetchSpecificItem(
+            id: widget.items[index].itemId,
           );
+          context.push(AppRoutes.itemDetailView);
         },
         child: ProductItem(
           itemEntity: widget.items[index],

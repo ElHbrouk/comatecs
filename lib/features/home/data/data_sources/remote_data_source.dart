@@ -13,6 +13,12 @@ abstract class HomeRemoteDataSource {
     minPrice = 0,
     maxPrice = 400,
   });
+  Future<ItemEntity> fetchSpecificItem({
+    int id = 1,
+  });
+  Future<CategoryEntity> fetchSpecificCategory({
+    int id = 1,
+  });
 }
 
 class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
@@ -58,6 +64,18 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
         await apiService.getData(endPoint: 'products/search?query=$name');
 
     return getProducts(data);
+  }
+
+  @override
+  Future<ItemEntity> fetchSpecificItem({int id = 1}) async {
+    var data = await apiService.getData(endPoint: 'products/$id');
+    return ProductsModel.fromJson(data);
+  }
+  
+  @override
+  Future<CategoryEntity> fetchSpecificCategory({int id = 1}) async{
+    var data = await apiService.getData(endPoint: 'products/categories/$id');
+    return CategoriesModel.fromJson(data);
   }
 }
 

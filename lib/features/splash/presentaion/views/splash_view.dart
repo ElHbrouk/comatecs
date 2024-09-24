@@ -20,11 +20,11 @@ class _SplashViewState extends State<SplashView> {
   }
 
   Future<void> executeNavigation() async {
-    bool isBoardingSeen = await SharedPrefrencesSingleton.getBool(
+    bool isBoardingSeen = await SharedPreferencesSingleton.getBool(
       key: kIsOnBoardingSeen,
     );
 
-    String token = await SharedPrefrencesSingleton.getSecureString(
+    String token = await SharedPreferencesSingleton.getSecureString(
       key: kIsTokenGot,
     );
 

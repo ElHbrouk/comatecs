@@ -1,4 +1,4 @@
-import 'package:comatecs/core/use_cases/use_case.dart';
+
 import 'package:comatecs/core/utils/api_service.dart';
 import 'package:comatecs/features/auth/data/data_sources/remote_auth_data_source.dart';
 import 'package:comatecs/features/auth/data/repositories/auth_repository_implementaion.dart';
@@ -34,7 +34,7 @@ setupGetIt() {
       ),
     ),
   );
-  getIt.registerSingleton<UseCaseWithParam>(
+  getIt.registerSingleton<CreateAccountWithEmailAndPasswordUseCase>(
     CreateAccountWithEmailAndPasswordUseCase(
       authRepository: getIt.get<AuthRepository>(),
     ),
@@ -67,4 +67,5 @@ setupGetIt() {
       ),
     ),
   );
+
 }

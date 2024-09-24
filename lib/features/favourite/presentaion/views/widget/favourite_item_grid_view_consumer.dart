@@ -49,7 +49,7 @@ class _FavouriteItemGridViewConsumerState
           } else {
             return const SliverFillRemaining(
               child: Center(
-                child: Text('NO FAVOURITE ITEMS YET'),
+                child: Text('لا يوجد منتجات في المفضلة'),
               ),
             );
           }

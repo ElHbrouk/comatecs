@@ -10,7 +10,7 @@ class LoginUseCase extends UseCaseWithParam<UserEntity, UserEntity> {
   LoginUseCase({required this.authRepository});
 
   @override
-  Future<Either<Failure, UserEntity>> call({required UserEntity param}) {
-    return authRepository.login(userEntity: param);
+  Future<Either<Failure, UserEntity>> call({required UserEntity param}) async {
+    return await authRepository.login(userEntity: param);
   }
 }
